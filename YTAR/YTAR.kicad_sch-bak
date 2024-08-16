@@ -10887,52 +10887,6 @@
 			)
 		)
 	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 100.33 231.14 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "2f4a3f9f-30da-4502-b641-3541ecd17dbe")
-		(property "Netclass" "CAN"
-			(at 101.0285 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-	)
-	(netclass_flag ""
-		(length 2.54)
-		(shape round)
-		(at 210.82 137.16 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ccd696cb-f8e1-42e5-9e56-720bd019dd7e")
-		(property "Netclass" "CAN"
-			(at 211.5185 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-			)
-		)
-	)
 	(symbol
 		(lib_id "MEMS_CAPACITORS:C_100n_0402_16V_X7R_MLASE105SB7104KFNA01")
 		(at 276.86 31.75 0)
