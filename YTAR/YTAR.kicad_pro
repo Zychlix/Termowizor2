@@ -480,7 +480,9 @@
     "net_colors": null,
     "netclass_assignments": {
       "/FD_CAN1_RX": "CAN",
-      "/FD_CAN1_TX": "CAN"
+      "/FD_CAN1_TX": "CAN",
+      "/RCC_IN": "OSC",
+      "/RCC_OUT": "OSC"
     },
     "netclass_patterns": []
   },
