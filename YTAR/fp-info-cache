@@ -1,4 +1,4 @@
-23843790901902305
+23847239068138606
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -64512,6 +64512,13 @@ ProtoArea
 802
 641
 MEMS_Custom
+SolderableWireTestPads_1x7
+
+
+0
+7
+7
+MEMS_Custom
 Spectrometer
 
 
@@ -64875,6 +64882,13 @@ L_Bourns_SRP7030
 0
 2
 2
+MEMS_Passive
+L_Wuerth_WE-DD-12.5mm
+
+
+0
+4
+4
 MEMS_Passive
 MS638-10F
 
