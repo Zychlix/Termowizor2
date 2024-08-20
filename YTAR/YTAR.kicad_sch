@@ -20448,7 +20448,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 287.02) (xy 27.94 287.02)
+			(xy 41.91 266.7) (xy 27.94 266.7)
 		)
 		(stroke
 			(width 0)
@@ -22541,7 +22541,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 289.56) (xy 27.94 289.56)
+			(xy 41.91 269.24) (xy 27.94 269.24)
 		)
 		(stroke
 			(width 0)
@@ -22912,7 +22912,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 276.86) (xy 45.72 274.32)
+			(xy 45.72 256.54) (xy 45.72 254)
 		)
 		(stroke
 			(width 0)
@@ -23263,7 +23263,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 271.78) (xy 27.94 271.78)
+			(xy 45.72 251.46) (xy 27.94 251.46)
 		)
 		(stroke
 			(width 0)
@@ -24154,7 +24154,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 269.24) (xy 45.72 271.78)
+			(xy 45.72 248.92) (xy 45.72 251.46)
 		)
 		(stroke
 			(width 0)
@@ -25296,7 +25296,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 279.4) (xy 27.94 279.4)
+			(xy 41.91 259.08) (xy 27.94 259.08)
 		)
 		(stroke
 			(width 0)
@@ -26238,7 +26238,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 276.86) (xy 27.94 276.86)
+			(xy 41.91 256.54) (xy 27.94 256.54)
 		)
 		(stroke
 			(width 0)
@@ -29152,7 +29152,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 284.48) (xy 27.94 284.48)
+			(xy 41.91 264.16) (xy 27.94 264.16)
 		)
 		(stroke
 			(width 0)
@@ -29172,7 +29172,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 281.94) (xy 27.94 281.94)
+			(xy 41.91 261.62) (xy 27.94 261.62)
 		)
 		(stroke
 			(width 0)
@@ -29232,7 +29232,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 274.32) (xy 27.94 274.32)
+			(xy 45.72 254) (xy 27.94 254)
 		)
 		(stroke
 			(width 0)
@@ -30556,7 +30556,7 @@
 		(uuid "0a58fc51-4b69-4adc-acfe-4b3bb6644237")
 	)
 	(label "CAM_LVDS_L"
-		(at 41.91 279.4 180)
+		(at 41.91 259.08 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -30855,7 +30855,7 @@
 		(uuid "2a4e0bdb-d6ab-4bcf-8829-a41e28cbfd1d")
 	)
 	(label "CAM_AUX_B"
-		(at 41.91 289.56 180)
+		(at 41.91 269.24 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -31134,7 +31134,7 @@
 		(uuid "408f3806-abd9-40a5-ac61-e7e80f290444")
 	)
 	(label "CAM_LVDS_H"
-		(at 41.91 276.86 180)
+		(at 41.91 256.54 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -31521,7 +31521,7 @@
 		(uuid "6484f016-553d-483a-8be7-6345c7e87d4a")
 	)
 	(label "CAM_CAN_L"
-		(at 41.91 284.48 180)
+		(at 41.91 264.16 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -32486,7 +32486,7 @@
 		(uuid "b770d699-0424-4306-b14a-0ad9d5581b10")
 	)
 	(label "CAM_AUX_A"
-		(at 41.91 287.02 180)
+		(at 41.91 266.7 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -32996,7 +32996,7 @@
 		(uuid "e52b9b4d-689a-4265-93aa-6e5912711b89")
 	)
 	(label "CAM_CAN_H"
-		(at 41.91 281.94 180)
+		(at 41.91 261.62 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -35088,7 +35088,7 @@
 	(symbol
 		(lib_name "DF52-8S-0.8H_1")
 		(lib_id "MEMS_ELECTROMECHANICAL:DF52-8S-0.8H")
-		(at 22.86 279.4 0)
+		(at 22.86 259.08 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -35097,7 +35097,7 @@
 		(dnp no)
 		(uuid "1125b350-be73-41c8-8967-6395111b5991")
 		(property "Reference" "J2"
-			(at 20.32 278.1299 0)
+			(at 20.32 257.8099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35106,7 +35106,7 @@
 			)
 		)
 		(property "Value" "CAMERA"
-			(at 32.258 292.608 0)
+			(at 32.258 272.288 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35115,7 +35115,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Hirose:Hirose_DF52-8S-0.8H_1x08-1MP_P0.80mm_Horizontal"
-			(at 22.86 279.4 0)
+			(at 22.86 259.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35124,7 +35124,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.pl/datasheet/2/185/DF52_10P_0_8C_CL0668_0017_7_00_Catalog_D51171_en-2487017.pdf"
-			(at 22.86 279.4 0)
+			(at 22.86 259.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35133,7 +35133,7 @@
 			)
 		)
 		(property "Description" "To be paired with DF52-8P-0.8C using DF52-2832PCF"
-			(at 22.86 279.4 0)
+			(at 22.86 259.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35142,7 +35142,7 @@
 			)
 		)
 		(property "MPN" " DF52-8S-0.8H(21) "
-			(at 45.466 295.656 0)
+			(at 45.466 275.336 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42736,7 +42736,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 22.86 293.37 0)
+		(at 22.86 273.05 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -42746,7 +42746,7 @@
 		(fields_autoplaced yes)
 		(uuid "417df941-4ed3-45b5-b953-c7f21d798af4")
 		(property "Reference" "#PWR071"
-			(at 22.86 299.72 0)
+			(at 22.86 279.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42755,7 +42755,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 22.86 298.45 0)
+			(at 22.86 278.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42763,7 +42763,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 22.86 293.37 0)
+			(at 22.86 273.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42772,7 +42772,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 22.86 293.37 0)
+			(at 22.86 273.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -42781,7 +42781,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 22.86 293.37 0)
+			(at 22.86 273.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52545,7 +52545,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 45.72 276.86 0)
+		(at 45.72 256.54 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -52555,7 +52555,7 @@
 		(fields_autoplaced yes)
 		(uuid "8c9cfca8-05c1-43d3-8b11-302e2e0a63e6")
 		(property "Reference" "#PWR039"
-			(at 45.72 283.21 0)
+			(at 45.72 262.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52564,7 +52564,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 45.72 281.94 0)
+			(at 45.72 261.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52572,7 +52572,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 45.72 276.86 0)
+			(at 45.72 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52581,7 +52581,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 276.86 0)
+			(at 45.72 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52590,7 +52590,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 45.72 276.86 0)
+			(at 45.72 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -57295,7 +57295,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 45.72 269.24 0)
+		(at 45.72 248.92 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -57305,7 +57305,7 @@
 		(fields_autoplaced yes)
 		(uuid "b9c37e03-61bc-4507-b989-c6b4fecfd9c8")
 		(property "Reference" "#PWR_STM011"
-			(at 45.72 273.05 0)
+			(at 45.72 252.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -57314,7 +57314,7 @@
 			)
 		)
 		(property "Value" "+12V_CAM"
-			(at 45.72 264.16 0)
+			(at 45.72 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -57322,7 +57322,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 45.72 269.24 0)
+			(at 45.72 248.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -57331,7 +57331,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 269.24 0)
+			(at 45.72 248.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -57340,7 +57340,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 45.72 269.24 0)
+			(at 45.72 248.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
