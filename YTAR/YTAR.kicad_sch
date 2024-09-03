@@ -19819,10 +19819,6 @@
 		(uuid "d311fdc4-f93d-4849-b5bd-4aae2ed0f6ad")
 	)
 	(no_connect
-		(at 109.22 215.9)
-		(uuid "d5996f1c-b42a-41b2-a816-6b0459527ef9")
-	)
-	(no_connect
 		(at 54.61 375.92)
 		(uuid "d5a0ff06-5f44-4382-aa59-477fd6f352d4")
 	)
@@ -27256,6 +27252,16 @@
 	)
 	(wire
 		(pts
+			(xy 97.79 215.9) (xy 109.22 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b8579fc2-f18f-45f1-9e6c-e8c6f4b806a0")
+	)
+	(wire
+		(pts
 			(xy 416.56 170.18) (xy 435.61 170.18)
 		)
 		(stroke
@@ -30990,6 +30996,17 @@
 			(justify right bottom)
 		)
 		(uuid "0a90fe8c-0b98-481c-829f-32d59bf71aee")
+	)
+	(label "DES_RCLK"
+		(at 97.79 215.9 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0b02b5c6-02f9-490a-96d2-f812274bd1e5")
 	)
 	(label "CAM_LVDS_H"
 		(at 332.74 316.23 0)
