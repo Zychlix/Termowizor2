@@ -5833,7 +5833,7 @@
 				)
 			)
 		)
-		(property "Description" "DC-Balanced 24-Bit FPD-Link II Deserializer, TQFP-48"
+		(property "Description" "Serializers & Deserializers - Serdes 5-35MHz 24B FPD Link II Deserializer"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5846,12 +5846,25 @@
 				)
 			)
 		)
-		(property "MPN" " DS90C124IVS/NOPB"
+		(property "MPN" "DS90C124IVS/NOPB"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f483b90f-a772-4486-95fa-fd74a5228488")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "926-DS90C124IVS/NOPB"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "25d7f6e8-b341-46f3-93d9-4b358b42e796")
 			(effects
 				(font
 					(size 1 1)
@@ -9122,7 +9135,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/198/42_45S32400F-258273.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9135,7 +9148,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "DRAM 128M 4Mx32 166Mhz SDR SDRAM, 3.3V"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9154,6 +9167,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "93e4036b-59d3-46b2-b9da-39f13039d5fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "870-IS42S32400F-6BL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8ab5956e-7430-4f67-9571-67d21910c05f")
 			(effects
 				(font
 					(size 1 1)
@@ -12338,7 +12364,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/588/asset_pdf_5057921-3418987.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19033,7 +19059,7 @@
 				)
 			)
 		)
-		(property "Description" "STMicroelectronics Arm Cortex-M7 MCU, 128KB flash, 1024KB RAM, 480 MHz, 1.62-3.6V, 172 GPIO, TFBGA240"
+		(property "Description" "ARM Microcontrollers - MCU High-performance & DSP DP-FPU, Arm Cortex-M7 MCU 128KBytes of Flash 1MB RAM, 480"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19046,12 +19072,25 @@
 				)
 			)
 		)
-		(property "MPN" " STM32H750XBH6"
+		(property "MPN" "STM32H750XBH6"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b0b9089d-a9ba-4880-a333-3c013828ca27")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "511-STM32H750XBH6"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9577fd79-26d3-4482-b37c-df4dfeb43683")
 			(effects
 				(font
 					(size 1 1)
@@ -24675,7 +24714,7 @@
 				)
 			)
 		)
-		(property "Description" "High-Speed CAN Transceiver, 1Mbps, 5V supply, Vio pin, -40C to +125C, DFN-8"
+		(property "Description" "CAN Interface IC CAN Flexible Data Rate Transceiver"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24684,6 +24723,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MPN" "MCP2562FDT-H/MF"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2931bd20-c0e8-460a-bf5d-7cdd2305acea")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "579-MCP2562FDT-H/MF"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3c4ccbf6-5d49-47ef-b903-bd10bfe59982")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)

@@ -580,7 +580,7 @@
           "group_by": false,
           "label": "Qty",
           "name": "${QUANTITY}",
-          "show": true
+          "show": false
         },
         {
           "group_by": true,
@@ -616,13 +616,13 @@
           "group_by": false,
           "label": "MPN",
           "name": "MPN",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,
           "label": "Mouser",
           "name": "Mouser",
-          "show": false
+          "show": true
         },
         {
           "group_by": false,

@@ -5,595 +5,6 @@
 	(uuid "9bf2d21b-bb83-4a7a-8b50-5f67f10f344a")
 	(paper "A2")
 	(lib_symbols
-		(symbol "DF52-8S-0.8H_1"
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "DF52-8S-0.8H(21)"
-				(at 0 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "Connector_Hirose:Hirose_DF52-8S-0.8H_1x08-1MP_P0.80mm_Horizontal"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.mouser.pl/datasheet/2/185/DF52_10P_0_8C_CL0668_0017_7_00_Catalog_D51171_en-2487017.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "To be paired with DF52-8P-0.8C using DF52-2832PCF"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "MPN" " DF52-8S-0.8H(21) "
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "DF52-8S-0.8H_1_1_1"
-				(rectangle
-					(start -1.27 -10.033)
-					(end 0 -10.287)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -7.493)
-					(end 0 -7.747)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 7.747)
-					(end 0 7.493)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 8.89)
-					(end 1.27 -11.43)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at -5.08 7.62 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 5.08 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -7.62 0)
-					(length 3.81)
-					(name "Pin_7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -10.16 0)
-					(length 3.81)
-					(name "Pin_8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 0 -13.97 90)
-					(length 2.54)
-					(name "MP"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "MP"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Interface_CAN_LIN:MCP2562-E-MF"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at -10.16 8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "MCP2562-E-MF"
-				(at 2.54 8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm"
-				(at 0 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/25167A.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "High-Speed CAN Transceiver, 1Mbps, 5V supply, Vio pin, -40C to +125C, DFN-8"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "High-Speed CAN Transceiver"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "DFN*1EP*3x3mm*P0.65mm*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "MCP2562-E-MF_0_1"
-				(rectangle
-					(start -10.16 7.62)
-					(end 10.16 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "MCP2562-E-MF_1_1"
-				(pin input line
-					(at -12.7 5.08 0)
-					(length 2.54)
-					(name "TXD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "VSS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 10.16 270)
-					(length 2.54)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at -12.7 2.54 0)
-					(length 2.54)
-					(name "RXD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -12.7 -2.54 0)
-					(length 2.54)
-					(name "Vio"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 12.7 -2.54 180)
-					(length 2.54)
-					(name "CANL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 12.7 2.54 180)
-					(length 2.54)
-					(name "CANH"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -12.7 -5.08 0)
-					(length 2.54)
-					(name "SHDN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -2.54 -10.16 90)
-					(length 2.54)
-					(name "PAD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "MEMS_CAPACITORS:C_100n_0402_16V_X7R_MLASE105SB7104KFNA01"
 			(pin_numbers hide)
 			(pin_names
@@ -625,25 +36,22 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "MLASE105SB7104KFNA01"
@@ -652,16 +60,14 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "963-MLASE105SB7104KF"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "Dielectric" "TEMPLATE_DIELECTRIC"
@@ -670,7 +76,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -679,7 +84,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -688,7 +92,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -805,25 +208,22 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/40/cx5r_KGM-3223198.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM21AR51E106KL NEW GLOBAL PN 25V 10uF X A 581-KGM21AR51E106KL"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "08053D106KAT4A"
@@ -834,13 +234,12 @@
 					)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "581-08053D106KAT4A"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "Dielectric" "TEMPLATE_DIELECTRIC"
@@ -849,7 +248,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -858,7 +256,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -867,7 +264,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -984,25 +380,22 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/281/1/GRM21BC81C226ME44_01A-1986803.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 22 uF 16 VDC 20% 0805 X6S"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "GRM21BC81C226ME44L"
@@ -1013,13 +406,12 @@
 					)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "81-GRM21BC81C226ME4L"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "Dielectric" "TEMPLATE_DIELECTRIC"
@@ -1028,7 +420,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -1037,7 +428,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -1046,7 +436,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -1163,43 +552,38 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "MPN" "LMK105ABJ225KVHF "
+			(property "MPN" "LMK105ABJ225KVHF"
 				(at 1.016 -9.398 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "963-LMK105ABJ225KVHF"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "Dielectric" "TEMPLATE_DIELECTRIC"
@@ -1208,7 +592,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -1217,7 +600,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -1226,7 +608,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -1343,43 +724,38 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/40/KGM_X7R-3223212.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM05AR71H472KH NEW GLOBAL PN 50V 4700pF A 581-KGM05AR71H472KH"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "MPN" "04025C472KAT2A "
+			(property "MPN" "04025C472KAT2A"
 				(at 1.524 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "581-04025C472KAT2A"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "Dielectric" "TEMPLATE_DIELECTRIC"
@@ -1388,7 +764,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -1397,7 +772,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -1406,7 +780,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -1523,25 +896,22 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/585/MLCC-1837944.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 4.7uF+/-20% 4V X5R 1 0402"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "CL05A475MR5NQNC"
@@ -1550,16 +920,14 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "187-CL05A475MR5NQNC"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "Dielectric" "TEMPLATE_DIELECTRIC"
@@ -1568,7 +936,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -1577,7 +944,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -1586,7 +952,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -1672,7 +1037,7 @@
 				)
 			)
 		)
-		(symbol "MEMS_CAPACITORS:C_8p2_0402_50V_C0G_04025A8R2CAT2A_"
+		(symbol "MEMS_CAPACITORS:C_8p2_0402_50V_C0G_04025A8R2CAT2A"
 			(pin_numbers hide)
 			(pin_names
 				(offset 0.254) hide)
@@ -1703,10 +1068,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "TEMPLATE_DATASHEET"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/40/C0GNP0_KGM-3216332.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -1715,17 +1079,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE_DESCRIPTION"
+			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM05ACG1H8R2CH NEW GLOBAL PN 50V 8.2pF A 581-KGM05ACG1H8R2CH"
 				(at 0 -27.94 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "MPN" "TEMPLATE_MPN"
-				(at 0 -17.78 0)
+			(property "MPN" "04025A8R2CAT2A"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1733,11 +1096,11 @@
 					(hide yes)
 				)
 			)
-			(property "Mouser" "TEMPLATE_MOUSER"
-				(at 0 -22.86 0)
+			(property "Mouser" "581-04025A8R2C"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
 					(hide yes)
 				)
@@ -1748,7 +1111,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -1757,7 +1119,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -1766,7 +1127,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "capacitor cap"
@@ -1787,7 +1147,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "C_8p2_0402_50V_C0G_04025A8R2CAT2A__0_1"
+			(symbol "C_8p2_0402_50V_C0G_04025A8R2CAT2A_0_1"
 				(polyline
 					(pts
 						(xy -1.524 -0.508) (xy 1.524 -0.508)
@@ -1813,7 +1173,7 @@
 					)
 				)
 			)
-			(symbol "C_8p2_0402_50V_C0G_04025A8R2CAT2A__1_1"
+			(symbol "C_8p2_0402_50V_C0G_04025A8R2CAT2A_1_1"
 				(pin passive line
 					(at 0 2.54 270)
 					(length 2.032)
@@ -1881,7 +1241,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://dammedia.osram.info/media/resource/hires/osram-dam-14795755/LG%20R971_EN.pdf"
@@ -1890,7 +1249,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Standard LEDs - SMD Green, 570nm 26mcd, 20mA"
@@ -1899,7 +1257,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" "720-LGR971-KN-1"
@@ -1908,7 +1265,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "LG R971-KN-1"
@@ -1917,7 +1273,6 @@
 					(font
 						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "LED diode"
@@ -2068,7 +1423,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://dammedia.osram.info/media/resource/hires/osram-dam-5178064/LO%20R976_EN.pdf"
@@ -2077,7 +1431,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Standard LEDs - SMD Orange, 606nm 280mcd, 20mA "
@@ -2086,7 +1439,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" "720-LOR976-PS-1"
@@ -2095,7 +1447,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "LO R976-PS-1"
@@ -2104,7 +1455,6 @@
 					(font
 						(size 1 1)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "LED diode"
@@ -2255,10 +1605,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/588/asset_pdf_5057921-3418987.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2273,7 +1622,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" "720-LSR976-NR-1"
@@ -2433,7 +1781,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Footprint" "Connector_Hirose:Hirose_DF52-8S-0.8H_1x08-1MP_P0.80mm_Horizontal"
@@ -2442,7 +1789,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.mouser.pl/datasheet/2/185/DF52_10P_0_8C_CL0668_0017_7_00_Catalog_D51171_en-2487017.pdf"
@@ -2454,7 +1800,15 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "To be paired with DF52-8P-0.8C using DF52-2832PCF"
+			(property "Description" "Headers & Wire Housings Recep 8P R/A 0.8mm Pitch"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "DF52-8S-0.8H(21)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2463,12 +1817,13 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " DF52-8S-0.8H(21) "
+			(property "Mouser" "798-DF52-8S-0.8H21"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "connector"
@@ -2773,7 +2128,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Footprint" "Connector_FFC-FPC:Hirose_FH12-40S-0.5SH_1x40-1MP_P0.50mm_Horizontal"
@@ -2782,10 +2136,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/185/FH12_40S_0_5SH_55__CL0586_0527_7_55_2DDrawing_0000-1614809.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2794,7 +2147,15 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "FFC 40 PIN"
+			(property "Description" "FFC & FPC Connectors 0.5MM 40 POS R/A BTTM SMT GLD"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "FH12-40S-0.5SH(55)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2803,12 +2164,13 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " FH12-40S-0.5SH(55) "
+			(property "Mouser" "798-FH12-40S-0.5SH55"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "connector"
@@ -4048,7 +3410,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.hirose.com/en/product/document?clcode=&productname=&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en"
@@ -4060,7 +3421,15 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Micro SD Card Socket with two card detection pins"
+			(property "Description" "Memory Card Connectors R/A SMT MICROSD CON PUSH-PUSH TOP BRDMNT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "DM3AT-SF-PEJM5"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4069,12 +3438,13 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " DM3AT-SF-PEJM5 "
+			(property "Mouser" "798-DM3AT-SF-PEJM5"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "connector SD microsd"
@@ -4437,7 +3807,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/20021511.pdf"
@@ -4446,7 +3815,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "SWD STDC14 programmer connector for ST-LINK programmers"
@@ -4455,7 +3823,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "20021511-00014T4LF"
@@ -4464,7 +3831,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" " 649-221511-00014T4LF"
@@ -4473,7 +3839,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "SWD, STDC14, STM32"
@@ -4783,10 +4148,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/307/en-b3u-1189599.pdf"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -4795,8 +4159,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "TEMPLATE"
+			(property "Description" "Tactile Switches Top Act. w/out Boss w/out Ground Term"
 				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "B3U-1000PM"
+				(at 0.508 -2.794 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -4804,11 +4176,11 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " B3U-1000PM "
-				(at 0.508 -2.794 0)
+			(property "Mouser" "653-B3U-1000PM"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
 					(hide yes)
 				)
@@ -4936,7 +4308,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
@@ -4948,8 +4319,16 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
+			(property "Description" "USB Connectors USB Type C, 2.0,  Rec, TH , G/F, RA , Top Mnt, T & R"
 				(at 1.524 -33.782 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "USB4085-GF-A"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -4957,12 +4336,13 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " USB4085-GF-A "
+			(property "Mouser" "640-USB4085-GF-A"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "usb universal serial bus type-C USB2.0"
@@ -5634,7 +5014,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ds90c241.pdf"
@@ -5646,7 +5025,15 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "DC-Balanced 24-Bit FPD-Link II Deserializer, TQFP-48"
+			(property "Description" "Serializers & Deserializers - Serdes 5-35MHz 24B FPD Link II Deserializer"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "DS90C124IVS/NOPB"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5655,12 +5042,13 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " DS90C124IVS/NOPB"
+			(property "Mouser" "926-DS90C124IVS/NOPB"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "DC-Balanced 24-Bit FPD-Link II Deserializer"
@@ -6587,10 +5975,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/198/42_45S32400F-258273.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -6599,13 +5986,12 @@
 					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "DRAM 128M 4Mx32 166Mhz SDR SDRAM, 3.3V"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "IS42S32400F-6BL"
@@ -6614,6 +6000,16 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
+				)
+			)
+			(property "Mouser" "870-IS42S32400F-6BL"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
 				)
 			)
 			(symbol "IS42S32400F-6BL_1_1"
@@ -8250,6 +7646,270 @@
 				)
 			)
 		)
+		(symbol "MEMS_IC:MCP2562-H-MF"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -10.16 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "MCP2562-H-MF"
+				(at 2.54 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/25167A.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "CAN Interface IC CAN Flexible Data Rate Transceiver"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "MCP2562FDT-H/MF"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Mouser" "579-MCP2562FDT-H/MF"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "High-Speed CAN Transceiver"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "DFN*1EP*3x3mm*P0.65mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MCP2562-H-MF_0_1"
+				(rectangle
+					(start -10.16 7.62)
+					(end 10.16 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "MCP2562-H-MF_1_1"
+				(pin input line
+					(at -12.7 5.08 0)
+					(length 2.54)
+					(name "TXD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at -12.7 2.54 0)
+					(length 2.54)
+					(name "RXD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -12.7 -2.54 0)
+					(length 2.54)
+					(name "Vio"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 12.7 -2.54 180)
+					(length 2.54)
+					(name "CANL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 12.7 2.54 180)
+					(length 2.54)
+					(name "CANH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 -5.08 0)
+					(length 2.54)
+					(name "SHDN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "PAD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "MEMS_IC:STM32H750XBHx"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -8279,7 +7939,6 @@
 						(size 1.27 1.27)
 					)
 					(justify right)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32h750xb.pdf"
@@ -8291,7 +7950,15 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "STMicroelectronics Arm Cortex-M7 MCU, 128KB flash, 1024KB RAM, 480 MHz, 1.62-3.6V, 172 GPIO, TFBGA240"
+			(property "Description" "ARM Microcontrollers - MCU High-performance & DSP DP-FPU, Arm Cortex-M7 MCU 128KBytes of Flash 1MB RAM, 480"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "STM32H750XBH6"
 				(at 0 0 0)
 				(effects
 					(font
@@ -8300,12 +7967,13 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " STM32H750XBH6"
+			(property "Mouser" "511-STM32H750XBH6"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "Arm Cortex-M7 STM32H7 STM32H750 Value line"
@@ -14402,7 +14070,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.ti.com/lit/gpn/tps56339"
@@ -14411,7 +14078,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "4.5-V to 24-V input, 3-A output synchronous buck converter"
@@ -14420,7 +14086,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "TPS56339DDCR"
@@ -14429,7 +14094,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" "595-TPS56339DDCR"
@@ -14438,7 +14102,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "LCSC" "C2071106"
@@ -14447,7 +14110,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "TPS56339_1_1"
@@ -14713,7 +14375,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.mouser.pl/datasheet/2/122/ECX_2236-2497269.pdf"
@@ -14722,7 +14383,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "SMD 25MHz Crystal, Accuracy = 10ppm, Stability = 10ppm, C_load=8pF, DL=100uW, C_shunt=5pF, ESR=60R"
@@ -14731,25 +14391,22 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "MPN" "520-250-8-36CKM-TR3"
+			(property "MPN" "ECS-250-8-36CKM-TR3"
 				(at 0 -17.78 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Mouser" "ECS-250-8-36CKM-TR3"
+			(property "Mouser" " 520-250-8-36CKM-TR3"
 				(at 0 -20.32 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "crystal"
@@ -14935,7 +14592,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.mouser.pl/datasheet/2/54/SRN6028C-3169084.pdf"
@@ -14944,16 +14600,14 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" "Inductor"
+			(property "Description" "Power Inductors - SMD Ind,6.0x6.0x2.6mm,6uH+/-20%,2.8A,shd"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "SRN6028C-6R0M"
@@ -14961,6 +14615,14 @@
 				(effects
 					(font
 						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Mouser" "652-SRN6028C-6R0M"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1 1)
 					)
 				)
 			)
@@ -15099,7 +14761,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "~"
@@ -15108,7 +14769,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Normally open solderable and pick&placeable jumper"
@@ -15117,7 +14777,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "NO_MPN"
@@ -15126,7 +14785,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "SolderableJumper_0402_1_1"
@@ -15269,10 +14927,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -15281,7 +14938,15 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Zener diode"
+			(property "Description" "Zener Diodes"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "MMSZ4705-HE3_A-08"
 				(at 0 0 0)
 				(effects
 					(font
@@ -15290,11 +14955,11 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" " MMSZ4705-HE3_A-08 "
+			(property "Mouser" "78-MMSZ4705-HE3_A-08"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1 1)
 					)
 					(hide yes)
 				)
@@ -15423,10 +15088,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" "https://www.mouser.com/datasheet/2/258/BZT52B2V4_BZT52B75_SOD_123_-3365744.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -15435,13 +15099,12 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Zener diode"
+			(property "Description" "Zener Diodes 500mW ZENER"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "BZT52B3V6-TP"
@@ -15450,6 +15113,16 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
+				)
+			)
+			(property "Mouser" "833-BZT52B3V6-TP"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "diode"
@@ -15578,7 +15251,6 @@
 						(size 1.27 1.27)
 					)
 					(justify left)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.mouser.pl/datasheet/2/240/littelfuse_ptc_low_rho_datasheet_pdf-2956203.pdf"
@@ -15587,7 +15259,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Resettable fuse, polymeric positive temperature coefficient"
@@ -15596,7 +15267,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "1206L200SLYR "
@@ -15605,7 +15275,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" "576-1206L200SLYR"
@@ -15614,7 +15283,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "resettable fuse PTC PPTC polyfuse polyswitch"
@@ -15741,10 +15409,9 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -15753,13 +15420,12 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Ressetable polyfuse"
+			(property "Description" "Resettable Fuses - PPTC 0.35A 6V 0805"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "0805L035YR"
@@ -15768,6 +15434,16 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
+				)
+			)
+			(property "Mouser" "576-0805L035"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1 1)
+					)
+					(hide yes)
 				)
 			)
 			(property "ki_keywords" "fuse"
@@ -15883,7 +15559,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "https://www.mouser.com/datasheet/2/210/Kamaya_RMC_series_8_2022-3032447.pdf"
@@ -15892,7 +15567,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" "Thick Film Resistors - SMD 0402 JUMP"
@@ -15901,7 +15575,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Tolerance" "-"
@@ -15910,7 +15583,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "TempCo" "-"
@@ -15919,7 +15591,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Power" ""
@@ -15928,7 +15599,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "MPN" "RMC1/16SJPTH"
@@ -15937,7 +15607,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Mouser" "791-RMC1/16SJPTH"
@@ -15946,7 +15615,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Voltage" ""
@@ -15955,7 +15623,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Current" "0.1A"
@@ -15964,7 +15631,6 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "R resistor"
@@ -17547,102 +17213,6 @@
 				)
 			)
 		)
-		(symbol "PWR_FLAG_1"
-			(power)
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#FLG"
-				(at 0 1.905 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "PWR_FLAG"
-				(at 0 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Special symbol for telling ERC where power comes from"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "flag power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "PWR_FLAG_1_0_0"
-				(pin power_out line
-					(at 0 0 90)
-					(length 0)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "PWR_FLAG_1_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-		)
 		(symbol "power:+3.3V"
 			(power)
 			(pin_numbers hide)
@@ -18044,7 +17614,7 @@
 				(pin power_out line
 					(at 0 0 90)
 					(length 0)
-					(name "pwr"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -33754,7 +33324,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 			(at 501.65 195.58 0)
 			(effects
 				(font
@@ -33763,7 +33333,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 			(at 501.65 213.36 0)
 			(effects
 				(font
@@ -33772,7 +33342,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LMK105ABJ225KVHF "
+		(property "MPN" "LMK105ABJ225KVHF"
 			(at 502.666 194.818 0)
 			(effects
 				(font
@@ -33781,7 +33351,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-LMK105ABJ225KVHF"
 			(at 501.65 208.28 0)
 			(effects
 				(font
@@ -34443,7 +34013,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/cx5r_KGM-3223198.pdf"
 			(at 179.07 392.43 0)
 			(effects
 				(font
@@ -34452,7 +34022,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM21AR51E106KL NEW GLOBAL PN 25V 10uF X A 581-KGM21AR51E106KL"
 			(at 179.07 410.21 0)
 			(effects
 				(font
@@ -34471,7 +34041,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "581-08053D106KAT4A"
 			(at 179.07 405.13 0)
 			(effects
 				(font
@@ -34559,7 +34129,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 530.86 45.72 0)
 			(effects
 				(font
@@ -34568,7 +34138,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 530.86 63.5 0)
 			(effects
 				(font
@@ -34586,7 +34156,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 530.86 58.42 0)
 			(effects
 				(font
@@ -34738,7 +34308,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 359.41 340.36 0)
 			(effects
 				(font
@@ -34747,7 +34317,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 377.19 340.36 0)
 			(effects
 				(font
@@ -34765,7 +34335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 372.11 340.36 0)
 			(effects
 				(font
@@ -35508,7 +35078,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 332.74 62.23 0)
 			(effects
 				(font
@@ -35517,7 +35087,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 332.74 80.01 0)
 			(effects
 				(font
@@ -35535,7 +35105,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 332.74 74.93 0)
 			(effects
 				(font
@@ -35623,7 +35193,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/cx5r_KGM-3223198.pdf"
 			(at 26.67 391.16 0)
 			(effects
 				(font
@@ -35632,7 +35202,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM21AR51E106KL NEW GLOBAL PN 25V 10uF X A 581-KGM21AR51E106KL"
 			(at 26.67 408.94 0)
 			(effects
 				(font
@@ -35651,7 +35221,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "581-08053D106KAT4A"
 			(at 26.67 403.86 0)
 			(effects
 				(font
@@ -35703,7 +35273,6 @@
 		)
 	)
 	(symbol
-		(lib_name "DF52-8S-0.8H_1")
 		(lib_id "MEMS_ELECTROMECHANICAL:DF52-8S-0.8H")
 		(at 22.86 259.08 0)
 		(mirror y)
@@ -35749,7 +35318,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "To be paired with DF52-8P-0.8C using DF52-2832PCF"
+		(property "Description" "Headers & Wire Housings Recep 8P R/A 0.8mm Pitch"
 			(at 22.86 259.08 0)
 			(effects
 				(font
@@ -35758,13 +35327,22 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " DF52-8S-0.8H(21) "
+		(property "MPN" "DF52-8S-0.8H(21)"
 			(at 45.466 275.336 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "Mouser" "798-DF52-8S-0.8H21"
+			(at 22.86 259.08 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "8"
@@ -36103,7 +35681,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 368.3 62.23 0)
 			(effects
 				(font
@@ -36112,7 +35690,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 368.3 80.01 0)
 			(effects
 				(font
@@ -36130,7 +35708,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 368.3 74.93 0)
 			(effects
 				(font
@@ -36417,7 +35995,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 368.3 38.1 0)
 			(effects
 				(font
@@ -36426,7 +36004,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 368.3 55.88 0)
 			(effects
 				(font
@@ -36444,7 +36022,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 368.3 50.8 0)
 			(effects
 				(font
@@ -36540,7 +36118,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
+		(property "Description" "USB Connectors USB Type C, 2.0,  Rec, TH , G/F, RA , Top Mnt, T & R"
 			(at 558.546 146.812 0)
 			(effects
 				(font
@@ -36549,12 +36127,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " USB4085-GF-A "
+		(property "MPN" "USB4085-GF-A"
 			(at 560.07 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Mouser" "640-USB4085-GF-A"
+			(at 560.07 113.03 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "A7"
@@ -37265,7 +36852,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 45.72 254 0)
 			(effects
 				(font
@@ -37323,7 +36910,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 381 87.63 0)
 			(effects
 				(font
@@ -37332,7 +36919,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 381 105.41 0)
 			(effects
 				(font
@@ -37350,7 +36937,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 381 100.33 0)
 			(effects
 				(font
@@ -37438,7 +37025,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 341.63 62.23 0)
 			(effects
 				(font
@@ -37447,7 +37034,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 341.63 80.01 0)
 			(effects
 				(font
@@ -37465,7 +37052,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 341.63 74.93 0)
 			(effects
 				(font
@@ -39166,7 +38753,7 @@
 		)
 	)
 	(symbol
-		(lib_id "MEMS_CAPACITORS:C_8p2_0402_50V_C0G_04025A8R2CAT2A_")
+		(lib_id "MEMS_CAPACITORS:C_8p2_0402_50V_C0G_04025A8R2CAT2A")
 		(at 31.75 199.39 0)
 		(mirror y)
 		(unit 1)
@@ -39199,10 +38786,9 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/C0GNP0_KGM-3216332.pdf"
 			(at 31.75 209.55 0)
 			(effects
 				(font
@@ -39211,17 +38797,16 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM05ACG1H8R2CH NEW GLOBAL PN 50V 8.2pF A 581-KGM05ACG1H8R2CH"
 			(at 31.75 227.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
-		(property "MPN" "TEMPLATE_MPN"
-			(at 31.75 217.17 0)
+		(property "MPN" "04025A8R2CAT2A"
+			(at 31.75 199.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -39229,11 +38814,11 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
-			(at 31.75 222.25 0)
+		(property "Mouser" "581-04025A8R2C"
+			(at 31.75 199.39 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1 1)
 				)
 				(hide yes)
 			)
@@ -39244,7 +38829,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Tolerance" "TEMPLATE_TOLERANCE"
@@ -39253,7 +38837,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Voltage" "TEMPLATE_VOLTAGE"
@@ -39262,7 +38845,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -39317,7 +38899,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 359.41 62.23 0)
 			(effects
 				(font
@@ -39326,7 +38908,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 359.41 80.01 0)
 			(effects
 				(font
@@ -39344,7 +38926,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 359.41 74.93 0)
 			(effects
 				(font
@@ -39631,7 +39213,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 309.88 87.63 0)
 			(effects
 				(font
@@ -39640,7 +39222,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 309.88 105.41 0)
 			(effects
 				(font
@@ -39658,7 +39240,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 309.88 100.33 0)
 			(effects
 				(font
@@ -39821,7 +39403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 416.56 87.63 0)
 			(effects
 				(font
@@ -39830,7 +39412,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 416.56 105.41 0)
 			(effects
 				(font
@@ -39848,7 +39430,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 416.56 100.33 0)
 			(effects
 				(font
@@ -40123,7 +39705,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 403.86 62.23 0)
 			(effects
 				(font
@@ -40132,7 +39714,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 403.86 80.01 0)
 			(effects
 				(font
@@ -40150,7 +39732,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 403.86 74.93 0)
 			(effects
 				(font
@@ -40840,7 +40422,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 342.9 373.38 0)
 			(effects
 				(font
@@ -40849,7 +40431,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 342.9 391.16 0)
 			(effects
 				(font
@@ -40867,7 +40449,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 342.9 386.08 0)
 			(effects
 				(font
@@ -40953,7 +40535,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/198/42_45S32400F-258273.pdf"
 			(at 389.89 156.21 0)
 			(effects
 				(font
@@ -40962,7 +40544,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "DRAM 128M 4Mx32 166Mhz SDR SDRAM, 3.3V"
 			(at 389.89 156.21 0)
 			(effects
 				(font
@@ -40977,6 +40559,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Mouser" "870-IS42S32400F-6BL"
+			(at 389.89 156.21 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "F2"
@@ -41710,7 +41301,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "DC-Balanced 24-Bit FPD-Link II Deserializer, TQFP-48"
+		(property "Description" "Serializers & Deserializers - Serdes 5-35MHz 24B FPD Link II Deserializer"
 			(at 414.02 345.44 0)
 			(effects
 				(font
@@ -41719,12 +41310,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " DS90C124IVS/NOPB"
+		(property "MPN" "DS90C124IVS/NOPB"
 			(at 387.35 323.8814 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Mouser" "926-DS90C124IVS/NOPB"
+			(at 414.02 345.44 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "46"
@@ -41916,7 +41516,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/185/FH12_40S_0_5SH_55__CL0586_0527_7_55_2DDrawing_0000-1614809.pdf"
 			(at 557.53 283.21 0)
 			(effects
 				(font
@@ -41925,7 +41525,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "FFC 40 PIN"
+		(property "Description" "FFC & FPC Connectors 0.5MM 40 POS R/A BTTM SMT GLD"
 			(at 557.53 283.21 0)
 			(effects
 				(font
@@ -41934,13 +41534,22 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " FH12-40S-0.5SH(55) "
+		(property "MPN" "FH12-40S-0.5SH(55)"
 			(at 536.448 231.394 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "Mouser" "798-FH12-40S-0.5SH55"
+			(at 557.53 283.21 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "11"
@@ -42112,7 +41721,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/307/en-b3u-1189599.pdf"
 			(at 87.63 74.93 0)
 			(effects
 				(font
@@ -42121,7 +41730,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE"
+		(property "Description" "Tactile Switches Top Act. w/out Boss w/out Ground Term"
 			(at 82.55 74.93 0)
 			(effects
 				(font
@@ -42130,11 +41739,20 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " B3U-1000PM "
+		(property "MPN" "B3U-1000PM"
 			(at 80.264 74.422 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "653-B3U-1000PM"
+			(at 77.47 74.93 0)
+			(effects
+				(font
+					(size 1 1)
 				)
 				(hide yes)
 			)
@@ -42985,7 +42603,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 363.22 400.05 0)
 			(effects
 				(font
@@ -42994,7 +42612,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 363.22 417.83 0)
 			(effects
 				(font
@@ -43012,7 +42630,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 363.22 412.75 0)
 			(effects
 				(font
@@ -43100,7 +42718,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/258/BZT52B2V4_BZT52B75_SOD_123_-3365744.pdf"
 			(at 298.45 379.73 0)
 			(effects
 				(font
@@ -43109,7 +42727,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Zener diode"
+		(property "Description" "Zener Diodes 500mW ZENER"
 			(at 298.45 379.73 0)
 			(effects
 				(font
@@ -43125,6 +42743,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "Mouser" "833-BZT52B3V6-TP"
+			(at 298.45 379.73 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -43179,7 +42806,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/281/1/GRM21BC81C226ME44_01A-1986803.pdf"
 			(at 262.89 392.43 0)
 			(effects
 				(font
@@ -43188,7 +42815,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 22 uF 16 VDC 20% 0805 X6S"
 			(at 262.89 410.21 0)
 			(effects
 				(font
@@ -43207,7 +42834,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "81-GRM21BC81C226ME4L"
 			(at 262.89 405.13 0)
 			(effects
 				(font
@@ -43295,7 +42922,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 336.55 87.63 0)
 			(effects
 				(font
@@ -43304,7 +42931,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 336.55 105.41 0)
 			(effects
 				(font
@@ -43322,7 +42949,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 336.55 100.33 0)
 			(effects
 				(font
@@ -43410,7 +43037,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 353.06 373.38 0)
 			(effects
 				(font
@@ -43419,7 +43046,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 353.06 391.16 0)
 			(effects
 				(font
@@ -43437,7 +43064,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 353.06 386.08 0)
 			(effects
 				(font
@@ -43789,7 +43416,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 323.85 38.1 0)
 			(effects
 				(font
@@ -43798,7 +43425,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 323.85 55.88 0)
 			(effects
 				(font
@@ -43816,7 +43443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 323.85 50.8 0)
 			(effects
 				(font
@@ -43978,7 +43605,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 121.92 54.61 0)
 			(effects
 				(font
@@ -44429,7 +44056,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 345.44 87.63 0)
 			(effects
 				(font
@@ -44438,7 +44065,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 345.44 105.41 0)
 			(effects
 				(font
@@ -44456,7 +44083,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 345.44 100.33 0)
 			(effects
 				(font
@@ -44551,7 +44178,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Inductor"
+		(property "Description" "Power Inductors - SMD Ind,6.0x6.0x2.6mm,6uH+/-20%,2.8A,shd"
 			(at 245.11 369.57 0)
 			(effects
 				(font
@@ -44566,6 +44193,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Mouser" "652-SRN6028C-6R0M"
+			(at 245.11 369.57 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -45214,7 +44850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 187.96 392.43 0)
 			(effects
 				(font
@@ -45223,7 +44859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 187.96 410.21 0)
 			(effects
 				(font
@@ -45241,7 +44877,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 187.96 405.13 0)
 			(effects
 				(font
@@ -45949,7 +45585,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/cx5r_KGM-3223198.pdf"
 			(at 36.83 391.16 0)
 			(effects
 				(font
@@ -45958,7 +45594,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM21AR51E106KL NEW GLOBAL PN 25V 10uF X A 581-KGM21AR51E106KL"
 			(at 36.83 408.94 0)
 			(effects
 				(font
@@ -45977,7 +45613,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "581-08053D106KAT4A"
 			(at 36.83 403.86 0)
 			(effects
 				(font
@@ -46081,7 +45717,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "520-250-8-36CKM-TR3"
+		(property "MPN" "ECS-250-8-36CKM-TR3"
 			(at 41.91 212.09 0)
 			(effects
 				(font
@@ -46090,7 +45726,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "ECS-250-8-36CKM-TR3"
+		(property "Mouser" " 520-250-8-36CKM-TR3"
 			(at 41.91 214.63 0)
 			(effects
 				(font
@@ -46157,7 +45793,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 350.52 38.1 0)
 			(effects
 				(font
@@ -46166,7 +45802,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 350.52 55.88 0)
 			(effects
 				(font
@@ -46184,7 +45820,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 350.52 50.8 0)
 			(effects
 				(font
@@ -46668,7 +46304,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Zener diode"
+		(property "Description" "Zener Diodes"
 			(at 59.69 327.66 0)
 			(effects
 				(font
@@ -46677,11 +46313,20 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " MMSZ4705-HE3_A-08 "
+		(property "MPN" "MMSZ4705-HE3_A-08"
 			(at 59.69 327.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "78-MMSZ4705-HE3_A-08"
+			(at 59.69 327.66 0)
+			(effects
+				(font
+					(size 1 1)
 				)
 				(hide yes)
 			)
@@ -46945,7 +46590,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Micro SD Card Socket with two card detection pins"
+		(property "Description" "Memory Card Connectors R/A SMT MICROSD CON PUSH-PUSH TOP BRDMNT"
 			(at 549.91 180.34 0)
 			(effects
 				(font
@@ -46954,12 +46599,21 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " DM3AT-SF-PEJM5 "
+		(property "MPN" "DM3AT-SF-PEJM5"
 			(at 550.545 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Mouser" "798-DM3AT-SF-PEJM5"
+			(at 549.91 180.34 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "4"
@@ -47301,7 +46955,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Ressetable polyfuse"
+		(property "Description" "Resettable Fuses - PPTC 0.35A 6V 0805"
 			(at 289.56 369.57 0)
 			(effects
 				(font
@@ -47317,6 +46971,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "576-0805L035"
+			(at 289.56 369.57 0)
+			(effects
+				(font
+					(size 1 1)
+				)
 				(hide yes)
 			)
 		)
@@ -47447,7 +47110,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 323.85 62.23 0)
 			(effects
 				(font
@@ -47456,7 +47119,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 323.85 80.01 0)
 			(effects
 				(font
@@ -47474,7 +47137,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 323.85 74.93 0)
 			(effects
 				(font
@@ -47637,7 +47300,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 332.74 38.1 0)
 			(effects
 				(font
@@ -47646,7 +47309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 332.74 55.88 0)
 			(effects
 				(font
@@ -47664,7 +47327,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 332.74 50.8 0)
 			(effects
 				(font
@@ -47752,7 +47415,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 425.45 87.63 0)
 			(effects
 				(font
@@ -47761,7 +47424,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 425.45 105.41 0)
 			(effects
 				(font
@@ -47779,7 +47442,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 425.45 100.33 0)
 			(effects
 				(font
@@ -47867,7 +47530,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 			(at 90.17 303.53 0)
 			(effects
 				(font
@@ -47876,7 +47539,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 			(at 90.17 321.31 0)
 			(effects
 				(font
@@ -47885,7 +47548,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LMK105ABJ225KVHF "
+		(property "MPN" "LMK105ABJ225KVHF"
 			(at 91.186 302.768 0)
 			(effects
 				(font
@@ -47894,7 +47557,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-LMK105ABJ225KVHF"
 			(at 90.17 316.23 0)
 			(effects
 				(font
@@ -48188,7 +47851,7 @@
 		)
 	)
 	(symbol
-		(lib_id "MEMS_CAPACITORS:C_8p2_0402_50V_C0G_04025A8R2CAT2A_")
+		(lib_id "MEMS_CAPACITORS:C_8p2_0402_50V_C0G_04025A8R2CAT2A")
 		(at 52.07 199.39 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -48198,7 +47861,7 @@
 		(fields_autoplaced yes)
 		(uuid "62dc990d-762b-41ff-9796-3a80114a9828")
 		(property "Reference" "C57"
-			(at 54.61 198.1262 0)
+			(at 54.61 191.7762 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48207,7 +47870,7 @@
 			)
 		)
 		(property "Value" "8.2p"
-			(at 54.61 200.6662 0)
+			(at 54.61 194.3162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48216,15 +47879,15 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 52.07 224.79 0)
+			(at 54.61 196.8562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/C0GNP0_KGM-3216332.pdf"
 			(at 52.07 209.55 0)
 			(effects
 				(font
@@ -48233,8 +47896,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
-			(at 52.07 227.33 0)
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM05ACG1H8R2CH NEW GLOBAL PN 50V 8.2pF A 581-KGM05ACG1H8R2CH"
+			(at 54.61 199.3962 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "04025A8R2CAT2A"
+			(at 52.07 199.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -48242,49 +47914,40 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "TEMPLATE_MPN"
-			(at 52.07 217.17 0)
+		(property "Mouser" "581-04025A8R2C"
+			(at 52.07 199.39 0)
 			(effects
 				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser" "TEMPLATE_MOUSER"
-			(at 52.07 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
+					(size 1 1)
 				)
 				(hide yes)
 			)
 		)
 		(property "Dielectric" "TEMPLATE_DIELECTRIC"
-			(at 52.07 214.63 0)
+			(at 54.61 201.9362 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
 		(property "Tolerance" "TEMPLATE_TOLERANCE"
-			(at 52.07 212.09 0)
+			(at 54.61 204.4762 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
 		(property "Voltage" "TEMPLATE_VOLTAGE"
-			(at 52.07 219.71 0)
+			(at 54.61 207.0162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
 		(pin "1"
@@ -48634,7 +48297,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 363.22 87.63 0)
 			(effects
 				(font
@@ -48643,7 +48306,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 363.22 105.41 0)
 			(effects
 				(font
@@ -48661,7 +48324,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 363.22 100.33 0)
 			(effects
 				(font
@@ -49057,7 +48720,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 377.19 38.1 0)
 			(effects
 				(font
@@ -49066,7 +48729,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 377.19 55.88 0)
 			(effects
 				(font
@@ -49084,7 +48747,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 377.19 50.8 0)
 			(effects
 				(font
@@ -49359,7 +49022,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 327.66 87.63 0)
 			(effects
 				(font
@@ -49368,7 +49031,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 327.66 105.41 0)
 			(effects
 				(font
@@ -49386,7 +49049,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 327.66 100.33 0)
 			(effects
 				(font
@@ -49752,7 +49415,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 30.48 251.46 0)
 			(effects
 				(font
@@ -50526,7 +50189,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 86.36 368.3 0)
 			(effects
 				(font
@@ -50535,7 +50198,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 104.14 368.3 0)
 			(effects
 				(font
@@ -50553,7 +50216,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 99.06 368.3 0)
 			(effects
 				(font
@@ -50762,7 +50425,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 			(at 99.06 303.53 0)
 			(effects
 				(font
@@ -50771,7 +50434,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 			(at 99.06 321.31 0)
 			(effects
 				(font
@@ -50780,7 +50443,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LMK105ABJ225KVHF "
+		(property "MPN" "LMK105ABJ225KVHF"
 			(at 100.076 302.768 0)
 			(effects
 				(font
@@ -50789,7 +50452,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-LMK105ABJ225KVHF"
 			(at 99.06 316.23 0)
 			(effects
 				(font
@@ -50998,7 +50661,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/588/asset_pdf_5057921-3418987.pdf"
 			(at 21.59 54.61 0)
 			(effects
 				(font
@@ -52056,7 +51719,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 389.89 87.63 0)
 			(effects
 				(font
@@ -52065,7 +51728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 389.89 105.41 0)
 			(effects
 				(font
@@ -52083,7 +51746,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 389.89 100.33 0)
 			(effects
 				(font
@@ -52322,7 +51985,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 394.97 62.23 0)
 			(effects
 				(font
@@ -52331,7 +51994,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 394.97 80.01 0)
 			(effects
 				(font
@@ -52349,7 +52012,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 394.97 74.93 0)
 			(effects
 				(font
@@ -52861,7 +52524,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Interface_CAN_LIN:MCP2562-E-MF")
+		(lib_id "MEMS_IC:MCP2562-H-MF")
 		(at 538.48 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -52871,7 +52534,7 @@
 		(fields_autoplaced yes)
 		(uuid "8a4c54ba-c8bf-4094-835e-fea903437d72")
 		(property "Reference" "U2"
-			(at 540.6741 40.64 0)
+			(at 540.6741 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52880,7 +52543,7 @@
 			)
 		)
 		(property "Value" "MCP2562-E-MF"
-			(at 540.6741 43.18 0)
+			(at 540.6741 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52889,13 +52552,12 @@
 			)
 		)
 		(property "Footprint" "Package_DFN_QFN:DFN-8-1EP_3x3mm_P0.65mm_EP1.55x2.4mm"
-			(at 538.48 66.04 0)
+			(at 540.6741 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
-					(italic yes)
 				)
-				(hide yes)
+				(justify left)
 			)
 		)
 		(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/25167A.pdf"
@@ -52907,11 +52569,29 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "High-Speed CAN Transceiver, 1Mbps, 5V supply, Vio pin, -40C to +125C, DFN-8"
+		(property "Description" "CAN Interface IC CAN Flexible Data Rate Transceiver"
+			(at 540.6741 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "MPN" "MCP2562FDT-H/MF"
 			(at 538.48 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "579-MCP2562FDT-H/MF"
+			(at 538.48 53.34 0)
+			(effects
+				(font
+					(size 1 1)
 				)
 				(hide yes)
 			)
@@ -52989,7 +52669,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 314.96 38.1 0)
 			(effects
 				(font
@@ -52998,7 +52678,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 314.96 55.88 0)
 			(effects
 				(font
@@ -53016,7 +52696,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 314.96 50.8 0)
 			(effects
 				(font
@@ -53301,7 +52981,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 359.41 316.23 0)
 			(effects
 				(font
@@ -53310,7 +52990,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 377.19 316.23 0)
 			(effects
 				(font
@@ -53328,7 +53008,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 372.11 316.23 0)
 			(effects
 				(font
@@ -54311,7 +53991,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 354.33 87.63 0)
 			(effects
 				(font
@@ -54320,7 +54000,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 354.33 105.41 0)
 			(effects
 				(font
@@ -54338,7 +54018,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 354.33 100.33 0)
 			(effects
 				(font
@@ -54492,7 +54172,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 341.63 38.1 0)
 			(effects
 				(font
@@ -54501,7 +54181,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 341.63 55.88 0)
 			(effects
 				(font
@@ -54519,7 +54199,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 341.63 50.8 0)
 			(effects
 				(font
@@ -54607,7 +54287,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 353.06 400.05 0)
 			(effects
 				(font
@@ -54616,7 +54296,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 353.06 417.83 0)
 			(effects
 				(font
@@ -54634,7 +54314,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 353.06 412.75 0)
 			(effects
 				(font
@@ -54720,7 +54400,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/KGM_X7R-3223212.pdf"
 			(at 358.14 328.93 0)
 			(effects
 				(font
@@ -54729,7 +54409,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM05AR71H472KH NEW GLOBAL PN 50V 4700pF A 581-KGM05AR71H472KH"
 			(at 375.92 328.93 0)
 			(effects
 				(font
@@ -54738,7 +54418,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "04025C472KAT2A "
+		(property "MPN" "04025C472KAT2A"
 			(at 358.14 327.406 0)
 			(effects
 				(font
@@ -54747,7 +54427,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "581-04025C472KAT2A"
 			(at 370.84 328.93 0)
 			(effects
 				(font
@@ -54967,7 +54647,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 403.86 38.1 0)
 			(effects
 				(font
@@ -54976,7 +54656,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 403.86 55.88 0)
 			(effects
 				(font
@@ -54994,7 +54674,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 403.86 50.8 0)
 			(effects
 				(font
@@ -55158,7 +54838,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 332.74 373.38 0)
 			(effects
 				(font
@@ -55167,7 +54847,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 332.74 391.16 0)
 			(effects
 				(font
@@ -55185,7 +54865,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 332.74 386.08 0)
 			(effects
 				(font
@@ -55462,7 +55142,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 318.77 87.63 0)
 			(effects
 				(font
@@ -55471,7 +55151,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 318.77 105.41 0)
 			(effects
 				(font
@@ -55489,7 +55169,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 318.77 100.33 0)
 			(effects
 				(font
@@ -55904,7 +55584,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 372.11 87.63 0)
 			(effects
 				(font
@@ -55913,7 +55593,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 372.11 105.41 0)
 			(effects
 				(font
@@ -55931,7 +55611,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 372.11 100.33 0)
 			(effects
 				(font
@@ -56394,7 +56074,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 228.6 369.57 0)
 			(effects
 				(font
@@ -56403,7 +56083,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 246.38 369.57 0)
 			(effects
 				(font
@@ -56421,7 +56101,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 241.3 369.57 0)
 			(effects
 				(font
@@ -56959,7 +56639,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/585/MLCC-1837944.pdf"
 			(at 419.1 38.1 0)
 			(effects
 				(font
@@ -56968,7 +56648,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 4.7uF+/-20% 4V X5R 1 0402"
 			(at 419.1 55.88 0)
 			(effects
 				(font
@@ -56986,7 +56666,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "187-CL05A475MR5NQNC"
 			(at 419.1 50.8 0)
 			(effects
 				(font
@@ -57295,7 +56975,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 			(at 83.82 303.53 0)
 			(effects
 				(font
@@ -57304,7 +56984,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 			(at 83.82 321.31 0)
 			(effects
 				(font
@@ -57313,7 +56993,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LMK105ABJ225KVHF "
+		(property "MPN" "LMK105ABJ225KVHF"
 			(at 82.804 302.768 0)
 			(effects
 				(font
@@ -57322,7 +57002,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-LMK105ABJ225KVHF"
 			(at 83.82 316.23 0)
 			(effects
 				(font
@@ -57417,7 +57097,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "To be paired with DF52-8P-0.8C using DF52-2832PCF"
+		(property "Description" "Headers & Wire Housings Recep 8P R/A 0.8mm Pitch"
 			(at 22.86 321.31 0)
 			(effects
 				(font
@@ -57426,13 +57106,22 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " DF52-8S-0.8H(21) "
+		(property "MPN" "DF52-8S-0.8H(21)"
 			(at 45.72 338.074 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "Mouser" "798-DF52-8S-0.8H21"
+			(at 22.86 321.31 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "8"
@@ -57596,7 +57285,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 398.78 87.63 0)
 			(effects
 				(font
@@ -57605,7 +57294,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 398.78 105.41 0)
 			(effects
 				(font
@@ -57623,7 +57312,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 398.78 100.33 0)
 			(effects
 				(font
@@ -57861,7 +57550,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 			(at 251.46 49.53 0)
 			(effects
 				(font
@@ -57870,7 +57559,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 			(at 251.46 67.31 0)
 			(effects
 				(font
@@ -57879,7 +57568,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LMK105ABJ225KVHF "
+		(property "MPN" "LMK105ABJ225KVHF"
 			(at 252.476 48.768 0)
 			(effects
 				(font
@@ -57888,7 +57577,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-LMK105ABJ225KVHF"
 			(at 251.46 62.23 0)
 			(effects
 				(font
@@ -58052,7 +57741,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 332.74 400.05 0)
 			(effects
 				(font
@@ -58061,7 +57750,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 332.74 417.83 0)
 			(effects
 				(font
@@ -58079,7 +57768,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 332.74 412.75 0)
 			(effects
 				(font
@@ -58298,7 +57987,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 407.67 87.63 0)
 			(effects
 				(font
@@ -58307,7 +57996,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 407.67 105.41 0)
 			(effects
 				(font
@@ -58325,7 +58014,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 407.67 100.33 0)
 			(effects
 				(font
@@ -59435,7 +59124,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/taiyo_yuden_12132018_mlcc11_hq_e-1510082.pdf"
 			(at 173.99 52.07 0)
 			(effects
 				(font
@@ -59444,7 +59133,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 963-MCASL105AB5225KF RPLCMT PN 10V 2.2uF X5R 0402 AEC-Q200"
 			(at 173.99 69.85 0)
 			(effects
 				(font
@@ -59453,7 +59142,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "LMK105ABJ225KVHF "
+		(property "MPN" "LMK105ABJ225KVHF"
 			(at 175.006 51.308 0)
 			(effects
 				(font
@@ -59462,7 +59151,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-LMK105ABJ225KVHF"
 			(at 173.99 64.77 0)
 			(effects
 				(font
@@ -59738,7 +59427,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/40/cx5r_KGM-3223198.pdf"
 			(at 168.91 392.43 0)
 			(effects
 				(font
@@ -59747,7 +59436,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT KGM21AR51E106KL NEW GLOBAL PN 25V 10uF X A 581-KGM21AR51E106KL"
 			(at 168.91 410.21 0)
 			(effects
 				(font
@@ -59766,7 +59455,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "581-08053D106KAT4A"
 			(at 168.91 405.13 0)
 			(effects
 				(font
@@ -59920,7 +59609,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 260.35 49.53 0)
 			(effects
 				(font
@@ -59929,7 +59618,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 260.35 67.31 0)
 			(effects
 				(font
@@ -59947,7 +59636,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 260.35 62.23 0)
 			(effects
 				(font
@@ -60772,7 +60461,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 394.97 38.1 0)
 			(effects
 				(font
@@ -60781,7 +60470,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 394.97 55.88 0)
 			(effects
 				(font
@@ -60799,7 +60488,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 394.97 50.8 0)
 			(effects
 				(font
@@ -61008,7 +60697,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/307/en-b3u-1189599.pdf"
 			(at 33.02 105.41 0)
 			(effects
 				(font
@@ -61017,7 +60706,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE"
+		(property "Description" "Tactile Switches Top Act. w/out Boss w/out Ground Term"
 			(at 27.94 105.41 0)
 			(effects
 				(font
@@ -61026,11 +60715,20 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " B3U-1000PM "
+		(property "MPN" "B3U-1000PM"
 			(at 25.654 104.902 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "653-B3U-1000PM"
+			(at 22.86 105.41 0)
+			(effects
+				(font
+					(size 1 1)
 				)
 				(hide yes)
 			)
@@ -61215,7 +60913,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Special symbol for telling ERC where power comes from"
 			(at 138.43 367.03 0)
 			(effects
 				(font
@@ -61518,7 +61216,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/585/MLCC-1837944.pdf"
 			(at 196.85 64.77 0)
 			(effects
 				(font
@@ -61527,7 +61225,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 4.7uF+/-20% 4V X5R 1 0402"
 			(at 196.85 82.55 0)
 			(effects
 				(font
@@ -61545,7 +61243,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "187-CL05A475MR5NQNC"
 			(at 196.85 77.47 0)
 			(effects
 				(font
@@ -61774,7 +61472,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 377.19 62.23 0)
 			(effects
 				(font
@@ -61783,7 +61481,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 377.19 80.01 0)
 			(effects
 				(font
@@ -61801,7 +61499,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 377.19 74.93 0)
 			(effects
 				(font
@@ -61889,7 +61587,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 350.52 62.23 0)
 			(effects
 				(font
@@ -61898,7 +61596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 350.52 80.01 0)
 			(effects
 				(font
@@ -61916,7 +61614,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 350.52 74.93 0)
 			(effects
 				(font
@@ -62473,7 +62171,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 363.22 373.38 0)
 			(effects
 				(font
@@ -62482,7 +62180,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 363.22 391.16 0)
 			(effects
 				(font
@@ -62500,7 +62198,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 363.22 386.08 0)
 			(effects
 				(font
@@ -63110,7 +62808,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 45.72 391.16 0)
 			(effects
 				(font
@@ -63119,7 +62817,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 45.72 408.94 0)
 			(effects
 				(font
@@ -63137,7 +62835,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 45.72 403.86 0)
 			(effects
 				(font
@@ -63321,7 +63019,6 @@
 		)
 	)
 	(symbol
-		(lib_name "PWR_FLAG_1")
 		(lib_id "power:PWR_FLAG")
 		(at 274.32 34.29 180)
 		(unit 1)
@@ -63424,7 +63121,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 359.41 38.1 0)
 			(effects
 				(font
@@ -63433,7 +63130,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 359.41 55.88 0)
 			(effects
 				(font
@@ -63451,7 +63148,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 359.41 50.8 0)
 			(effects
 				(font
@@ -63671,7 +63368,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/307/en-b3u-1189599.pdf"
 			(at 48.26 105.41 0)
 			(effects
 				(font
@@ -63680,7 +63377,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE"
+		(property "Description" "Tactile Switches Top Act. w/out Boss w/out Ground Term"
 			(at 43.18 105.41 0)
 			(effects
 				(font
@@ -63689,11 +63386,20 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " B3U-1000PM "
+		(property "MPN" "B3U-1000PM"
 			(at 40.894 104.902 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "653-B3U-1000PM"
+			(at 38.1 105.41 0)
+			(effects
+				(font
+					(size 1 1)
 				)
 				(hide yes)
 			)
@@ -64124,7 +63830,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 386.08 62.23 0)
 			(effects
 				(font
@@ -64133,7 +63839,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 386.08 80.01 0)
 			(effects
 				(font
@@ -64151,7 +63857,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 386.08 74.93 0)
 			(effects
 				(font
@@ -64239,7 +63945,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 87.63 85.09 0)
 			(effects
 				(font
@@ -64248,7 +63954,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 87.63 102.87 0)
 			(effects
 				(font
@@ -64266,7 +63972,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 87.63 97.79 0)
 			(effects
 				(font
@@ -64798,7 +64504,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/281/1/GRM21BC81C226ME44_01A-1986803.pdf"
 			(at 130.81 391.16 0)
 			(effects
 				(font
@@ -64807,7 +64513,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 22 uF 16 VDC 20% 0805 X6S"
 			(at 130.81 408.94 0)
 			(effects
 				(font
@@ -64826,7 +64532,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "81-GRM21BC81C226ME4L"
 			(at 130.81 403.86 0)
 			(effects
 				(font
@@ -64914,7 +64620,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/281/1/GRM21BC81C226ME44_01A-1986803.pdf"
 			(at 120.65 391.16 0)
 			(effects
 				(font
@@ -64923,7 +64629,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 22 uF 16 VDC 20% 0805 X6S"
 			(at 120.65 408.94 0)
 			(effects
 				(font
@@ -64942,7 +64648,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "81-GRM21BC81C226ME4L"
 			(at 120.65 403.86 0)
 			(effects
 				(font
@@ -65096,7 +64802,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/281/1/GRM21BC81C226ME44_01A-1986803.pdf"
 			(at 273.05 392.43 0)
 			(effects
 				(font
@@ -65105,7 +64811,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 22 uF 16 VDC 20% 0805 X6S"
 			(at 273.05 410.21 0)
 			(effects
 				(font
@@ -65124,7 +64830,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "81-GRM21BC81C226ME4L"
 			(at 273.05 405.13 0)
 			(effects
 				(font
@@ -65756,7 +65462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 386.08 38.1 0)
 			(effects
 				(font
@@ -65765,7 +65471,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 386.08 55.88 0)
 			(effects
 				(font
@@ -65783,7 +65489,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 386.08 50.8 0)
 			(effects
 				(font
@@ -65944,7 +65650,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Inductor"
+		(property "Description" "Power Inductors - SMD Ind,6.0x6.0x2.6mm,6uH+/-20%,2.8A,shd"
 			(at 102.87 368.3 0)
 			(effects
 				(font
@@ -65959,6 +65665,15 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Mouser" "652-SRN6028C-6R0M"
+			(at 102.87 368.3 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -66013,7 +65728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "TEMPLATE_DATASHEET"
+		(property "Datasheet" "https://www.mouser.com/datasheet/2/396/ML_mlcc_all_e-3369844.pdf"
 			(at 342.9 400.05 0)
 			(effects
 				(font
@@ -66022,7 +65737,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEMPLATE_DESCRIPTION"
+		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT 16V 0.1uF X7R 0402 10% Medical"
 			(at 342.9 417.83 0)
 			(effects
 				(font
@@ -66040,7 +65755,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "TEMPLATE_MOUSER"
+		(property "Mouser" "963-MLASE105SB7104KF"
 			(at 342.9 412.75 0)
 			(effects
 				(font
@@ -66582,7 +66297,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "STMicroelectronics Arm Cortex-M7 MCU, 128KB flash, 1024KB RAM, 480 MHz, 1.62-3.6V, 172 GPIO, TFBGA240"
+		(property "Description" "ARM Microcontrollers - MCU High-performance & DSP DP-FPU, Arm Cortex-M7 MCU 128KBytes of Flash 1MB RAM, 480"
 			(at 157.48 200.66 0)
 			(effects
 				(font
@@ -66591,13 +66306,22 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" " STM32H750XBH6"
+		(property "MPN" "STM32H750XBH6"
 			(at 162.2141 342.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(property "Mouser" "511-STM32H750XBH6"
+			(at 157.48 200.66 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(hide yes)
 			)
 		)
 		(pin "B13"
