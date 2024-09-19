@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="YTAR"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/zychlix/Termowizor2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="YTAR.elf">
+				<Option output="/home/zychlix/Termowizor2/cmake-build-debug/YTAR.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zychlix/Termowizor2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H750xx"/>
+					<Add directory="/home/zychlix/Termowizor2/Core/Inc"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 YTAR.elf"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="YTAR.elf/fast">
+				<Option output="/home/zychlix/Termowizor2/cmake-build-debug/YTAR.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zychlix/Termowizor2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32H750xx"/>
+					<Add directory="/home/zychlix/Termowizor2/Core/Inc"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
+					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 YTAR.elf/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/zychlix/Termowizor2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/zychlix/Termowizor2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Inc/main.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Inc/stm32h7xx_hal_conf.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Inc/stm32h7xx_it.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Src/main.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Src/stm32h7xx_hal_msp.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Src/stm32h7xx_it.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Src/syscalls.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Src/sysmem.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Src/system_stm32h7xx.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Core/Startup/startup_stm32h750xbhx.s">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h750xx.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include/system_stm32h7xx.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/LICENSE.txt">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_armclang_ltm.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_armv81mml.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm35p.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/CMSIS/LICENSE.txt">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_gpio_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ltdc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ltdc_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sdram.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_cortex.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crs.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_delayblock.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_exti.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_hsem.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_pwr.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_sdmmc.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_system.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_utils.h">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/LICENSE.txt">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sdram.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_delayblock.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_fmc.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.c">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/STM32H750XBHX_FLASH.ld">
+			<Option target="YTAR.elf"/>
+		</Unit>
+		<Unit filename="/home/zychlix/Termowizor2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
