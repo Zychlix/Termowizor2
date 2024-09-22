@@ -30393,6 +30393,16 @@
 		)
 		(uuid "eebfe61f-c543-44b1-a771-319554589d6a")
 	)
+	(text "ERROR LOG:\nDodać rezystor na jednej linii RAMU"
+		(exclude_from_sim no)
+		(at 495.808 365.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "eecddea6-80e9-41c6-bdce-6751d2f59550")
+	)
 	(text "<- Wejście zasilania"
 		(exclude_from_sim no)
 		(at 73.152 315.468 0)
