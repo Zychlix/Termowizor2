@@ -118,9 +118,9 @@ int main(void)
   hsdram1.Instance->SDCMR = 0b00000000110000000001001;
     HAL_Delay(10);
     hsdram1.Instance->SDCMR = 0b01010; //CTB and precharge
-//    hsdram1.Instance->SDCMR = 0b111101011; // 6
-//    hsdram1.Instance->SDCMR = 0b00000000110000000001100;//Load mode register
-//    hsdram1.Instance->SDRTR = 500;
+    hsdram1.Instance->SDCMR = 0b111101011; // 6
+    hsdram1.Instance->SDCMR = 0b00000000110000000001100;//Load mode register
+    hsdram1.Instance->SDRTR = 500;
 
 
 
@@ -137,9 +137,11 @@ int main(void)
     /* USER CODE BEGIN 3 */
 //      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, 0);
 //      HAL_GPIO_WritePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin, 1);
-      uint32_t bufor =0;
+
 
       volatile uint32_t * address =(uint32_t *) 0xD0000000;
+
+      *address = 0xAABBCCDD;
 
       for(uint32_t i = 0; i<1e6; i++)
       {
