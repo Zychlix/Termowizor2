@@ -36,7 +36,12 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+typedef struct pix
+        {
+        uint8_t R;
+        uint8_t G;
+        uint8_t B;
+        }pix_t;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -53,7 +58,7 @@ DMA_HandleTypeDef hdma_tim2_up;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
-
+pix_t fb[48000];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -123,7 +128,12 @@ int main(void)
     hsdram1.Instance->SDRTR = 500;
 
 
-
+    for(int i = 0; i< (sizeof (fb)); i++)
+    {
+//        fb[i].R=0xff;
+        fb[i].G=0xff;
+//        fb[i].B=0xff;
+    }
 
 
   /* USER CODE END 2 */
@@ -132,7 +142,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
     HAL_GPIO_WritePin(LCD_PWM_GPIO_Port,LCD_PWM_Pin,GPIO_PIN_SET);
-    LTDC_
   while (1)
   {
     /* USER CODE END WHILE */
@@ -300,7 +309,6 @@ static void MX_LTDC_Init(void)
   /* USER CODE END LTDC_Init 0 */
 
   LTDC_LayerCfgTypeDef pLayerCfg = {0};
-  LTDC_LayerCfgTypeDef pLayerCfg1 = {0};
 
   /* USER CODE BEGIN LTDC_Init 1 */
 
@@ -310,56 +318,37 @@ static void MX_LTDC_Init(void)
   hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
   hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
-  hltdc.Init.HorizontalSync = 7;
+  hltdc.Init.HorizontalSync = 15;
   hltdc.Init.VerticalSync = 3;
-  hltdc.Init.AccumulatedHBP = 14;
+  hltdc.Init.AccumulatedHBP = 25;
   hltdc.Init.AccumulatedVBP = 5;
-  hltdc.Init.AccumulatedActiveW = 654;
+  hltdc.Init.AccumulatedActiveW = 505;
   hltdc.Init.AccumulatedActiveH = 485;
-  hltdc.Init.TotalWidth = 660;
+  hltdc.Init.TotalWidth = 531;
   hltdc.Init.TotalHeigh = 487;
-  hltdc.Init.Backcolor.Blue = 50;
+  hltdc.Init.Backcolor.Blue = 0;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
   if (HAL_LTDC_Init(&hltdc) != HAL_OK)
   {
     Error_Handler();
   }
-  pLayerCfg.WindowX0 = 0;
-  pLayerCfg.WindowX1 = 0;
-  pLayerCfg.WindowY0 = 0;
-  pLayerCfg.WindowY1 = 0;
-  pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
-  pLayerCfg.Alpha = 0;
-  pLayerCfg.Alpha0 = 0;
-  pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
-  pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
-  pLayerCfg.FBStartAdress = 0;
-  pLayerCfg.ImageWidth = 0;
-  pLayerCfg.ImageHeight = 0;
-  pLayerCfg.Backcolor.Blue = 0;
-  pLayerCfg.Backcolor.Green = 0;
-  pLayerCfg.Backcolor.Red = 0;
+    pLayerCfg.WindowX0 = 0;
+    pLayerCfg.WindowX1 = 480;
+    pLayerCfg.WindowY0 = 0;
+    pLayerCfg.WindowY1 = 640;
+    pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_RGB888;
+    pLayerCfg.Alpha = 0xff;
+    pLayerCfg.Alpha0 = 0;
+    pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
+    pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
+    pLayerCfg.FBStartAdress = (uint32_t)(0xD0000000);
+    pLayerCfg.ImageWidth = 640;
+    pLayerCfg.ImageHeight = 480;
+    pLayerCfg.Backcolor.Blue = 0;
+    pLayerCfg.Backcolor.Green = 0;
+    pLayerCfg.Backcolor.Red = 0;
   if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg, 0) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  pLayerCfg1.WindowX0 = 0;
-  pLayerCfg1.WindowX1 = 0;
-  pLayerCfg1.WindowY0 = 0;
-  pLayerCfg1.WindowY1 = 0;
-  pLayerCfg1.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
-  pLayerCfg1.Alpha = 0;
-  pLayerCfg1.Alpha0 = 0;
-  pLayerCfg1.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
-  pLayerCfg1.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
-  pLayerCfg1.FBStartAdress = 0;
-  pLayerCfg1.ImageWidth = 0;
-  pLayerCfg1.ImageHeight = 0;
-  pLayerCfg1.Backcolor.Blue = 0;
-  pLayerCfg1.Backcolor.Green = 0;
-  pLayerCfg1.Backcolor.Red = 0;
-  if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg1, 1) != HAL_OK)
   {
     Error_Handler();
   }
