@@ -130,6 +130,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+    HAL_GPIO_WritePin(LCD_PWM_GPIO_Port,LCD_PWM_Pin,GPIO_PIN_SET);
+    LTDC_
   while (1)
   {
     /* USER CODE END WHILE */
@@ -315,7 +318,7 @@ static void MX_LTDC_Init(void)
   hltdc.Init.AccumulatedActiveH = 485;
   hltdc.Init.TotalWidth = 660;
   hltdc.Init.TotalHeigh = 487;
-  hltdc.Init.Backcolor.Blue = 0;
+  hltdc.Init.Backcolor.Blue = 50;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
   if (HAL_LTDC_Init(&hltdc) != HAL_OK)
