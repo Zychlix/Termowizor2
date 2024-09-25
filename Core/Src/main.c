@@ -36,11 +36,13 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-typedef struct pix
+typedef  __attribute((aligned())) struct pix
         {
-        uint8_t R;
-        uint8_t G;
         uint8_t B;
+        uint8_t G;
+        uint8_t R;
+        uint8_t A;
+//        uint8_t A;
         }pix_t;
 /* USER CODE END PM */
 
@@ -58,7 +60,7 @@ DMA_HandleTypeDef hdma_tim2_up;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
-pix_t fb[48000];
+volatile pix_t *fb= (pix_t*)0xD0000000;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -128,14 +130,35 @@ int main(void)
     hsdram1.Instance->SDRTR = 500;
 
 
-    for(int i = 0; i< (sizeof (fb)); i++)
+
+    for(int i = 0; i< 10; i++)
     {
-//        fb[i].R=0xff;
-        fb[i].G=0xff;
-//        fb[i].B=0xff;
+        for(int j =0; j<480; j++)
+        {
+            pix_t temp={0};
+            temp.A = 0xff;
+            if(j<300)
+            {
+                if(j>100)
+                {
+                    temp.R = i%255;
+                } else
+                {
+                    temp.G = i%255;
+                }
+            } else{
+                temp.B = i%255;
+            }
+            uint32_t aux = temp.A<<24 |temp.B<<16 |temp.G<<8 | temp.R;
+            *((uint32_t*)&fb[i*480+j]) = aux;
+
+        }
+
     }
-
-
+//    for(int  i = 0; i< 480*640; i++)
+//    {
+//        *(int32_t *)(0xD0000000+i*4) = 0xFFFF0000+i;
+//    }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -147,35 +170,36 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-//      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, 0);
-//      HAL_GPIO_WritePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin, 1);
 
+//      for(int i =0; i< 480*640; i++)
+//      {
+//          fb[i].R = 10;
+//          fb[i].G = 20;
+//          fb[i].B = 100;
+//      }
 
-      volatile uint32_t * address =(uint32_t *) 0xD0000000;
+//      volatile uint32_t * address =(uint32_t *) 0xD0000000;
+//
+//      *address = 0xAABBCCDD;
+//
+//      for(uint32_t i = 0; i<1e6; i++)
+//      {
+//          *address = i;
+//          address++;
+//      }
+//
+//      address =(uint32_t *) 0xD0000000;
+//      for(uint32_t i = 0; i<1e6; i++)
+//      {
+//          if(*address != i)
+//          {
+//              HAL_GPIO_TogglePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin);
+//          }
+//          address++;
+//      }
+//
+//      HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
 
-      *address = 0xAABBCCDD;
-
-      for(uint32_t i = 0; i<1e6; i++)
-      {
-          *address = i;
-          address++;
-      }
-
-      address =(uint32_t *) 0xD0000000;
-      for(uint32_t i = 0; i<1e6; i++)
-      {
-          if(*address != i)
-          {
-              HAL_GPIO_TogglePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin);
-          }
-          address++;
-      }
-//      HAL_GPIO_WritePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin, 1);
-//      HAL_GPIO_WritePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin, 0);
-
-      HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
-//      HAL_GPIO_TogglePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin);
-//      HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }
@@ -334,17 +358,17 @@ static void MX_LTDC_Init(void)
     Error_Handler();
   }
     pLayerCfg.WindowX0 = 0;
-    pLayerCfg.WindowX1 = 480;
+    pLayerCfg.WindowX1 = 200;
     pLayerCfg.WindowY0 = 0;
-    pLayerCfg.WindowY1 = 640;
-    pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_RGB888;
+    pLayerCfg.WindowY1 = 200;
+    pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
     pLayerCfg.Alpha = 0xff;
     pLayerCfg.Alpha0 = 0;
     pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
     pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
-    pLayerCfg.FBStartAdress = (uint32_t)(0xD0000000);
-    pLayerCfg.ImageWidth = 640;
-    pLayerCfg.ImageHeight = 480;
+    pLayerCfg.FBStartAdress = (uint32_t)fb;
+    pLayerCfg.ImageWidth = 480;
+    pLayerCfg.ImageHeight = 640;
     pLayerCfg.Backcolor.Blue = 0;
     pLayerCfg.Backcolor.Green = 0;
     pLayerCfg.Backcolor.Red = 0;
