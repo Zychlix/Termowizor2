@@ -165,6 +165,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
     HAL_GPIO_WritePin(LCD_PWM_GPIO_Port,LCD_PWM_Pin,GPIO_PIN_SET);
+    int loop_cnt;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -198,8 +199,13 @@ int main(void)
 //          address++;
 //      }
 //
-//      HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
-
+      HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
+    for(int  i = 0; i< 480*640; i++)
+    {
+        *(int32_t *)(0xD0000000+i*4) = loop_cnt;
+    }
+    loop_cnt++;
+//      HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
@@ -366,7 +372,7 @@ static void MX_LTDC_Init(void)
   pLayerCfg.Alpha0 = 255;
   pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
   pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
-  pLayerCfg.FBStartAdress = 0xD0000000;
+  pLayerCfg.FBStartAdress = 0;
   pLayerCfg.ImageWidth = 480;
   pLayerCfg.ImageHeight = 640;
   pLayerCfg.Backcolor.Blue = 100;

@@ -176,7 +176,7 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* hltdc)
     PeriphClkInitStruct.PLL3.PLL3N = 6;
     PeriphClkInitStruct.PLL3.PLL3P = 2;
     PeriphClkInitStruct.PLL3.PLL3Q = 2;
-    PeriphClkInitStruct.PLL3.PLL3R = 14;
+    PeriphClkInitStruct.PLL3.PLL3R = 10;
     PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_3;
     PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOMEDIUM;
     PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
@@ -533,7 +533,7 @@ static void HAL_FMC_MspInit(void){
   */
     PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC;
     PeriphClkInitStruct.PLL2.PLL2M = 2;
-    PeriphClkInitStruct.PLL2.PLL2N = 32;
+    PeriphClkInitStruct.PLL2.PLL2N = 42;
     PeriphClkInitStruct.PLL2.PLL2P = 2;
     PeriphClkInitStruct.PLL2.PLL2Q = 2;
     PeriphClkInitStruct.PLL2.PLL2R = 2;
