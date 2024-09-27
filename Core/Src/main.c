@@ -165,6 +165,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
     HAL_GPIO_WritePin(LCD_PWM_GPIO_Port,LCD_PWM_Pin,GPIO_PIN_SET);
+
+//    for(int  i = 0; i< 480*640; i++)
+//    {
+//        *(int32_t *)(0xD0400000+i*4) = 0xFF00FF00;
+//    }
     int loop_cnt;
   while (1)
   {
@@ -204,6 +209,7 @@ int main(void)
     {
         *(int32_t *)(0xD0000000+i*4) = loop_cnt;
     }
+//      *(uint32_t*)0x500010ac = 0xD0400000;//    LTDC_Layer
     loop_cnt++;
 //      HAL_Delay(10);
   }
@@ -372,7 +378,7 @@ static void MX_LTDC_Init(void)
   pLayerCfg.Alpha0 = 255;
   pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
   pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
-  pLayerCfg.FBStartAdress = 0;
+  pLayerCfg.FBStartAdress = 0xD0000000;
   pLayerCfg.ImageWidth = 480;
   pLayerCfg.ImageHeight = 640;
   pLayerCfg.Backcolor.Blue = 100;
@@ -506,19 +512,19 @@ static void MX_FMC_Init(void)
   hsdram1.Init.RowBitsNumber = FMC_SDRAM_ROW_BITS_NUM_12;
   hsdram1.Init.MemoryDataWidth = FMC_SDRAM_MEM_BUS_WIDTH_16;
   hsdram1.Init.InternalBankNumber = FMC_SDRAM_INTERN_BANKS_NUM_4;
-  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_3;
+  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_2;
   hsdram1.Init.WriteProtection = FMC_SDRAM_WRITE_PROTECTION_DISABLE;
   hsdram1.Init.SDClockPeriod = FMC_SDRAM_CLOCK_PERIOD_2;
   hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
   hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_1;
   /* SdramTiming */
-  SdramTiming.LoadToActiveDelay = 16;
-  SdramTiming.ExitSelfRefreshDelay = 16;
-  SdramTiming.SelfRefreshTime = 16;
-  SdramTiming.RowCycleDelay = 16;
-  SdramTiming.WriteRecoveryTime = 16;
-  SdramTiming.RPDelay = 16;
-  SdramTiming.RCDDelay = 16;
+  SdramTiming.LoadToActiveDelay = 2;
+  SdramTiming.ExitSelfRefreshDelay = 9;
+  SdramTiming.SelfRefreshTime = 9;
+  SdramTiming.RowCycleDelay = 9;
+  SdramTiming.WriteRecoveryTime = 9;
+  SdramTiming.RPDelay = 9;
+  SdramTiming.RCDDelay = 9;
 
   if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK)
   {

@@ -55,7 +55,6 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern SDRAM_HandleTypeDef hsdram1;
 extern DMA_HandleTypeDef hdma_tim2_up;
 /* USER CODE BEGIN EV */
 
@@ -211,20 +210,6 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
 
   /* USER CODE END DMA1_Stream0_IRQn 1 */
-}
-
-/**
-  * @brief This function handles FMC global interrupt.
-  */
-void FMC_IRQHandler(void)
-{
-  /* USER CODE BEGIN FMC_IRQn 0 */
-
-  /* USER CODE END FMC_IRQn 0 */
-  HAL_SDRAM_IRQHandler(&hsdram1);
-  /* USER CODE BEGIN FMC_IRQn 1 */
-
-  /* USER CODE END FMC_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
