@@ -78,6 +78,201 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+volatile uint8_t odebrane[60];
+volatile uint8_t indeks=0;
+volatile uint8_t flag=1;
+volatile FDCAN_RxHeaderTypeDef RxHeader;
+
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
+{
+    if(flag>0)
+    {
+        uint8_t liczba=0;
+
+        liczba = HAL_FDCAN_GetRxFifoFillLevel(hfdcan,RxFifo0ITs);
+        for ( uint8_t x=0; x<liczba; x++)
+        {
+            HAL_FDCAN_GetRxMessage(hfdcan, RxFifo0ITs, &RxHeader, odebrane);
+            indeks+=1;
+        }
+    }
+}
+
+void nadaj(uint32_t adres,uint8_t *wiadomosc)
+{
+    FDCAN_TxHeaderTypeDef Txheader;
+
+
+    uint32_t Txmailbox=0;
+
+    Txheader.DataLength=8;
+    Txheader.Identifier= adres;
+    Txheader.FDFormat= FDCAN_CLASSIC_CAN;
+    Txheader.IdType =  FDCAN_STANDARD_ID;
+    Txheader.TxFrameType = FDCAN_DATA_FRAME;
+    Txheader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
+//    HAL_CAN_AddTxMessage(&hcan1, &Txheader, wiadomosc, &Txmailbox);
+    HAL_FDCAN_AddMessageToTxBuffer(&hfdcan1,&Txheader,wiadomosc,FDCAN_TX_BUFFER0);
+    HAL_FDCAN_EnableTxBufferRequest(&hfdcan1,FDCAN_TX_BUFFER0);
+
+    while(HAL_FDCAN_IsTxBufferMessagePending(&hfdcan1, Txmailbox));
+
+
+}
+
+
+void md5(uint32_t *M, unsigned const N, uint32_t *h)
+{
+    static uint_fast8_t const g[64] = {
+            0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
+            1,  6, 11,  0,  5, 10, 15,  4,  9, 14,  3,  8, 13,  2,  7, 12,
+            5,  8, 11, 14,  1,  4,  7, 10, 13,  0,  3,  6,  9, 12, 15,  2,
+            0,  7, 14,  5, 12,  3, 10,  1,  8, 15,  6, 13,  4, 11,  2,  9
+    };
+
+    static uint_fast8_t const s[64] = {
+            7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,
+            5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,
+            4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,
+            6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21
+    };
+
+    static uint32_t const K[64] = {
+            0xD76AA478, 0xE8C7B756, 0x242070DB, 0xC1BDCEEE, 0xF57C0FAF, 0x4787C62A, 0xA8304613, 0xFD469501,
+            0x698098D8, 0x8B44F7AF, 0xFFFF5BB1, 0x895CD7BE, 0x6B901122, 0xFD987193, 0xA679438E, 0x49B40821,
+            0xF61E2562, 0xC040B340, 0x265E5A51, 0xE9B6C7AA, 0xD62F105D, 0x02441453, 0xD8A1E681, 0xE7D3FBC8,
+            0x21E1CDE6, 0xC33707D6, 0xF4D50D87, 0x455A14ED, 0xA9E3E905, 0xFCEFA3F8, 0x676F02D9, 0x8D2A4C8A,
+            0xFFFA3942, 0x8771F681, 0x6D9D6122, 0xFDE5380C, 0xA4BEEA44, 0x4BDECFA9, 0xF6BB4B60, 0xBEBFBC70,
+            0x289B7EC6, 0xEAA127FA, 0xD4EF3085, 0x04881D05, 0xD9D4D039, 0xE6DB99E5, 0x1FA27CF8, 0xC4AC5665,
+            0xF4292244, 0x432AFF97, 0xAB9423A7, 0xFC93A039, 0x655B59C3, 0x8F0CCC92, 0xFFEFF47D, 0x85845DD1,
+            0x6FA87E4F, 0xFE2CE6E0, 0xA3014314, 0x4E0811A1, 0xF7537E82, 0xBD3AF235, 0x2AD7D2BB, 0xEB86D391
+    };
+
+    uint32_t H[4] = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476 };
+
+    uint32_t *m = M + N;
+    *m++ = 0x00000080;
+    unsigned n = N;
+    while ((n & 15) != 13) *m++ = 0, ++n;
+    *m++ = N << 5; *m++ = 0;
+
+    for (; M < m; M += 16) {
+        uint32_t A = H[0], B = H[1], C = H[2], D = H[3];
+        for (n = 0; n < 64; ++n) {
+            uint32_t E = A + K[n] + M[g[n]];
+            switch (n >> 4) {
+                case 0: E += (B & C) | (~B & D); break;
+                case 1: E += (B & D) | (C & ~D); break;
+                case 2: E += B ^ C ^ D;         break;
+                case 3: E += (B | ~D) ^ C;       break;
+            }
+            A = D, D = C, C = B, B += (E << s[n]) | (E >> (32 - s[n]));
+        }
+        H[0] += A, H[1] += B, H[2] += C, H[3] += D;
+    }
+
+    h[0] = H[0], h[1] = H[1], h[2] = H[2], h[3] = H[3];
+}
+
+static uint32_t X[32];
+
+void autoliv_sk(uint8_t* sk)
+{
+    static uint32_t const ik[16] = {
+            0x575E597C, 0x10167A58, 0x58537A16, 0x77535F58, 0x36363636, 0x36363636, 0x36363636, 0x36363636,
+            0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636
+    };
+
+    uint8_t* k = sk;
+    unsigned n;
+    uint32_t* x = X; for (n = 0; n < 16; ++n) *x++ = ik[n];
+    for (n = 0; n < 4; ++n, sk += 4) *x++ = sk[0] | (sk[1] << 8) | (sk[2] << 16) | (sk[3] << 24);
+    md5(X, 20, X + 16);
+    x = X; for (n = 0; n < 16; ++n) *x++ ^= 0x6A6A6A6A;
+    md5(X, 20, X);
+    x = X; for (n = 0; n < 4; ++n, ++x, k += 4) k[0] = *x, k[1] = *x >> 8, k[2] = *x >> 16, k[3] = *x >> 24;
+}
+
+void odblokuj(void)
+{
+
+
+    uint8_t wiadomosc[8]={0x8B,0x02,0x27,0x01,0x55,0x55,0x55,0x55};
+    nadaj(0x657,wiadomosc);
+    HAL_Delay(100);
+    if(odebrane[25]!=0)
+    {
+        flag=0;
+        uint8_t s[16];
+        s[0] = odebrane[5]; s[1] = odebrane[6]; s[2] = odebrane[7];
+        s[3] = odebrane[10]; s[4] = odebrane[11]; s[5] = odebrane[12]; s[6] = odebrane[13]; s[7] = odebrane[14]; s[8] = odebrane[15];
+        s[9] = odebrane[18]; s[10] = odebrane[19]; s[11] = odebrane[20]; s[12] = odebrane[21]; s[13] = odebrane[22]; s[14] = odebrane[23];
+        s[15] = odebrane[26];
+        autoliv_sk(s);
+        wiadomosc[0]=0x8B;
+        wiadomosc[1]=0x10;
+        wiadomosc[2]=0x12;
+        wiadomosc[3]=0x27;
+        wiadomosc[4]=0x02;
+        wiadomosc[5]=s[0];
+        wiadomosc[6]=s[1];
+        wiadomosc[7]=s[2];
+        nadaj(0x657,wiadomosc);
+
+        wiadomosc[0]=0x8B;
+        wiadomosc[1]=0x21;
+        wiadomosc[2]=s[3];
+        wiadomosc[3]=s[4];
+        wiadomosc[4]=s[5];
+        wiadomosc[5]=s[6];
+        wiadomosc[6]=s[7];
+        wiadomosc[7]=s[8];
+        nadaj(0x657,wiadomosc);
+
+        wiadomosc[0]=0x8B;
+        wiadomosc[1]=0x22;
+        wiadomosc[2]=s[9];
+        wiadomosc[3]=s[10];
+        wiadomosc[4]=s[11];
+        wiadomosc[5]=s[12];
+        wiadomosc[6]=s[13];
+        wiadomosc[7]=s[14];
+        nadaj(0x657,wiadomosc);
+
+
+        wiadomosc[0]=0x8B;
+        wiadomosc[1]=0x23;
+        wiadomosc[2]=s[15];
+        wiadomosc[3]=s[10];
+        wiadomosc[4]=s[11];
+        wiadomosc[5]=s[12];
+        wiadomosc[6]=s[13];
+        wiadomosc[7]=s[14];
+        nadaj(0x657,wiadomosc);
+        HAL_FDCAN_Stop(&hfdcan1);
+
+    }
+}
+
+
+void przeslona (void)
+{
+
+
+    uint8_t wiadomosc[8]={0xC8, 0x64, 0x00, 0x00, 0x02 ,0x00, 0x00, 0x00};
+
+    //	 nadaj(0x401, wiadomosc);
+
+//HAL_Delay(300);
+
+    wiadomosc[4]= 0x04;
+    nadaj(0x401, wiadomosc);
+    wiadomosc[4]= 0x00;
+    nadaj(0x401, wiadomosc);
+    HAL_Delay(50);
+
+
+}
 
 /* USER CODE END 0 */
 
@@ -155,6 +350,14 @@ int main(void)
         }
 
     }
+
+    HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
+
+    HAL_FDCAN_Start(&hfdcan1);
+//    HAL_FDCAN_EnableTxBufferRequest(&hfdcan1,FDCAN_TX_BUFFER0);
+    odblokuj();
+    przeslona();
+
 //    for(int  i = 0; i< 480*640; i++)
 //    {
 //        *(int32_t *)(0xD0000000+i*4) = 0xFFFF0000;
@@ -205,6 +408,7 @@ int main(void)
 //      }
 //
       HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
+
     for(int  i = 0; i< 480*640; i++)
     {
         *(int32_t *)(0xD0000000+i*4) = loop_cnt;
@@ -250,7 +454,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 5;
   RCC_OscInitStruct.PLL.PLLN = 192;
   RCC_OscInitStruct.PLL.PLLP = 2;
-  RCC_OscInitStruct.PLL.PLLQ = 8;
+  RCC_OscInitStruct.PLL.PLLQ = 10;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_2;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
@@ -300,26 +504,26 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.AutoRetransmission = DISABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 16;
+  hfdcan1.Init.NominalPrescaler = 53;
   hfdcan1.Init.NominalSyncJumpWidth = 1;
-  hfdcan1.Init.NominalTimeSeg1 = 2;
+  hfdcan1.Init.NominalTimeSeg1 = 15;
   hfdcan1.Init.NominalTimeSeg2 = 2;
   hfdcan1.Init.DataPrescaler = 1;
   hfdcan1.Init.DataSyncJumpWidth = 1;
   hfdcan1.Init.DataTimeSeg1 = 1;
   hfdcan1.Init.DataTimeSeg2 = 1;
   hfdcan1.Init.MessageRAMOffset = 0;
-  hfdcan1.Init.StdFiltersNbr = 0;
-  hfdcan1.Init.ExtFiltersNbr = 0;
-  hfdcan1.Init.RxFifo0ElmtsNbr = 0;
+  hfdcan1.Init.StdFiltersNbr = 1;
+  hfdcan1.Init.ExtFiltersNbr = 1;
+  hfdcan1.Init.RxFifo0ElmtsNbr = 1;
   hfdcan1.Init.RxFifo0ElmtSize = FDCAN_DATA_BYTES_8;
   hfdcan1.Init.RxFifo1ElmtsNbr = 0;
   hfdcan1.Init.RxFifo1ElmtSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.RxBuffersNbr = 0;
+  hfdcan1.Init.RxBuffersNbr = 1;
   hfdcan1.Init.RxBufferSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.TxEventsNbr = 0;
-  hfdcan1.Init.TxBuffersNbr = 0;
-  hfdcan1.Init.TxFifoQueueElmtsNbr = 0;
+  hfdcan1.Init.TxEventsNbr = 1;
+  hfdcan1.Init.TxBuffersNbr = 1;
+  hfdcan1.Init.TxFifoQueueElmtsNbr = 5;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
   if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
