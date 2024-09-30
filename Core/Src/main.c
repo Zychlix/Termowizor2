@@ -65,6 +65,7 @@ volatile pix_t *fb= (pix_t*)0xD0000000;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_FDCAN1_Init(void);
@@ -89,10 +90,10 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
     {
         uint8_t liczba=0;
 
-        liczba = HAL_FDCAN_GetRxFifoFillLevel(hfdcan,RxFifo0ITs);
+        liczba = HAL_FDCAN_GetRxFifoFillLevel(hfdcan,FDCAN_RX_FIFO0);
         for ( uint8_t x=0; x<liczba; x++)
         {
-            HAL_FDCAN_GetRxMessage(hfdcan, RxFifo0ITs, &RxHeader, odebrane);
+            HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader, odebrane+8*indeks);
             indeks+=1;
         }
     }
@@ -105,9 +106,9 @@ void nadaj(uint32_t adres,uint8_t *wiadomosc)
 
     uint32_t Txmailbox=0;
 
-    Txheader.DataLength=8;
-    Txheader.Identifier= adres;
-    Txheader.FDFormat= FDCAN_CLASSIC_CAN;
+    Txheader.DataLength=FDCAN_DLC_BYTES_8;
+    Txheader.Identifier = adres;
+    Txheader.FDFormat = FDCAN_CLASSIC_CAN;
     Txheader.IdType =  FDCAN_STANDARD_ID;
     Txheader.TxFrameType = FDCAN_DATA_FRAME;
     Txheader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
@@ -198,6 +199,7 @@ void odblokuj(void)
 
 
     uint8_t wiadomosc[8]={0x8B,0x02,0x27,0x01,0x55,0x55,0x55,0x55};
+
     nadaj(0x657,wiadomosc);
     HAL_Delay(100);
     if(odebrane[25]!=0)
@@ -219,6 +221,7 @@ void odblokuj(void)
         wiadomosc[7]=s[2];
         nadaj(0x657,wiadomosc);
 
+        HAL_Delay(10);
         wiadomosc[0]=0x8B;
         wiadomosc[1]=0x21;
         wiadomosc[2]=s[3];
@@ -229,6 +232,7 @@ void odblokuj(void)
         wiadomosc[7]=s[8];
         nadaj(0x657,wiadomosc);
 
+        HAL_Delay(10);
         wiadomosc[0]=0x8B;
         wiadomosc[1]=0x22;
         wiadomosc[2]=s[9];
@@ -240,6 +244,7 @@ void odblokuj(void)
         nadaj(0x657,wiadomosc);
 
 
+        HAL_Delay(10);
         wiadomosc[0]=0x8B;
         wiadomosc[1]=0x23;
         wiadomosc[2]=s[15];
@@ -249,6 +254,8 @@ void odblokuj(void)
         wiadomosc[6]=s[13];
         wiadomosc[7]=s[14];
         nadaj(0x657,wiadomosc);
+
+        HAL_Delay(10);
         HAL_FDCAN_Stop(&hfdcan1);
 
     }
@@ -261,9 +268,12 @@ void przeslona (void)
 
     uint8_t wiadomosc[8]={0xC8, 0x64, 0x00, 0x00, 0x02 ,0x00, 0x00, 0x00};
 
-    //	 nadaj(0x401, wiadomosc);
+    HAL_FDCAN_Start(&hfdcan1);
 
-//HAL_Delay(300);
+    //nadaj(0x401, wiadomosc);
+    //HAL_Delay(300);
+
+    HAL_Delay(100);
 
     wiadomosc[4]= 0x04;
     nadaj(0x401, wiadomosc);
@@ -271,7 +281,7 @@ void przeslona (void)
     nadaj(0x401, wiadomosc);
     HAL_Delay(50);
 
-
+    HAL_FDCAN_Stop(&hfdcan1);
 }
 
 /* USER CODE END 0 */
@@ -297,6 +307,9 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
+
+/* Configure the peripherals common clocks */
+  PeriphCommonClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
@@ -351,10 +364,15 @@ int main(void)
 
     }
 
+    HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn,0,0);
+    HAL_NVIC_SetPriority(FDCAN1_IT1_IRQn,0,0);
     HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
+    HAL_NVIC_EnableIRQ(FDCAN1_IT1_IRQn);
 
     HAL_FDCAN_Start(&hfdcan1);
+    HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0);
 //    HAL_FDCAN_EnableTxBufferRequest(&hfdcan1,FDCAN_TX_BUFFER0);
+
     odblokuj();
     przeslona();
 
@@ -484,6 +502,33 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief Peripherals Common Clock Configuration
+  * @retval None
+  */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+  */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC|RCC_PERIPHCLK_FDCAN;
+  PeriphClkInitStruct.PLL2.PLL2M = 25;
+  PeriphClkInitStruct.PLL2.PLL2N = 216;
+  PeriphClkInitStruct.PLL2.PLL2P = 2;
+  PeriphClkInitStruct.PLL2.PLL2Q = 2;
+  PeriphClkInitStruct.PLL2.PLL2R = 1;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_0;
+  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
+  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
+  PeriphClkInitStruct.FmcClockSelection = RCC_FMCCLKSOURCE_PLL2;
+  PeriphClkInitStruct.FdcanClockSelection = RCC_FDCANCLKSOURCE_PLL2;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
   * @brief FDCAN1 Initialization Function
   * @param None
   * @retval None
@@ -501,29 +546,29 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Instance = FDCAN1;
   hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
   hfdcan1.Init.Mode = FDCAN_MODE_NORMAL;
-  hfdcan1.Init.AutoRetransmission = DISABLE;
+  hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 53;
+  hfdcan1.Init.NominalPrescaler = 60;
   hfdcan1.Init.NominalSyncJumpWidth = 1;
   hfdcan1.Init.NominalTimeSeg1 = 15;
   hfdcan1.Init.NominalTimeSeg2 = 2;
   hfdcan1.Init.DataPrescaler = 1;
   hfdcan1.Init.DataSyncJumpWidth = 1;
-  hfdcan1.Init.DataTimeSeg1 = 1;
-  hfdcan1.Init.DataTimeSeg2 = 1;
+  hfdcan1.Init.DataTimeSeg1 = 15;
+  hfdcan1.Init.DataTimeSeg2 = 2;
   hfdcan1.Init.MessageRAMOffset = 0;
-  hfdcan1.Init.StdFiltersNbr = 1;
-  hfdcan1.Init.ExtFiltersNbr = 1;
-  hfdcan1.Init.RxFifo0ElmtsNbr = 1;
+  hfdcan1.Init.StdFiltersNbr = 0;
+  hfdcan1.Init.ExtFiltersNbr = 0;
+  hfdcan1.Init.RxFifo0ElmtsNbr = 3;
   hfdcan1.Init.RxFifo0ElmtSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.RxFifo1ElmtsNbr = 0;
+  hfdcan1.Init.RxFifo1ElmtsNbr = 1;
   hfdcan1.Init.RxFifo1ElmtSize = FDCAN_DATA_BYTES_8;
-  hfdcan1.Init.RxBuffersNbr = 1;
+  hfdcan1.Init.RxBuffersNbr = 3;
   hfdcan1.Init.RxBufferSize = FDCAN_DATA_BYTES_8;
   hfdcan1.Init.TxEventsNbr = 1;
-  hfdcan1.Init.TxBuffersNbr = 1;
-  hfdcan1.Init.TxFifoQueueElmtsNbr = 5;
+  hfdcan1.Init.TxBuffersNbr = 3;
+  hfdcan1.Init.TxFifoQueueElmtsNbr = 1;
   hfdcan1.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
   hfdcan1.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
   if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK)
