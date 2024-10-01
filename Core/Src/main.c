@@ -54,25 +54,24 @@ LTDC_HandleTypeDef hltdc;
 
 SD_HandleTypeDef hsd2;
 
-TIM_HandleTypeDef htim2;
-DMA_HandleTypeDef hdma_tim2_up;
-
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
 volatile pix_t *fb= (pix_t*)0xD0000000;
+
+volatile uint16_t pix_index = 0;
+
+volatile uint16_t * buffer;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
-static void MX_FDCAN1_Init(void);
 static void MX_SDMMC2_SD_Init(void);
 static void MX_FMC_Init(void);
 static void MX_LTDC_Init(void);
-static void MX_TIM2_Init(void);
+static void MX_FDCAN1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -284,6 +283,13 @@ void przeslona (void)
     HAL_FDCAN_Stop(&hfdcan1);
 }
 
+void dma_config()
+{
+    __HAL_RCC_DMA1_CLK_ENABLE();
+
+}
+
+
 /* USER CODE END 0 */
 
 /**
@@ -317,12 +323,10 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_FDCAN1_Init();
   MX_SDMMC2_SD_Init();
   MX_FMC_Init();
   MX_LTDC_Init();
-  MX_TIM2_Init();
+  MX_FDCAN1_Init();
   /* USER CODE BEGIN 2 */
   HAL_SDRAM_MspInit(&hsdram1);
   hsdram1.Instance = FMC_SDRAM_DEVICE;
@@ -373,9 +377,11 @@ int main(void)
     HAL_FDCAN_ActivateNotification(&hfdcan1, FDCAN_IT_RX_FIFO0_NEW_MESSAGE, 0);
 //    HAL_FDCAN_EnableTxBufferRequest(&hfdcan1,FDCAN_TX_BUFFER0);
 
+    HAL_Delay(500);
     odblokuj();
     przeslona();
 
+    dma_config();
 //    for(int  i = 0; i< 480*640; i++)
 //    {
 //        *(int32_t *)(0xD0000000+i*4) = 0xFFFF0000;
@@ -426,11 +432,11 @@ int main(void)
 //      }
 //
       HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
-
-    for(int  i = 0; i< 480*640; i++)
-    {
-        *(int32_t *)(0xD0000000+i*4) = loop_cnt;
-    }
+      HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+//    for(int  i = 0; i< 480*640; i++)
+//    {
+//        *(int32_t *)(0xD0000000+i*4) = loop_cnt;
+//    }
 //      *(uint32_t*)0x500010ac = 0xD0400000;//    LTDC_Layer
     loop_cnt++;
 //      HAL_Delay(10);
@@ -674,70 +680,6 @@ static void MX_SDMMC2_SD_Init(void)
 
 }
 
-/**
-  * @brief TIM2 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM2_Init(void)
-{
-
-  /* USER CODE BEGIN TIM2_Init 0 */
-
-  /* USER CODE END TIM2_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 0;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 0;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_ETRMODE2;
-  sClockSourceConfig.ClockPolarity = TIM_CLOCKPOLARITY_NONINVERTED;
-  sClockSourceConfig.ClockPrescaler = TIM_CLOCKPRESCALER_DIV1;
-  sClockSourceConfig.ClockFilter = 0;
-  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
-
-  /* USER CODE END TIM2_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
-
-}
-
 /* FMC initialization function */
 static void MX_FMC_Init(void)
 {
@@ -873,6 +815,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PB10 PB11 */
   GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -903,11 +851,23 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C4;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PH8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF2_TIM5;
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
+
   /*Configure GPIO pins : SW_MODE_Pin SW_PICTURE_Pin */
   GPIO_InitStruct.Pin = SW_MODE_Pin|SW_PICTURE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+//  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
   /*  GPIO_InitStruct.Pin = GPIO_PIN_8;

@@ -67,8 +67,6 @@ void Error_Handler(void);
 #define LCD_PWM_GPIO_Port GPIOB
 #define DES_LOCK_Pin GPIO_PIN_1
 #define DES_LOCK_GPIO_Port GPIOA
-#define DES_RCLK_Pin GPIO_PIN_0
-#define DES_RCLK_GPIO_Port GPIOA
 #define SD_DET_A_Pin GPIO_PIN_11
 #define SD_DET_A_GPIO_Port GPIOD
 #define IO_AUX_Pin GPIO_PIN_5

@@ -26,6 +26,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
+extern volatile uint32_t pix_index;
 
 /* USER CODE END TD */
 
@@ -56,7 +57,6 @@
 
 /* External variables --------------------------------------------------------*/
 extern FDCAN_HandleTypeDef hfdcan1;
-extern DMA_HandleTypeDef hdma_tim2_up;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -200,17 +200,24 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles DMA1 stream0 global interrupt.
+  * @brief This function handles EXTI line0 interrupt.
   */
-void DMA1_Stream0_IRQHandler(void)
+void EXTI0_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
+  /* USER CODE BEGIN EXTI0_IRQn 0 */
 
-  /* USER CODE END DMA1_Stream0_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_tim2_up);
-  /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
+  if(pix_index >= 100000) pix_index =0;
 
-  /* USER CODE END DMA1_Stream0_IRQn 1 */
+    *(uint32_t*)(0xD0000000 + pix_index*4) = GPIOC->IDR;
+    pix_index++;
+//    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+
+  return;
+  /* USER CODE END EXTI0_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN EXTI0_IRQn 1 */
+
+  /* USER CODE END EXTI0_IRQn 1 */
 }
 
 /**
