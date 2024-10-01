@@ -202,24 +202,25 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles EXTI line0 interrupt.
   */
-  uint32_t x=0;
-uint32_t y=0;
-uint32_t z=0;
+  volatile unsigned int x, y, u;
 void EXTI0_IRQHandler(void)
 {
-    z=GPIOC->IDR;
   /* USER CODE BEGIN EXTI0_IRQn 0 */
-if (z&(1<<15))
+  u=GPIOC->IDR;
+if ((GPIOA->IDR)&(1<<3))
 {
     x = 0;
+    if (y <288)
     y += 1;
-    if (y > 288)
-        y = 0;
 
 }
-*(uint32_t*)(0xD0000000 + x*4+y*4*480) = z;
+    if ((GPIOC->IDR)&(1<<15))
+    {
+        y=0;
+    }
+*(uint32_t*)(0xD0000000 + x*4+y*4*480) =0xFFFFFFFF;
 
-if(x<450)
+if(x<356)
     x+=1;
 //    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
 
