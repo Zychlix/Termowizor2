@@ -200,36 +200,17 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles EXTI line0 interrupt.
+  * @brief This function handles DMA1 stream0 global interrupt.
   */
-  volatile unsigned int x, y, u;
-void EXTI0_IRQHandler(void)
+void DMA1_Stream0_IRQHandler(void)
 {
-  /* USER CODE BEGIN EXTI0_IRQn 0 */
-  u=GPIOC->IDR;
-if ((GPIOA->IDR)&(1<<3))
-{
-    x = 0;
-    if (y <288)
-    y += 1;
+  /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
 
-}
-    if ((GPIOC->IDR)&(1<<15))
-    {
-        y=0;
-    }
-*(uint32_t*)(0xD0000000 + x*4+y*4*480) =0xFFFFFFFF;
+  /* USER CODE END DMA1_Stream0_IRQn 0 */
 
-if(x<356)
-    x+=1;
-//    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+  /* USER CODE BEGIN DMA1_Stream0_IRQn 1 */
 
-  return;
-  /* USER CODE END EXTI0_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
-  /* USER CODE BEGIN EXTI0_IRQn 1 */
-
-  /* USER CODE END EXTI0_IRQn 1 */
+  /* USER CODE END DMA1_Stream0_IRQn 1 */
 }
 
 /**
