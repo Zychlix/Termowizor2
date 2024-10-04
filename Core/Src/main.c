@@ -323,7 +323,6 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_FMC_Init();
-  MX_LTDC_Init();
   MX_FDCAN1_Init();
   MX_SDMMC2_SD_Init();
   MX_TIM2_Init();
@@ -348,19 +347,22 @@ int main(void)
         for(int j =0; j<480; j++)
         {
             pix_t temp={0};
-            temp.A = 0xff;
-            if(j<300)
-            {
-                if(j>100)
-                {
-                    temp.R = (i/3%255);
-                } else
-                {
-                    temp.G = (i/3%255);
-                }
-            } else{
-                temp.B = (i/3%255);
-            }
+            temp.A = 0;
+            temp.R = 0;
+            temp.G = 0;
+            temp.B = 0;
+//            if(j<300)
+//            {
+//                if(j>100)
+//                {
+//                    temp.R = (i/3%255);
+//                } else
+//                {
+//                    temp.G = (i/3%255);
+//                }
+//            } else{
+//                temp.B = (i/3%255);
+//            }
             uint32_t aux = temp.A<<24 |temp.B<<16 |temp.G<<8 | temp.R;
             *((uint32_t*)&fb[i*480+j]) = aux;
 
@@ -409,7 +411,10 @@ int main(void)
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
     HAL_Delay(100);
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-  while (1)
+    HAL_Delay(100);
+    MX_LTDC_Init();
+
+    while (1)
   {
     /* USER CODE END WHILE */
 
@@ -712,11 +717,11 @@ static void MX_TIM2_Init(void)
 
   LL_DMA_SetPeriphSize(DMA1, LL_DMA_STREAM_0, LL_DMA_PDATAALIGN_WORD);
 
-  LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_WORD);
+  LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_HALFWORD);
 
   LL_DMA_EnableFifoMode(DMA1, LL_DMA_STREAM_0);
 
-  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_FULL);
+  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_1_2);
 
   LL_DMA_SetMemoryBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_MBURST_INC4);
 
@@ -756,7 +761,7 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Stream0_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),1, 0));
+  NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),2, 0));
   NVIC_EnableIRQ(DMA1_Stream0_IRQn);
 
 }
