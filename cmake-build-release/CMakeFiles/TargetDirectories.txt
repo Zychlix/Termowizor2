@@ -1,0 +1,3 @@
+/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/YTAR.elf.dir
+/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/edit_cache.dir
+/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/rebuild_cache.dir

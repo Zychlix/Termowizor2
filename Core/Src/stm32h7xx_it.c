@@ -27,7 +27,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-extern volatile uint32_t pix_index;
+extern volatile uint32_t  pix_index;
+//static uint32_t buffer[350*2];
+
+uint32_t * volatile read = (void*)(0x30000000);
+uint32_t * volatile write = (void*)(0x30000000+350*4);
 
 /* USER CODE END TD */
 
@@ -58,6 +62,7 @@ volatile uint32_t line_cnt;
 
 /* External variables --------------------------------------------------------*/
 extern FDCAN_HandleTypeDef hfdcan1;
+extern LTDC_HandleTypeDef hltdc;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -206,6 +211,12 @@ void SysTick_Handler(void)
 void DMA1_Stream0_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
+  LL_DMA_ClearFlag_TC0(DMA1);
+  volatile uint32_t* ptr = read;
+  for(int i = 0; i < 320; i++)
+  {
+      *(uint32_t *)(0xD0000000 + 480*4*line_cnt + i*4) = *(ptr + i);
+  }
 
   /* USER CODE END DMA1_Stream0_IRQn 0 */
 
@@ -236,8 +247,10 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
   uint32_t port = GPIOC->IDR;
 //    for (volatile int i = 0; i < 5000; ++i) {}
-//    LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_2);
-    LL_DMA_ClearFlag_TC0(DMA1);
+    LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_2);
+    //LL_DMA_ClearFlag_TC0(DMA1);
+    LL_DMA_ClearFlag_FE0(DMA1);
+    LL_DMA_ClearFlag_TE0(DMA1);
     if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U)
 {
     if(line_cnt>200)
@@ -255,7 +268,16 @@ else if(!(port & GPIO_PIN_9))
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
 */
 
-    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0000000 + 480*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0000000 + 480*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0200000), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+
+    //__disable_irq();
+    uint32_t* tmp = read;
+    read = write;
+    write = tmp;
+    //__enable_irq();
+
+    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (uint32_t)write, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
     LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
     LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 160);
     LL_TIM_EnableDMAReq_UPDATE(TIM2);
@@ -266,7 +288,7 @@ else if(!(port & GPIO_PIN_9))
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
 
     if(line_cnt< 256)
-    line_cnt++;
+        line_cnt++;
 }
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
@@ -274,6 +296,20 @@ else if(!(port & GPIO_PIN_9))
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
   /* USER CODE END EXTI15_10_IRQn 1 */
+}
+
+/**
+  * @brief This function handles LTDC global interrupt.
+  */
+void LTDC_IRQHandler(void)
+{
+  /* USER CODE BEGIN LTDC_IRQn 0 */
+
+  /* USER CODE END LTDC_IRQn 0 */
+  HAL_LTDC_IRQHandler(&hltdc);
+  /* USER CODE BEGIN LTDC_IRQn 1 */
+
+  /* USER CODE END LTDC_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
