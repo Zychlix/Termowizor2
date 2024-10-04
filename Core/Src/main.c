@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -303,6 +303,12 @@ int main(void)
 
   /* USER CODE END 1 */
 
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
+
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
+
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -323,6 +329,7 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_FMC_Init();
+  //MX_LTDC_Init();
   MX_FDCAN1_Init();
   MX_SDMMC2_SD_Init();
   MX_TIM2_Init();
@@ -403,16 +410,17 @@ int main(void)
 
     LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
     LL_TIM_EnableCounter(TIM2);
-    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, 0xD0000000, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 320);
+    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, 0xD0000000, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    //LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 320);
 //    LL_TIM_EnableDMAReq_UPDATE(TIM2);
-    LL_TIM_EnableDMAReq_CC1(TIM2);
+    //LL_TIM_EnableDMAReq_CC1(TIM2);
     //LL_TIM_EnableIT_UPDATE(TIM2);
-    LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
+    //LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
     HAL_Delay(100);
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
     HAL_Delay(100);
     MX_LTDC_Init();
+    HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
     while (1)
   {
@@ -447,8 +455,11 @@ int main(void)
 //          address++;
 //      }
 //
-      HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
-      HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+        //memcpy((void*)0xD0000000, (void*)0xD0200000,320*480*4);
+        //HAL_Delay(100);
+        //HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
+
+
 //    for(int  i = 0; i< 480*640; i++)
 //    {
 //        *(int32_t *)(0xD0000000+i*4) = loop_cnt;
@@ -717,11 +728,11 @@ static void MX_TIM2_Init(void)
 
   LL_DMA_SetPeriphSize(DMA1, LL_DMA_STREAM_0, LL_DMA_PDATAALIGN_WORD);
 
-  LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_HALFWORD);
+  LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_WORD);
 
   LL_DMA_EnableFifoMode(DMA1, LL_DMA_STREAM_0);
 
-  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_1_2);
+  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_FULL);
 
   LL_DMA_SetMemoryBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_MBURST_INC4);
 
@@ -761,7 +772,7 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Stream0_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),2, 0));
+  NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
   NVIC_EnableIRQ(DMA1_Stream0_IRQn);
 
 }
