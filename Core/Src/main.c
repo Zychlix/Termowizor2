@@ -426,31 +426,44 @@ int main(void)
     //LL_TIM_EnableIT_UPDATE(TIM2);
     //LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
     HAL_Delay(100);
-    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
     HAL_Delay(100);
     MX_LTDC_Init();
-    HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
 
     LL_DMA_EnableIT_TC(DMA1,LL_DMA_STREAM_0);
     MX_LTDC_Init();
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
     HAL_NVIC_SetPriority(LTDC_IRQn,0,0);
+    LL_DMA_ClearFlag_TC0(DMA1);
+    LL_DMA_ClearFlag_FE0(DMA1);
+    LL_DMA_ClearFlag_TE0(DMA1);
+    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0200000), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
+    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 65530);
+    LL_TIM_EnableDMAReq_UPDATE(TIM2);
+    LL_TIM_EnableDMAReq_CC1(TIM2);
+  //   LL_TIM_EnableIT_UPDATE(TIM2);
+
+    LL_TIM_EnableCounter(TIM2);
+    LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
+
+
     while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    uint32_t * gej=(uint32_t *)0xD0000000;
+    uint32_t gej=0;
 for (uint32_t x =0;x<16384; x++)
 {
     uint32_t reg = *(uint32_t*)(0xD0200000 + x*4);
-    if((reg&HSYNC_PIN)&&!(reg&(1<<9)))
+    if((reg&(1<<14)))
     {
-        for(uint32_t huj=0;huj<320;huj++)
-        {
-            *(gej+huj)=*(uint32_t*)(0xD0200000 + x*4+huj*4);
-        }
-        gej+=480;
+
+            memcpy((void*)(0xD0000000+gej),(void*)(0xD0200000 + x*4),800);
+
+        gej+=480*4;
     }
 }
 //      for(int i =0; i< 480*640; i++)
@@ -772,7 +785,7 @@ static void MX_TIM2_Init(void)
 
   LL_DMA_SetStreamPriorityLevel(DMA1, LL_DMA_STREAM_0, LL_DMA_PRIORITY_VERYHIGH);
 
-  LL_DMA_SetMode(DMA1, LL_DMA_STREAM_0, LL_DMA_MODE_NORMAL);
+  LL_DMA_SetMode(DMA1, LL_DMA_STREAM_0, LL_DMA_MODE_CIRCULAR);
 
   LL_DMA_SetPeriphIncMode(DMA1, LL_DMA_STREAM_0, LL_DMA_PERIPH_NOINCREMENT);
 
@@ -782,13 +795,7 @@ static void MX_TIM2_Init(void)
 
   LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_WORD);
 
-  LL_DMA_EnableFifoMode(DMA1, LL_DMA_STREAM_0);
-
-  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_1_2);
-
-  LL_DMA_SetMemoryBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_MBURST_SINGLE);
-
-  LL_DMA_SetPeriphBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_PBURST_SINGLE);
+  LL_DMA_DisableFifoMode(DMA1, LL_DMA_STREAM_0);
 
   /* USER CODE BEGIN TIM2_Init 1 */
 
@@ -1013,9 +1020,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
   /*  GPIO_InitStruct.Pin = GPIO_PIN_8;
