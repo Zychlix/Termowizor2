@@ -362,18 +362,18 @@ int main(void)
             temp.R = 0;
             temp.G = 0;
             temp.B = 0;
-//            if(j<300)
-//            {
-//                if(j>100)
-//                {
-//                    temp.R = (i/3%255);
-//                } else
-//                {
-//                    temp.G = (i/3%255);
-//                }
-//            } else{
-//                temp.B = (i/3%255);
-//            }
+            if(j<300)
+            {
+                if(j>100)
+                {
+                    temp.R = (i/3%255);
+                } else
+                {
+                    temp.G = (i/3%255);
+                }
+            } else{
+                temp.B = (i/3%255);
+            }
             uint32_t aux = temp.A<<24 |temp.B<<16 |temp.G<<8 | temp.R;
             *((uint32_t*)&fb[i*480+j]) = aux;
 
@@ -397,6 +397,7 @@ int main(void)
     HAL_Delay(500);
     odblokuj();
     przeslona();
+    HAL_FDCAN_Stop(&hfdcan1);
 
     dma_config();
 //    for(int  i = 0; i< 480*640; i++)
@@ -431,7 +432,7 @@ int main(void)
     HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
     LL_DMA_EnableIT_TC(DMA1,LL_DMA_STREAM_0);
-
+    MX_LTDC_Init();
     while (1)
   {
     /* USER CODE END WHILE */
@@ -646,13 +647,13 @@ static void MX_LTDC_Init(void)
   hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
   hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
-  hltdc.Init.HorizontalSync = 15;
+  hltdc.Init.HorizontalSync = 31;
   hltdc.Init.VerticalSync = 9;
-  hltdc.Init.AccumulatedHBP = 25;
+  hltdc.Init.AccumulatedHBP = 51;
   hltdc.Init.AccumulatedVBP = 24;
-  hltdc.Init.AccumulatedActiveW = 505;
+  hltdc.Init.AccumulatedActiveW = 531;
   hltdc.Init.AccumulatedActiveH = 664;
-  hltdc.Init.TotalWidth = 531;
+  hltdc.Init.TotalWidth = 557;
   hltdc.Init.TotalHeigh = 689;
   hltdc.Init.Backcolor.Blue = 50;
   hltdc.Init.Backcolor.Green = 0;
@@ -767,7 +768,13 @@ static void MX_TIM2_Init(void)
 
   LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_WORD);
 
-  LL_DMA_DisableFifoMode(DMA1, LL_DMA_STREAM_0);
+  LL_DMA_EnableFifoMode(DMA1, LL_DMA_STREAM_0);
+
+  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_1_2);
+
+  LL_DMA_SetMemoryBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_MBURST_SINGLE);
+
+  LL_DMA_SetPeriphBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_PBURST_SINGLE);
 
   /* USER CODE BEGIN TIM2_Init 1 */
 
