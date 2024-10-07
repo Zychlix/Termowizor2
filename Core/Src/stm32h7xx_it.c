@@ -269,6 +269,7 @@ void EXTI15_10_IRQHandler(void)
 }
 else if(!(port & GPIO_PIN_9))   //Ramka dobra
 {
+    line_cnt++;
   /*
 
 
@@ -301,7 +302,7 @@ else if(!(port & GPIO_PIN_9))   //Ramka dobra
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
     LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
     LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
-    line_cnt++;
+
 
 }
   /* USER CODE END EXTI15_10_IRQn 0 */

@@ -312,9 +312,9 @@ void copy_task()
 
     while (line_ready - next_line < LINE_DELAY && line_ready != next_line)
     {
-        //for (volatile int del = 0; del < 1000000; ++del);
+        //for (volatile int del = 0; del < 100000; ++del);
         for (int pixel = 0; pixel < 325; pixel++) {
-            *(uint32_t *) (0xD0000000 + 4 * pixel + 480 * next_line * 4) = (((cam_buffer[pixel + 325 * next_line]) << 8) | 0xFF) & (pixel * 257);
+            *(uint32_t *) (0xD0000000 + 4 * pixel + 480 * next_line * 4) = (((cam_buffer[pixel + 325 * next_line]) << 8) | 0xFF);
         }
 
         ++next_line;
@@ -385,9 +385,22 @@ int main(void)
     hsdram1.Instance->SDCMR = 0b111101011; // 6
     hsdram1.Instance->SDCMR = 0b00000000110000000001100;//Load mode register
     hsdram1.Instance->SDRTR = 500;
+/*
+    for (int i = 0; i < 15; ++i) {
 
+        GPIOI->BSRR |= (1 << 20);
 
+        LL_DMA_ConfigAddresses(DMA2, LL_DMA_STREAM_0, (uint32_t) cam_buffer, 0xD0030000,
+                               LL_DMA_DIRECTION_MEMORY_TO_MEMORY);
+        LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_0, 65535);
+        LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_0);
+        LL_DMA_ClearFlag_TC0(DMA2);
 
+        GPIOI->BSRR |= (1 << 4);
+
+        HAL_Delay(500);
+    }
+*/
     for(int i = 0; i< 640; i++)
     {
         for(int j =0; j<480; j++)
@@ -614,10 +627,10 @@ void PeriphCommonClock_Config(void)
   */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC|RCC_PERIPHCLK_FDCAN;
   PeriphClkInitStruct.PLL2.PLL2M = 2;
-  PeriphClkInitStruct.PLL2.PLL2N = 60;
+  PeriphClkInitStruct.PLL2.PLL2N = 66;
   PeriphClkInitStruct.PLL2.PLL2P = 2;
   PeriphClkInitStruct.PLL2.PLL2Q = 10;
-  PeriphClkInitStruct.PLL2.PLL2R = 4;
+  PeriphClkInitStruct.PLL2.PLL2R = 3;
   PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
   PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
@@ -827,7 +840,7 @@ static void MX_TIM2_Init(void)
 
   LL_DMA_EnableFifoMode(DMA1, LL_DMA_STREAM_0);
 
-  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_1_2);
+  LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_FULL);
 
   LL_DMA_SetMemoryBurstxfer(DMA1, LL_DMA_STREAM_0, LL_DMA_MBURST_SINGLE);
 
@@ -864,6 +877,45 @@ static void MX_DMA_Init(void)
   /* Init with LL driver */
   /* DMA controller clock enable */
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
+  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA2);
+
+  /* Configure DMA request MEMTOMEM_DMA2_Stream0 */
+
+  /* Select Request */
+  LL_DMA_SetPeriphRequest(DMA2, LL_DMA_STREAM_0, LL_DMAMUX1_REQ_MEM2MEM);
+
+  /* Set transfer direction */
+  LL_DMA_SetDataTransferDirection(DMA2, LL_DMA_STREAM_0, LL_DMA_DIRECTION_MEMORY_TO_MEMORY);
+
+  /* Set priority level */
+  LL_DMA_SetStreamPriorityLevel(DMA2, LL_DMA_STREAM_0, LL_DMA_PRIORITY_MEDIUM);
+
+  /* Set DMA mode */
+  LL_DMA_SetMode(DMA2, LL_DMA_STREAM_0, LL_DMA_MODE_NORMAL);
+
+  /* Set peripheral increment mode */
+  LL_DMA_SetPeriphIncMode(DMA2, LL_DMA_STREAM_0, LL_DMA_PERIPH_INCREMENT);
+
+  /* Set memory increment mode */
+  LL_DMA_SetMemoryIncMode(DMA2, LL_DMA_STREAM_0, LL_DMA_MEMORY_INCREMENT);
+
+  /* Set peripheral data width */
+  LL_DMA_SetPeriphSize(DMA2, LL_DMA_STREAM_0, LL_DMA_PDATAALIGN_WORD);
+
+  /* Set memory data width */
+  LL_DMA_SetMemorySize(DMA2, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_WORD);
+
+  /* Enable FIFO mode */
+  LL_DMA_EnableFifoMode(DMA2, LL_DMA_STREAM_0);
+
+  /* Set FIFO threshold */
+  LL_DMA_SetFIFOThreshold(DMA2, LL_DMA_STREAM_0, LL_DMA_FIFOTHRESHOLD_FULL);
+
+  /* Set memory burst size */
+  LL_DMA_SetMemoryBurstxfer(DMA2, LL_DMA_STREAM_0, LL_DMA_MBURST_SINGLE);
+
+  /* Set peripheral burst size */
+  LL_DMA_SetPeriphBurstxfer(DMA2, LL_DMA_STREAM_0, LL_DMA_PBURST_SINGLE);
 
   /* DMA interrupt init */
   /* DMA1_Stream0_IRQn interrupt configuration */
@@ -937,10 +989,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
@@ -949,19 +1001,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LCD_AUX_1_Pin|LCD_PWM_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_ORANGE_Pin */
-  GPIO_InitStruct.Pin = LED_ORANGE_Pin;
+  /*Configure GPIO pins : LED_ORANGE_Pin LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED_ORANGE_Pin|LED_GREEN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(LED_ORANGE_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : LED_GREEN_Pin */
-  GPIO_InitStruct.Pin = LED_GREEN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LCD_AUX_1_Pin LCD_PWM_Pin */
   GPIO_InitStruct.Pin = LCD_AUX_1_Pin|LCD_PWM_Pin;
