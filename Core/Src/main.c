@@ -59,6 +59,8 @@ SDRAM_HandleTypeDef hsdram1;
 /* USER CODE BEGIN PV */
 volatile pix_t *fb= (pix_t*)0xD0000000;
 
+volatile uint32_t cam_buffer [325*256];
+
 volatile uint16_t pix_index = 0;
 
 volatile uint16_t * buffer;
@@ -477,6 +479,19 @@ int main(void)
 //    }
 //      *(uint32_t*)0x500010ac = 0xD0400000;//    LTDC_Layer
     loop_cnt++;
+//        memcpy((void *)0xD0000000, (void*)cam_buffer, sizeof (cam_buffer));
+
+
+        for(int lines=0; lines <= 256; lines++)
+        {
+            for(int pixel=0; pixel < 325; pixel++)
+            {
+                *(uint32_t*)(0xD0000000 + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
+            }
+
+        }
+HAL_Delay(300);
+
 //      HAL_Delay(10);
   }
   /* USER CODE END 3 */
