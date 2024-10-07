@@ -248,9 +248,7 @@ void EXTI15_10_IRQHandler(void)
   uint32_t port = GPIOC->IDR;
 //    for (volatile int i = 0; i < 5000; ++i) {}
     LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_2);
-    LL_DMA_ClearFlag_TC0(DMA1);
- LL_DMA_ClearFlag_FE0(DMA1);
-   LL_DMA_ClearFlag_TE0(DMA1);
+
     if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U)
 {
     if(line_cnt>200)
@@ -290,6 +288,10 @@ else if(!(port & GPIO_PIN_9))
     if(line_cnt< 210)
         line_cnt++;
 }
+
+    LL_DMA_ClearFlag_TC0(DMA1);
+    LL_DMA_ClearFlag_FE0(DMA1);
+    LL_DMA_ClearFlag_TE0(DMA1);
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
@@ -304,7 +306,7 @@ else if(!(port & GPIO_PIN_9))
 void LTDC_IRQHandler(void)
 {
   /* USER CODE BEGIN LTDC_IRQn 0 */
-
+    HAL_GPIO_WritePin(LED_ORANGE_GPIO_Port,LED_ORANGE_Pin,1);
   /* USER CODE END LTDC_IRQn 0 */
   HAL_LTDC_IRQHandler(&hltdc);
   /* USER CODE BEGIN LTDC_IRQn 1 */

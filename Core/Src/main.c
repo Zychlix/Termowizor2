@@ -433,6 +433,8 @@ int main(void)
 
     LL_DMA_EnableIT_TC(DMA1,LL_DMA_STREAM_0);
     MX_LTDC_Init();
+    HAL_NVIC_EnableIRQ(LTDC_IRQn);
+    HAL_NVIC_SetPriority(LTDC_IRQn,0,0);
     while (1)
   {
     /* USER CODE END WHILE */
