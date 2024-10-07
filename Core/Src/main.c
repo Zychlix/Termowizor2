@@ -60,6 +60,7 @@ SDRAM_HandleTypeDef hsdram1;
 volatile pix_t *fb= (pix_t*)0xD0000000;
 
 volatile uint32_t cam_buffer [325*256];
+//volatile uint32_t cam_buffer_2 [325*256];
 
 volatile uint16_t pix_index = 0;
 
@@ -86,6 +87,8 @@ volatile uint8_t odebrane[60];
 volatile uint8_t indeks=0;
 volatile uint8_t flag=1;
 volatile FDCAN_RxHeaderTypeDef RxHeader;
+
+volatile uint32_t wlacznik = 1;
 
 void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 {
@@ -482,15 +485,21 @@ int main(void)
 //        memcpy((void *)0xD0000000, (void*)cam_buffer, sizeof (cam_buffer));
 
 
+uint32_t dest=0xD0000000;
+if(loop_cnt%2)
+{
+    dest = 0xD00A0000;
+}
         for(int lines=0; lines <= 256; lines++)
         {
             for(int pixel=0; pixel < 325; pixel++)
             {
-                *(uint32_t*)(0xD0000000 + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
+                *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
             }
 
         }
-HAL_Delay(300);
+HAL_Delay(70);
+//        wlacznik = 0;
 
 //      HAL_Delay(10);
   }

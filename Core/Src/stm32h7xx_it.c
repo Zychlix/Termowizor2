@@ -28,6 +28,8 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 extern volatile uint32_t  pix_index;
+extern volatile uint32_t wlacznik;
+
 //static uint32_t buffer[350*2];
 
 uint32_t * volatile read = (void*)(0x30000000);
@@ -213,6 +215,7 @@ void DMA1_Stream0_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
  LL_DMA_ClearFlag_TC0(DMA1);
+ LL_DMA_ClearFlag_TE0(DMA1);
 //  volatile uint32_t* ptr = read;
 //  for(int i = 0; i < 320; i++)
 //  {
@@ -248,13 +251,15 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
   uint32_t port = GPIOC->IDR;
 //    for (volatile int i = 0; i < 5000; ++i) {}
-//LL_DMA_ClearFlag_TC0(DMA1);
-// LL_DMA_ClearFlag_FE0(DMA1);
+LL_DMA_ClearFlag_TC0(DMA1);
+ LL_DMA_ClearFlag_FE0(DMA1);
  LL_DMA_ClearFlag_TE0(DMA1);
+
+    if (!wlacznik) return;
 
     if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U) //Na VSYNC
     {
-        if(line_cnt>250)
+        if(line_cnt>200)
             line_cnt=0;
 
 
@@ -290,6 +295,8 @@ else if(!(port & GPIO_PIN_9))   //Ramka dobra
 
   //  LL_TIM_EnableCounter(TIM2);
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
+        LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
+        LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
         line_cnt++;
 
 }
