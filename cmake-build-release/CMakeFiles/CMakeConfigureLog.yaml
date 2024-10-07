@@ -135,8 +135,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp"
-      binary: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp"
+      source: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO"
+      binary: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -145,13 +145,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp'
+        Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_feeb5/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_feeb5.dir/build.make CMakeFiles/cmTC_feeb5.dir/build
-        make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp'
-        Building C object CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/arm-none-eabi-gcc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_700fb/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_700fb.dir/build.make CMakeFiles/cmTC_700fb.dir/build
+        make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO'
+        Building C object CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/arm-none-eabi-gcc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/arm-none-eabi-gcc
         Target: arm-none-eabi
@@ -159,8 +159,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib zstd
         gcc version 14.1.0 (Arch Repository) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_feeb5.dir/'
-         /usr/lib/gcc/arm-none-eabi/14.1.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_feeb5.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccWQ4tFK.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_700fb.dir/'
+         /usr/lib/gcc/arm-none-eabi/14.1.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_700fb.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccb74bJx.s
         GNU C17 (Arch Repository) version 14.1.0 (arm-none-eabi)
         	compiled by GNU C version 14.1.1 20240507, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -174,18 +174,18 @@ events:
          /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include
         End of search list.
         Compiler executable checksum: 6ca4eeadebfc3e7ee2384d10adb67474
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_feeb5.dir/'
-         /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj /tmp/ccWQ4tFK.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_700fb.dir/'
+         /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj /tmp/ccb74bJx.s
         GNU assembler version 2.42 (arm-none-eabi) using BFD version (GNU Binutils) 2.42
         COMPILER_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/:/usr/arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.'
-        Linking C static library libcmTC_feeb5.a
-        /usr/bin/cmake -P CMakeFiles/cmTC_feeb5.dir/cmake_clean_target.cmake
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_feeb5.dir/link.txt --verbose=1
-        arm-none-eabi-ar qc libcmTC_feeb5.a CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj
-        /usr/bin/arm-none-eabi-ranlib libcmTC_feeb5.a
-        make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp'
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.'
+        Linking C static library libcmTC_700fb.a
+        /usr/bin/cmake -P CMakeFiles/cmTC_700fb.dir/cmake_clean_target.cmake
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_700fb.dir/link.txt --verbose=1
+        arm-none-eabi-ar qc libcmTC_700fb.a CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj
+        /usr/bin/arm-none-eabi-ranlib libcmTC_700fb.a
+        make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO'
         
       exitCode: 0
   -
@@ -218,13 +218,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp']
+        ignore line: [Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_feeb5/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_feeb5.dir/build.make CMakeFiles/cmTC_feeb5.dir/build]
-        ignore line: [make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp']
-        ignore line: [Building C object CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/arm-none-eabi-gcc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_700fb/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_700fb.dir/build.make CMakeFiles/cmTC_700fb.dir/build]
+        ignore line: [make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO']
+        ignore line: [Building C object CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/arm-none-eabi-gcc   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/arm-none-eabi-gcc]
         ignore line: [Target: arm-none-eabi]
@@ -232,8 +232,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 14.1.0 (Arch Repository) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_feeb5.dir/']
-        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_feeb5.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccWQ4tFK.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_700fb.dir/']
+        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/cc1 -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_700fb.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccb74bJx.s]
         ignore line: [GNU C17 (Arch Repository) version 14.1.0 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 14.1.1 20240507  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -247,18 +247,18 @@ events:
         ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 6ca4eeadebfc3e7ee2384d10adb67474]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_feeb5.dir/']
-        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj /tmp/ccWQ4tFK.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_700fb.dir/']
+        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj /tmp/ccb74bJx.s]
         ignore line: [GNU assembler version 2.42 (arm-none-eabi) using BFD version (GNU Binutils) 2.42]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/:/usr/arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C static library libcmTC_feeb5.a]
-        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_feeb5.dir/cmake_clean_target.cmake]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_feeb5.dir/link.txt --verbose=1]
-        ignore line: [arm-none-eabi-ar qc libcmTC_feeb5.a CMakeFiles/cmTC_feeb5.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_feeb5.a]
-        ignore line: [make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-566tsp']
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C static library libcmTC_700fb.a]
+        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_700fb.dir/cmake_clean_target.cmake]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_700fb.dir/link.txt --verbose=1]
+        ignore line: [arm-none-eabi-ar qc libcmTC_700fb.a CMakeFiles/cmTC_700fb.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_700fb.a]
+        ignore line: [make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-7cpUHO']
         ignore line: []
         ignore line: []
         implicit libs: []
@@ -276,8 +276,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt"
-      binary: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt"
+      source: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0"
+      binary: "/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -287,13 +287,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt'
+        Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2725f/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_2725f.dir/build.make CMakeFiles/cmTC_2725f.dir/build
-        make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt'
-        Building CXX object CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj
-        /usr/bin/arm-none-eabi-g++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_eb0af/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_eb0af.dir/build.make CMakeFiles/cmTC_eb0af.dir/build
+        make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0'
+        Building CXX object CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj
+        /usr/bin/arm-none-eabi-g++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/arm-none-eabi-g++
         Target: arm-none-eabi
@@ -301,8 +301,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib zstd
         gcc version 14.1.0 (Arch Repository) 
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_2725f.dir/'
-         /usr/lib/gcc/arm-none-eabi/14.1.0/cc1plus -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_2725f.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccR9Fwc5.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_eb0af.dir/'
+         /usr/lib/gcc/arm-none-eabi/14.1.0/cc1plus -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_eb0af.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccgVX1DY.s
         GNU C++17 (Arch Repository) version 14.1.0 (arm-none-eabi)
         	compiled by GNU C version 14.1.1 20240507, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -319,18 +319,18 @@ events:
          /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include
         End of search list.
         Compiler executable checksum: ec2b8d8129df32ae86808e678a275373
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_2725f.dir/'
-         /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccR9Fwc5.s
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_eb0af.dir/'
+         /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccgVX1DY.s
         GNU assembler version 2.42 (arm-none-eabi) using BFD version (GNU Binutils) 2.42
         COMPILER_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/:/usr/arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX static library libcmTC_2725f.a
-        /usr/bin/cmake -P CMakeFiles/cmTC_2725f.dir/cmake_clean_target.cmake
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2725f.dir/link.txt --verbose=1
-        arm-none-eabi-ar qc libcmTC_2725f.a CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj
-        /usr/bin/arm-none-eabi-ranlib libcmTC_2725f.a
-        make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt'
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX static library libcmTC_eb0af.a
+        /usr/bin/cmake -P CMakeFiles/cmTC_eb0af.dir/cmake_clean_target.cmake
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb0af.dir/link.txt --verbose=1
+        arm-none-eabi-ar qc libcmTC_eb0af.a CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj
+        /usr/bin/arm-none-eabi-ranlib libcmTC_eb0af.a
+        make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0'
         
       exitCode: 0
   -
@@ -369,13 +369,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt']
+        ignore line: [Change Dir: '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2725f/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_2725f.dir/build.make CMakeFiles/cmTC_2725f.dir/build]
-        ignore line: [make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt']
-        ignore line: [Building CXX object CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [/usr/bin/arm-none-eabi-g++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_eb0af/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_eb0af.dir/build.make CMakeFiles/cmTC_eb0af.dir/build]
+        ignore line: [make[1]: Entering directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0']
+        ignore line: [Building CXX object CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [/usr/bin/arm-none-eabi-g++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/arm-none-eabi-g++]
         ignore line: [Target: arm-none-eabi]
@@ -383,8 +383,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 14.1.0 (Arch Repository) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_2725f.dir/']
-        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/cc1plus -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_2725f.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccR9Fwc5.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_eb0af.dir/']
+        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/cc1plus -quiet -v -D__USES_INITFINI__ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_eb0af.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -version -fdiagnostics-color=always -o /tmp/ccgVX1DY.s]
         ignore line: [GNU C++17 (Arch Repository) version 14.1.0 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 14.1.1 20240507  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -401,18 +401,18 @@ events:
         ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: ec2b8d8129df32ae86808e678a275373]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_2725f.dir/']
-        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccR9Fwc5.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_eb0af.dir/']
+        ignore line: [ /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/as -v -march=armv4t -mfloat-abi=soft -meabi=5 -o CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccgVX1DY.s]
         ignore line: [GNU assembler version 2.42 (arm-none-eabi) using BFD version (GNU Binutils) 2.42]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/bin/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-none-eabi/14.1.0/:/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/:/usr/arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX static library libcmTC_2725f.a]
-        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_2725f.dir/cmake_clean_target.cmake]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2725f.dir/link.txt --verbose=1]
-        ignore line: [arm-none-eabi-ar qc libcmTC_2725f.a CMakeFiles/cmTC_2725f.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_2725f.a]
-        ignore line: [make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-DDcTvt']
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t' '-dumpdir' 'CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX static library libcmTC_eb0af.a]
+        ignore line: [/usr/bin/cmake -P CMakeFiles/cmTC_eb0af.dir/cmake_clean_target.cmake]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb0af.dir/link.txt --verbose=1]
+        ignore line: [arm-none-eabi-ar qc libcmTC_eb0af.a CMakeFiles/cmTC_eb0af.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [/usr/bin/arm-none-eabi-ranlib libcmTC_eb0af.a]
+        ignore line: [make[1]: Leaving directory '/home/zychlix/Termowizor2/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-ftNpw0']
         ignore line: []
         ignore line: []
         implicit libs: []

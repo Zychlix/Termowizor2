@@ -245,55 +245,23 @@ void FDCAN1_IT0_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-  uint32_t port = GPIOC->IDR;
-//    for (volatile int i = 0; i < 5000; ++i) {}
     LL_DMA_DisableStream(DMA1, LL_DMA_STREAM_2);
+    LL_DMA_ClearFlag_TC0(DMA1);
+    LL_DMA_ClearFlag_FE0(DMA1);
+    LL_DMA_ClearFlag_TE0(DMA1);
 
-    if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U)
-{
-    if(line_cnt>200)
-        line_cnt=0;
-}
-else if(!(port & GPIO_PIN_9))
-{
-  /*
-
-
-    LL_DMA_SetMemoryAddress(DMA1,LL_DMA_STREAM_0,(0xD0000000 + 480*4* line_cnt));
-    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 320);
-    line_cnt++;
-    if(line_cnt>= 640)  line_cnt =0;
-    LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
-*/
-
-    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0000000 + 480*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0200000), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-
-    //__disable_irq();
- //   uint32_t* tmp = read;
-  //  read = write;
-//write = tmp;
-    //__enable_irq();
-
-    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0000000 + 480*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0200000), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
     LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
-    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 320);
+    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 65535);
     LL_TIM_EnableDMAReq_UPDATE(TIM2);
     LL_TIM_EnableDMAReq_CC1(TIM2);
-    //LL_TIM_EnableIT_UPDATE(TIM2);
+   // LL_TIM_EnableIT_UPDATE(TIM2);
 
     LL_TIM_EnableCounter(TIM2);
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
 
-    if(line_cnt< 210)
-        line_cnt++;
-}
 
-    LL_DMA_ClearFlag_TC0(DMA1);
-    LL_DMA_ClearFlag_FE0(DMA1);
-    LL_DMA_ClearFlag_TE0(DMA1);
   /* USER CODE END EXTI15_10_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
