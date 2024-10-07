@@ -28,7 +28,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 extern volatile uint32_t  pix_index;
-extern volatile uint32_t wlacznik;
+extern volatile uint32_t szrajben;
 
 //static uint32_t buffer[350*2];
 
@@ -216,6 +216,7 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
  LL_DMA_ClearFlag_TC0(DMA1);
  LL_DMA_ClearFlag_TE0(DMA1);
+//    szrajben=0;
 //  volatile uint32_t* ptr = read;
 //  for(int i = 0; i < 320; i++)
 //  {
@@ -255,7 +256,7 @@ LL_DMA_ClearFlag_TC0(DMA1);
  LL_DMA_ClearFlag_FE0(DMA1);
  LL_DMA_ClearFlag_TE0(DMA1);
 
-    if (!wlacznik) return;
+//    if (!szrajben) return;
 
     if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U) //Na VSYNC
     {
@@ -286,6 +287,7 @@ else if(!(port & GPIO_PIN_9))   //Ramka dobra
 //write = tmp;
     //__enable_irq();
 
+        szrajben=1;
     LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, ((uint32_t)cam_buffer + 325*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
  //   LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
     LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 325);
