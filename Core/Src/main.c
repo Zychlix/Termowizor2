@@ -296,6 +296,36 @@ void dma_config()
 
 }
 
+extern volatile uint32_t line_cnt_ready;
+
+void copy_task()
+{
+#define LINE_COUNT 256
+#define LINE_DELAY 128
+
+    static uint32_t next_line = 0;
+    uint32_t line_ready = line_cnt_ready;
+
+    if (next_line > line_ready) {
+        line_ready += LINE_COUNT;
+    }
+
+    while (line_ready - next_line < LINE_DELAY && line_ready != next_line)
+    {
+        //for (volatile int del = 0; del < 1000000; ++del);
+        for (int pixel = 0; pixel < 325; pixel++) {
+            *(uint32_t *) (0xD0000000 + 4 * pixel + 480 * next_line * 4) = (((cam_buffer[pixel + 325 * next_line]) << 8) | 0xFF) & (pixel * 257);
+        }
+
+        ++next_line;
+
+        if (next_line > LINE_COUNT) {
+            next_line = 0;
+            break;
+        }
+    }
+}
+
 
 /* USER CODE END 0 */
 
@@ -482,6 +512,7 @@ int main(void)
 //    }
 //      *(uint32_t*)0x500010ac = 0xD0400000;//    LTDC_Layer
     loop_cnt++;
+    copy_task();
 //        memcpy((void *)0xD0000000, (void*)cam_buffer, sizeof (cam_buffer));
 
 
@@ -490,7 +521,7 @@ if(loop_cnt%2)
 {
     dest = 0xD00A0000;
 }
-if(szrajben) {
+/*if(szrajben) {
     for (int lines = 0; lines <= 256; lines++) {
 //            for(volatile int delay=0; delay<10000; delay++);
         for (int pixel = 0; pixel < 325; pixel++) {
@@ -498,9 +529,9 @@ if(szrajben) {
         }
 
     }
-}
+}*/
 
-HAL_Delay(70);
+//HAL_Delay(70);
 //        szrajben = 0;
 
 //      HAL_Delay(10);
@@ -586,7 +617,7 @@ void PeriphCommonClock_Config(void)
   PeriphClkInitStruct.PLL2.PLL2N = 60;
   PeriphClkInitStruct.PLL2.PLL2P = 2;
   PeriphClkInitStruct.PLL2.PLL2Q = 10;
-  PeriphClkInitStruct.PLL2.PLL2R = 3;
+  PeriphClkInitStruct.PLL2.PLL2R = 4;
   PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
   PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
@@ -836,7 +867,7 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Stream0_IRQn interrupt configuration */
-  NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),15, 0));
+  NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),3, 0));
   NVIC_EnableIRQ(DMA1_Stream0_IRQn);
 
 }
@@ -918,12 +949,19 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LCD_AUX_1_Pin|LCD_PWM_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_ORANGE_Pin LED_GREEN_Pin */
-  GPIO_InitStruct.Pin = LED_ORANGE_Pin|LED_GREEN_Pin;
+  /*Configure GPIO pin : LED_ORANGE_Pin */
+  GPIO_InitStruct.Pin = LED_ORANGE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(LED_ORANGE_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_GREEN_Pin */
+  GPIO_InitStruct.Pin = LED_GREEN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
+  HAL_GPIO_Init(LED_GREEN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LCD_AUX_1_Pin LCD_PWM_Pin */
   GPIO_InitStruct.Pin = LCD_AUX_1_Pin|LCD_PWM_Pin;

@@ -88,6 +88,8 @@ Discarded input sections
  .text.nadaj    0x00000000       0x40 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
  .text.dma_config
                 0x00000000       0x24 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+ .text.copy_task
+                0x00000000       0x80 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
  .bss.buffer    0x00000000        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
  .bss.pix_index
                 0x00000000        0x2 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
@@ -2085,7 +2087,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
                 0x08000000                g_pfnVectors
                 0x08000298                        . = ALIGN (0x4)
 
-.text           0x08000298     0x4ed0
+.text           0x08000298     0x4efc
                 0x08000298                        . = ALIGN (0x4)
  *(.text)
  .text          0x08000298      0x21c /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/libgcc.a(_arm_addsubsf3.o)
@@ -2140,521 +2142,524 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
                 0x08001084       0x48 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
                 0x08001084                PeriphCommonClock_Config
  .text.startup.main
-                0x080010cc      0x740 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+                0x080010cc      0x754 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
                 0x080010cc                main
  .text.Error_Handler
-                0x0800180c        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
-                0x0800180c                Error_Handler
+                0x08001820        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+                0x08001820                Error_Handler
  .text.HAL_MspInit
-                0x08001810       0x24 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
-                0x08001810                HAL_MspInit
+                0x08001824       0x24 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+                0x08001824                HAL_MspInit
  .text.HAL_FDCAN_MspInit
-                0x08001834       0x88 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
-                0x08001834                HAL_FDCAN_MspInit
+                0x08001848       0x88 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+                0x08001848                HAL_FDCAN_MspInit
  .text.HAL_LTDC_MspInit
-                0x080018bc      0x160 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
-                0x080018bc                HAL_LTDC_MspInit
+                0x080018d0      0x160 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+                0x080018d0                HAL_LTDC_MspInit
  .text.HAL_SDRAM_MspInit
-                0x08001a1c       0xc0 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
-                0x08001a1c                HAL_SDRAM_MspInit
+                0x08001a30       0xc0 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
+                0x08001a30                HAL_SDRAM_MspInit
  .text.NMI_Handler
-                0x08001adc        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001adc                NMI_Handler
- .text.HardFault_Handler
-                0x08001ae0        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001ae0                HardFault_Handler
- .text.MemManage_Handler
-                0x08001ae4        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001ae4                MemManage_Handler
- .text.BusFault_Handler
-                0x08001ae8        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001ae8                BusFault_Handler
- .text.UsageFault_Handler
-                0x08001aec        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001aec                UsageFault_Handler
- .text.SVC_Handler
                 0x08001af0        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001af0                SVC_Handler
- .text.DebugMon_Handler
+                0x08001af0                NMI_Handler
+ .text.HardFault_Handler
                 0x08001af4        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001af4                DebugMon_Handler
- .text.PendSV_Handler
+                0x08001af4                HardFault_Handler
+ .text.MemManage_Handler
                 0x08001af8        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001af8                PendSV_Handler
- .text.SysTick_Handler
+                0x08001af8                MemManage_Handler
+ .text.BusFault_Handler
                 0x08001afc        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001afc                SysTick_Handler
+                0x08001afc                BusFault_Handler
+ .text.UsageFault_Handler
+                0x08001b00        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b00                UsageFault_Handler
+ .text.SVC_Handler
+                0x08001b04        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b04                SVC_Handler
+ .text.DebugMon_Handler
+                0x08001b08        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b08                DebugMon_Handler
+ .text.PendSV_Handler
+                0x08001b0c        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b0c                PendSV_Handler
+ .text.SysTick_Handler
+                0x08001b10        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b10                SysTick_Handler
  .text.DMA1_Stream0_IRQHandler
-                0x08001b00        0xc CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001b00                DMA1_Stream0_IRQHandler
+                0x08001b14       0x20 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b14                DMA1_Stream0_IRQHandler
  .text.FDCAN1_IT0_IRQHandler
-                0x08001b0c        0xc CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001b0c                FDCAN1_IT0_IRQHandler
+                0x08001b34        0xc CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b34                FDCAN1_IT0_IRQHandler
  .text.EXTI15_10_IRQHandler
-                0x08001b18       0xa0 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001b18                EXTI15_10_IRQHandler
+                0x08001b40       0xa4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001b40                EXTI15_10_IRQHandler
  .text.LTDC_IRQHandler
-                0x08001bb8        0xc CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x08001bb8                LTDC_IRQHandler
+                0x08001be4        0xc CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x08001be4                LTDC_IRQHandler
  .text.SystemInit
-                0x08001bc4       0xb4 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
-                0x08001bc4                SystemInit
+                0x08001bf0       0xb4 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
+                0x08001bf0                SystemInit
  .text.Reset_Handler
-                0x08001c78       0x50 CMakeFiles/YTAR.elf.dir/Core/Startup/startup_stm32h750xbhx.s.obj
-                0x08001c78                Reset_Handler
+                0x08001ca4       0x50 CMakeFiles/YTAR.elf.dir/Core/Startup/startup_stm32h750xbhx.s.obj
+                0x08001ca4                Reset_Handler
  .text.Default_Handler
-                0x08001cc8        0x2 CMakeFiles/YTAR.elf.dir/Core/Startup/startup_stm32h750xbhx.s.obj
-                0x08001cc8                RTC_Alarm_IRQHandler
-                0x08001cc8                HASH_RNG_IRQHandler
-                0x08001cc8                EXTI2_IRQHandler
-                0x08001cc8                TIM8_CC_IRQHandler
-                0x08001cc8                HRTIM1_Master_IRQHandler
-                0x08001cc8                UART8_IRQHandler
-                0x08001cc8                SPI4_IRQHandler
-                0x08001cc8                TIM1_CC_IRQHandler
-                0x08001cc8                BDMA_Channel6_IRQHandler
-                0x08001cc8                DMA2_Stream5_IRQHandler
-                0x08001cc8                HRTIM1_FLT_IRQHandler
-                0x08001cc8                JPEG_IRQHandler
-                0x08001cc8                DMA1_Stream5_IRQHandler
-                0x08001cc8                BDMA_Channel1_IRQHandler
-                0x08001cc8                HRTIM1_TIMD_IRQHandler
-                0x08001cc8                TAMP_STAMP_IRQHandler
-                0x08001cc8                EXTI3_IRQHandler
-                0x08001cc8                LPTIM4_IRQHandler
-                0x08001cc8                TIM8_TRG_COM_TIM14_IRQHandler
-                0x08001cc8                LPTIM2_IRQHandler
-                0x08001cc8                DFSDM1_FLT1_IRQHandler
-                0x08001cc8                DMAMUX2_OVR_IRQHandler
-                0x08001cc8                TIM8_UP_TIM13_IRQHandler
-                0x08001cc8                I2C3_ER_IRQHandler
-                0x08001cc8                DFSDM1_FLT2_IRQHandler
-                0x08001cc8                MDMA_IRQHandler
-                0x08001cc8                LPTIM3_IRQHandler
-                0x08001cc8                HSEM1_IRQHandler
-                0x08001cc8                EXTI0_IRQHandler
-                0x08001cc8                I2C2_EV_IRQHandler
-                0x08001cc8                DMA1_Stream2_IRQHandler
-                0x08001cc8                FPU_IRQHandler
-                0x08001cc8                OTG_HS_WKUP_IRQHandler
-                0x08001cc8                FDCAN1_IT1_IRQHandler
-                0x08001cc8                LTDC_ER_IRQHandler
-                0x08001cc8                DMA2_Stream2_IRQHandler
-                0x08001cc8                HRTIM1_TIME_IRQHandler
-                0x08001cc8                SPI1_IRQHandler
-                0x08001cc8                TIM6_DAC_IRQHandler
-                0x08001cc8                DCMI_IRQHandler
-                0x08001cc8                HRTIM1_TIMC_IRQHandler
-                0x08001cc8                DMA2_Stream3_IRQHandler
-                0x08001cc8                SAI2_IRQHandler
-                0x08001cc8                DFSDM1_FLT3_IRQHandler
-                0x08001cc8                USART6_IRQHandler
-                0x08001cc8                TIM17_IRQHandler
-                0x08001cc8                USART3_IRQHandler
-                0x08001cc8                BDMA_Channel7_IRQHandler
-                0x08001cc8                CRYP_IRQHandler
-                0x08001cc8                LPTIM5_IRQHandler
-                0x08001cc8                UART5_IRQHandler
-                0x08001cc8                ADC3_IRQHandler
-                0x08001cc8                DMA2_Stream0_IRQHandler
-                0x08001cc8                TIM4_IRQHandler
-                0x08001cc8                BDMA_Channel2_IRQHandler
-                0x08001cc8                QUADSPI_IRQHandler
-                0x08001cc8                I2C1_EV_IRQHandler
-                0x08001cc8                DMA1_Stream6_IRQHandler
-                0x08001cc8                DMAMUX1_OVR_IRQHandler
-                0x08001cc8                DMA1_Stream1_IRQHandler
-                0x08001cc8                TIM16_IRQHandler
-                0x08001cc8                UART4_IRQHandler
-                0x08001cc8                BDMA_Channel5_IRQHandler
-                0x08001cc8                TIM3_IRQHandler
-                0x08001cc8                RCC_IRQHandler
-                0x08001cc8                TIM8_BRK_TIM12_IRQHandler
-                0x08001cc8                TIM1_TRG_COM_IRQHandler
-                0x08001cc8                Default_Handler
-                0x08001cc8                ECC_IRQHandler
-                0x08001cc8                CEC_IRQHandler
-                0x08001cc8                BDMA_Channel0_IRQHandler
-                0x08001cc8                ADC_IRQHandler
-                0x08001cc8                DMA1_Stream7_IRQHandler
-                0x08001cc8                HRTIM1_TIMA_IRQHandler
-                0x08001cc8                SPI5_IRQHandler
-                0x08001cc8                TIM7_IRQHandler
-                0x08001cc8                SDMMC1_IRQHandler
-                0x08001cc8                TIM5_IRQHandler
-                0x08001cc8                DMA2_Stream7_IRQHandler
-                0x08001cc8                TIM15_IRQHandler
-                0x08001cc8                PVD_AVD_IRQHandler
-                0x08001cc8                I2C3_EV_IRQHandler
-                0x08001cc8                EXTI9_5_IRQHandler
-                0x08001cc8                RTC_WKUP_IRQHandler
-                0x08001cc8                SAI3_IRQHandler
-                0x08001cc8                ETH_WKUP_IRQHandler
-                0x08001cc8                SPDIF_RX_IRQHandler
-                0x08001cc8                SPI2_IRQHandler
-                0x08001cc8                OTG_HS_EP1_IN_IRQHandler
-                0x08001cc8                CRS_IRQHandler
-                0x08001cc8                EXTI4_IRQHandler
-                0x08001cc8                HRTIM1_TIMB_IRQHandler
-                0x08001cc8                FDCAN2_IT1_IRQHandler
-                0x08001cc8                ETH_IRQHandler
-                0x08001cc8                TIM1_UP_IRQHandler
-                0x08001cc8                BDMA_Channel4_IRQHandler
-                0x08001cc8                OTG_HS_EP1_OUT_IRQHandler
-                0x08001cc8                WWDG_IRQHandler
-                0x08001cc8                SPI6_IRQHandler
-                0x08001cc8                MDIOS_IRQHandler
-                0x08001cc8                I2C4_EV_IRQHandler
-                0x08001cc8                FDCAN2_IT0_IRQHandler
-                0x08001cc8                LPUART1_IRQHandler
-                0x08001cc8                TIM2_IRQHandler
-                0x08001cc8                OTG_FS_WKUP_IRQHandler
-                0x08001cc8                OTG_HS_IRQHandler
-                0x08001cc8                DMA2D_IRQHandler
-                0x08001cc8                TIM1_BRK_IRQHandler
-                0x08001cc8                EXTI1_IRQHandler
-                0x08001cc8                SDMMC2_IRQHandler
-                0x08001cc8                OTG_FS_EP1_OUT_IRQHandler
-                0x08001cc8                BDMA_Channel3_IRQHandler
-                0x08001cc8                UART7_IRQHandler
-                0x08001cc8                MDIOS_WKUP_IRQHandler
-                0x08001cc8                USART2_IRQHandler
-                0x08001cc8                DFSDM1_FLT0_IRQHandler
-                0x08001cc8                SAI4_IRQHandler
-                0x08001cc8                I2C2_ER_IRQHandler
-                0x08001cc8                DMA2_Stream1_IRQHandler
-                0x08001cc8                FLASH_IRQHandler
-                0x08001cc8                DMA2_Stream4_IRQHandler
-                0x08001cc8                USART1_IRQHandler
-                0x08001cc8                OTG_FS_IRQHandler
-                0x08001cc8                SPI3_IRQHandler
-                0x08001cc8                WAKEUP_PIN_IRQHandler
-                0x08001cc8                DMA1_Stream4_IRQHandler
-                0x08001cc8                OTG_FS_EP1_IN_IRQHandler
-                0x08001cc8                I2C1_ER_IRQHandler
-                0x08001cc8                FMC_IRQHandler
-                0x08001cc8                FDCAN_CAL_IRQHandler
-                0x08001cc8                SWPMI1_IRQHandler
-                0x08001cc8                COMP1_IRQHandler
-                0x08001cc8                LPTIM1_IRQHandler
-                0x08001cc8                I2C4_ER_IRQHandler
-                0x08001cc8                DMA2_Stream6_IRQHandler
-                0x08001cc8                SAI1_IRQHandler
-                0x08001cc8                DMA1_Stream3_IRQHandler
- *fill*         0x08001cca        0x2 
+                0x08001cf4        0x2 CMakeFiles/YTAR.elf.dir/Core/Startup/startup_stm32h750xbhx.s.obj
+                0x08001cf4                RTC_Alarm_IRQHandler
+                0x08001cf4                HASH_RNG_IRQHandler
+                0x08001cf4                EXTI2_IRQHandler
+                0x08001cf4                TIM8_CC_IRQHandler
+                0x08001cf4                HRTIM1_Master_IRQHandler
+                0x08001cf4                UART8_IRQHandler
+                0x08001cf4                SPI4_IRQHandler
+                0x08001cf4                TIM1_CC_IRQHandler
+                0x08001cf4                BDMA_Channel6_IRQHandler
+                0x08001cf4                DMA2_Stream5_IRQHandler
+                0x08001cf4                HRTIM1_FLT_IRQHandler
+                0x08001cf4                JPEG_IRQHandler
+                0x08001cf4                DMA1_Stream5_IRQHandler
+                0x08001cf4                BDMA_Channel1_IRQHandler
+                0x08001cf4                HRTIM1_TIMD_IRQHandler
+                0x08001cf4                TAMP_STAMP_IRQHandler
+                0x08001cf4                EXTI3_IRQHandler
+                0x08001cf4                LPTIM4_IRQHandler
+                0x08001cf4                TIM8_TRG_COM_TIM14_IRQHandler
+                0x08001cf4                LPTIM2_IRQHandler
+                0x08001cf4                DFSDM1_FLT1_IRQHandler
+                0x08001cf4                DMAMUX2_OVR_IRQHandler
+                0x08001cf4                TIM8_UP_TIM13_IRQHandler
+                0x08001cf4                I2C3_ER_IRQHandler
+                0x08001cf4                DFSDM1_FLT2_IRQHandler
+                0x08001cf4                MDMA_IRQHandler
+                0x08001cf4                LPTIM3_IRQHandler
+                0x08001cf4                HSEM1_IRQHandler
+                0x08001cf4                EXTI0_IRQHandler
+                0x08001cf4                I2C2_EV_IRQHandler
+                0x08001cf4                DMA1_Stream2_IRQHandler
+                0x08001cf4                FPU_IRQHandler
+                0x08001cf4                OTG_HS_WKUP_IRQHandler
+                0x08001cf4                FDCAN1_IT1_IRQHandler
+                0x08001cf4                LTDC_ER_IRQHandler
+                0x08001cf4                DMA2_Stream2_IRQHandler
+                0x08001cf4                HRTIM1_TIME_IRQHandler
+                0x08001cf4                SPI1_IRQHandler
+                0x08001cf4                TIM6_DAC_IRQHandler
+                0x08001cf4                DCMI_IRQHandler
+                0x08001cf4                HRTIM1_TIMC_IRQHandler
+                0x08001cf4                DMA2_Stream3_IRQHandler
+                0x08001cf4                SAI2_IRQHandler
+                0x08001cf4                DFSDM1_FLT3_IRQHandler
+                0x08001cf4                USART6_IRQHandler
+                0x08001cf4                TIM17_IRQHandler
+                0x08001cf4                USART3_IRQHandler
+                0x08001cf4                BDMA_Channel7_IRQHandler
+                0x08001cf4                CRYP_IRQHandler
+                0x08001cf4                LPTIM5_IRQHandler
+                0x08001cf4                UART5_IRQHandler
+                0x08001cf4                ADC3_IRQHandler
+                0x08001cf4                DMA2_Stream0_IRQHandler
+                0x08001cf4                TIM4_IRQHandler
+                0x08001cf4                BDMA_Channel2_IRQHandler
+                0x08001cf4                QUADSPI_IRQHandler
+                0x08001cf4                I2C1_EV_IRQHandler
+                0x08001cf4                DMA1_Stream6_IRQHandler
+                0x08001cf4                DMAMUX1_OVR_IRQHandler
+                0x08001cf4                DMA1_Stream1_IRQHandler
+                0x08001cf4                TIM16_IRQHandler
+                0x08001cf4                UART4_IRQHandler
+                0x08001cf4                BDMA_Channel5_IRQHandler
+                0x08001cf4                TIM3_IRQHandler
+                0x08001cf4                RCC_IRQHandler
+                0x08001cf4                TIM8_BRK_TIM12_IRQHandler
+                0x08001cf4                TIM1_TRG_COM_IRQHandler
+                0x08001cf4                Default_Handler
+                0x08001cf4                ECC_IRQHandler
+                0x08001cf4                CEC_IRQHandler
+                0x08001cf4                BDMA_Channel0_IRQHandler
+                0x08001cf4                ADC_IRQHandler
+                0x08001cf4                DMA1_Stream7_IRQHandler
+                0x08001cf4                HRTIM1_TIMA_IRQHandler
+                0x08001cf4                SPI5_IRQHandler
+                0x08001cf4                TIM7_IRQHandler
+                0x08001cf4                SDMMC1_IRQHandler
+                0x08001cf4                TIM5_IRQHandler
+                0x08001cf4                DMA2_Stream7_IRQHandler
+                0x08001cf4                TIM15_IRQHandler
+                0x08001cf4                PVD_AVD_IRQHandler
+                0x08001cf4                I2C3_EV_IRQHandler
+                0x08001cf4                EXTI9_5_IRQHandler
+                0x08001cf4                RTC_WKUP_IRQHandler
+                0x08001cf4                SAI3_IRQHandler
+                0x08001cf4                ETH_WKUP_IRQHandler
+                0x08001cf4                SPDIF_RX_IRQHandler
+                0x08001cf4                SPI2_IRQHandler
+                0x08001cf4                OTG_HS_EP1_IN_IRQHandler
+                0x08001cf4                CRS_IRQHandler
+                0x08001cf4                EXTI4_IRQHandler
+                0x08001cf4                HRTIM1_TIMB_IRQHandler
+                0x08001cf4                FDCAN2_IT1_IRQHandler
+                0x08001cf4                ETH_IRQHandler
+                0x08001cf4                TIM1_UP_IRQHandler
+                0x08001cf4                BDMA_Channel4_IRQHandler
+                0x08001cf4                OTG_HS_EP1_OUT_IRQHandler
+                0x08001cf4                WWDG_IRQHandler
+                0x08001cf4                SPI6_IRQHandler
+                0x08001cf4                MDIOS_IRQHandler
+                0x08001cf4                I2C4_EV_IRQHandler
+                0x08001cf4                FDCAN2_IT0_IRQHandler
+                0x08001cf4                LPUART1_IRQHandler
+                0x08001cf4                TIM2_IRQHandler
+                0x08001cf4                OTG_FS_WKUP_IRQHandler
+                0x08001cf4                OTG_HS_IRQHandler
+                0x08001cf4                DMA2D_IRQHandler
+                0x08001cf4                TIM1_BRK_IRQHandler
+                0x08001cf4                EXTI1_IRQHandler
+                0x08001cf4                SDMMC2_IRQHandler
+                0x08001cf4                OTG_FS_EP1_OUT_IRQHandler
+                0x08001cf4                BDMA_Channel3_IRQHandler
+                0x08001cf4                UART7_IRQHandler
+                0x08001cf4                MDIOS_WKUP_IRQHandler
+                0x08001cf4                USART2_IRQHandler
+                0x08001cf4                DFSDM1_FLT0_IRQHandler
+                0x08001cf4                SAI4_IRQHandler
+                0x08001cf4                I2C2_ER_IRQHandler
+                0x08001cf4                DMA2_Stream1_IRQHandler
+                0x08001cf4                FLASH_IRQHandler
+                0x08001cf4                DMA2_Stream4_IRQHandler
+                0x08001cf4                USART1_IRQHandler
+                0x08001cf4                OTG_FS_IRQHandler
+                0x08001cf4                SPI3_IRQHandler
+                0x08001cf4                WAKEUP_PIN_IRQHandler
+                0x08001cf4                DMA1_Stream4_IRQHandler
+                0x08001cf4                OTG_FS_EP1_IN_IRQHandler
+                0x08001cf4                I2C1_ER_IRQHandler
+                0x08001cf4                FMC_IRQHandler
+                0x08001cf4                FDCAN_CAL_IRQHandler
+                0x08001cf4                SWPMI1_IRQHandler
+                0x08001cf4                COMP1_IRQHandler
+                0x08001cf4                LPTIM1_IRQHandler
+                0x08001cf4                I2C4_ER_IRQHandler
+                0x08001cf4                DMA2_Stream6_IRQHandler
+                0x08001cf4                SAI1_IRQHandler
+                0x08001cf4                DMA1_Stream3_IRQHandler
+ *fill*         0x08001cf6        0x2 
  .text.HAL_InitTick
-                0x08001ccc       0x4c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x08001ccc                HAL_InitTick
+                0x08001cf8       0x4c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x08001cf8                HAL_InitTick
  .text.HAL_Init
-                0x08001d18       0x60 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x08001d18                HAL_Init
+                0x08001d44       0x60 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x08001d44                HAL_Init
  .text.HAL_IncTick
-                0x08001d78       0x18 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x08001d78                HAL_IncTick
+                0x08001da4       0x18 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x08001da4                HAL_IncTick
  .text.HAL_GetTick
-                0x08001d90        0xc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x08001d90                HAL_GetTick
+                0x08001dbc        0xc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x08001dbc                HAL_GetTick
  .text.HAL_Delay
-                0x08001d9c       0x24 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x08001d9c                HAL_Delay
+                0x08001dc8       0x24 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x08001dc8                HAL_Delay
  .text.HAL_GetREVID
-                0x08001dc0        0xc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x08001dc0                HAL_GetREVID
+                0x08001dec        0xc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x08001dec                HAL_GetREVID
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08001dcc       0x24 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
-                0x08001dcc                HAL_NVIC_SetPriorityGrouping
+                0x08001df8       0x24 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
+                0x08001df8                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x08001df0       0x78 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
-                0x08001df0                HAL_NVIC_SetPriority
+                0x08001e1c       0x78 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
+                0x08001e1c                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x08001e68       0x1c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
-                0x08001e68                HAL_NVIC_EnableIRQ
+                0x08001e94       0x1c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
+                0x08001e94                HAL_NVIC_EnableIRQ
  .text.HAL_SYSTICK_Config
-                0x08001e84       0x2c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
-                0x08001e84                HAL_SYSTICK_Config
+                0x08001eb0       0x2c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c.obj
+                0x08001eb0                HAL_SYSTICK_Config
  .text.FDCAN_CopyMessageToRAM
-                0x08001eb0       0x84 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08001edc       0x84 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
  .text.HAL_FDCAN_Init
-                0x08001f34      0x3e4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08001f34                HAL_FDCAN_Init
+                0x08001f60      0x3e4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08001f60                HAL_FDCAN_Init
  .text.HAL_FDCAN_Start
-                0x08002318       0x38 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08002318                HAL_FDCAN_Start
+                0x08002344       0x38 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08002344                HAL_FDCAN_Start
  .text.HAL_FDCAN_Stop
-                0x08002350       0x80 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08002350                HAL_FDCAN_Stop
+                0x0800237c       0x80 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x0800237c                HAL_FDCAN_Stop
  .text.HAL_FDCAN_AddMessageToTxBuffer
-                0x080023d0       0x6c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080023d0                HAL_FDCAN_AddMessageToTxBuffer
+                0x080023fc       0x6c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080023fc                HAL_FDCAN_AddMessageToTxBuffer
  .text.HAL_FDCAN_EnableTxBufferRequest
-                0x0800243c       0x24 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x0800243c                HAL_FDCAN_EnableTxBufferRequest
+                0x08002468       0x24 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08002468                HAL_FDCAN_EnableTxBufferRequest
  .text.HAL_FDCAN_GetRxMessage
-                0x08002460      0x184 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08002460                HAL_FDCAN_GetRxMessage
+                0x0800248c      0x184 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x0800248c                HAL_FDCAN_GetRxMessage
  .text.HAL_FDCAN_IsTxBufferMessagePending
-                0x080025e4       0x10 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080025e4                HAL_FDCAN_IsTxBufferMessagePending
+                0x08002610       0x10 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08002610                HAL_FDCAN_IsTxBufferMessagePending
  .text.HAL_FDCAN_GetRxFifoFillLevel
-                0x080025f4       0x1c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080025f4                HAL_FDCAN_GetRxFifoFillLevel
+                0x08002620       0x1c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08002620                HAL_FDCAN_GetRxFifoFillLevel
  .text.HAL_FDCAN_ActivateNotification
-                0x08002610       0x84 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08002610                HAL_FDCAN_ActivateNotification
+                0x0800263c       0x84 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x0800263c                HAL_FDCAN_ActivateNotification
  .text.HAL_FDCAN_ClockCalibrationCallback
-                0x08002694        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08002694                HAL_FDCAN_ClockCalibrationCallback
- .text.HAL_FDCAN_TxEventFifoCallback
-                0x08002698        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x08002698                HAL_FDCAN_TxEventFifoCallback
- .text.HAL_FDCAN_RxFifo1Callback
-                0x0800269c        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x0800269c                HAL_FDCAN_RxFifo1Callback
- .text.HAL_FDCAN_TxFifoEmptyCallback
-                0x080026a0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026a0                HAL_FDCAN_TxFifoEmptyCallback
- .text.HAL_FDCAN_TxBufferCompleteCallback
-                0x080026a4        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026a4                HAL_FDCAN_TxBufferCompleteCallback
- .text.HAL_FDCAN_TxBufferAbortCallback
-                0x080026a8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026a8                HAL_FDCAN_TxBufferAbortCallback
- .text.HAL_FDCAN_RxBufferNewMessageCallback
-                0x080026ac        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026ac                HAL_FDCAN_RxBufferNewMessageCallback
- .text.HAL_FDCAN_TimestampWraparoundCallback
-                0x080026b0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026b0                HAL_FDCAN_TimestampWraparoundCallback
- .text.HAL_FDCAN_TimeoutOccurredCallback
-                0x080026b4        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026b4                HAL_FDCAN_TimeoutOccurredCallback
- .text.HAL_FDCAN_HighPriorityMessageCallback
-                0x080026b8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026b8                HAL_FDCAN_HighPriorityMessageCallback
- .text.HAL_FDCAN_ErrorCallback
-                0x080026bc        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026bc                HAL_FDCAN_ErrorCallback
- .text.HAL_FDCAN_ErrorStatusCallback
                 0x080026c0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026c0                HAL_FDCAN_ErrorStatusCallback
- .text.HAL_FDCAN_TT_ScheduleSyncCallback
+                0x080026c0                HAL_FDCAN_ClockCalibrationCallback
+ .text.HAL_FDCAN_TxEventFifoCallback
                 0x080026c4        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026c4                HAL_FDCAN_TT_ScheduleSyncCallback
- .text.HAL_FDCAN_TT_TimeMarkCallback
+                0x080026c4                HAL_FDCAN_TxEventFifoCallback
+ .text.HAL_FDCAN_RxFifo1Callback
                 0x080026c8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026c8                HAL_FDCAN_TT_TimeMarkCallback
- .text.HAL_FDCAN_TT_StopWatchCallback
+                0x080026c8                HAL_FDCAN_RxFifo1Callback
+ .text.HAL_FDCAN_TxFifoEmptyCallback
                 0x080026cc        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026cc                HAL_FDCAN_TT_StopWatchCallback
- .text.HAL_FDCAN_TT_GlobalTimeCallback
+                0x080026cc                HAL_FDCAN_TxFifoEmptyCallback
+ .text.HAL_FDCAN_TxBufferCompleteCallback
                 0x080026d0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026d0                HAL_FDCAN_TT_GlobalTimeCallback
+                0x080026d0                HAL_FDCAN_TxBufferCompleteCallback
+ .text.HAL_FDCAN_TxBufferAbortCallback
+                0x080026d4        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026d4                HAL_FDCAN_TxBufferAbortCallback
+ .text.HAL_FDCAN_RxBufferNewMessageCallback
+                0x080026d8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026d8                HAL_FDCAN_RxBufferNewMessageCallback
+ .text.HAL_FDCAN_TimestampWraparoundCallback
+                0x080026dc        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026dc                HAL_FDCAN_TimestampWraparoundCallback
+ .text.HAL_FDCAN_TimeoutOccurredCallback
+                0x080026e0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026e0                HAL_FDCAN_TimeoutOccurredCallback
+ .text.HAL_FDCAN_HighPriorityMessageCallback
+                0x080026e4        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026e4                HAL_FDCAN_HighPriorityMessageCallback
+ .text.HAL_FDCAN_ErrorCallback
+                0x080026e8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026e8                HAL_FDCAN_ErrorCallback
+ .text.HAL_FDCAN_ErrorStatusCallback
+                0x080026ec        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026ec                HAL_FDCAN_ErrorStatusCallback
+ .text.HAL_FDCAN_TT_ScheduleSyncCallback
+                0x080026f0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026f0                HAL_FDCAN_TT_ScheduleSyncCallback
+ .text.HAL_FDCAN_TT_TimeMarkCallback
+                0x080026f4        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026f4                HAL_FDCAN_TT_TimeMarkCallback
+ .text.HAL_FDCAN_TT_StopWatchCallback
+                0x080026f8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026f8                HAL_FDCAN_TT_StopWatchCallback
+ .text.HAL_FDCAN_TT_GlobalTimeCallback
+                0x080026fc        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x080026fc                HAL_FDCAN_TT_GlobalTimeCallback
  .text.HAL_FDCAN_IRQHandler
-                0x080026d4      0x390 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
-                0x080026d4                HAL_FDCAN_IRQHandler
+                0x08002700      0x390 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08002700                HAL_FDCAN_IRQHandler
  .text.HAL_GPIO_Init
-                0x08002a64      0x424 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
-                0x08002a64                HAL_GPIO_Init
+                0x08002a90      0x424 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
+                0x08002a90                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x08002e88        0x8 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
-                0x08002e88                HAL_GPIO_WritePin
+                0x08002eb4        0x8 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
+                0x08002eb4                HAL_GPIO_WritePin
  .text.HAL_GPIO_EXTI_Callback
-                0x08002e90        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
-                0x08002e90                HAL_GPIO_EXTI_Callback
+                0x08002ebc        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
+                0x08002ebc                HAL_GPIO_EXTI_Callback
  .text.HAL_GPIO_EXTI_IRQHandler
-                0x08002e94       0x1c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
-                0x08002e94                HAL_GPIO_EXTI_IRQHandler
+                0x08002ec0       0x1c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c.obj
+                0x08002ec0                HAL_GPIO_EXTI_IRQHandler
  .text.HAL_LTDC_Init
-                0x08002eb0       0xdc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x08002eb0                HAL_LTDC_Init
+                0x08002edc       0xdc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08002edc                HAL_LTDC_Init
  .text.HAL_LTDC_ErrorCallback
-                0x08002f8c        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x08002f8c                HAL_LTDC_ErrorCallback
+                0x08002fb8        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08002fb8                HAL_LTDC_ErrorCallback
  .text.HAL_LTDC_LineEventCallback
-                0x08002f90        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x08002f90                HAL_LTDC_LineEventCallback
+                0x08002fbc        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08002fbc                HAL_LTDC_LineEventCallback
  .text.HAL_LTDC_ReloadEventCallback
-                0x08002f94        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x08002f94                HAL_LTDC_ReloadEventCallback
+                0x08002fc0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08002fc0                HAL_LTDC_ReloadEventCallback
  .text.HAL_LTDC_IRQHandler
-                0x08002f98       0xc4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x08002f98                HAL_LTDC_IRQHandler
+                0x08002fc4       0xc4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08002fc4                HAL_LTDC_IRQHandler
  .text.HAL_LTDC_ConfigLayer
-                0x0800305c      0x198 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x0800305c                HAL_LTDC_ConfigLayer
+                0x08003088      0x198 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08003088                HAL_LTDC_ConfigLayer
  .text.HAL_PWREx_ConfigSupply
-                0x080031f4       0x48 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
-                0x080031f4                HAL_PWREx_ConfigSupply
+                0x08003220       0x48 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c.obj
+                0x08003220                HAL_PWREx_ConfigSupply
  .text.HAL_RCC_OscConfig
-                0x0800323c      0x5dc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
-                0x0800323c                HAL_RCC_OscConfig
+                0x08003268      0x5dc CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
+                0x08003268                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x08003818      0x164 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
-                0x08003818                HAL_RCC_GetSysClockFreq
+                0x08003844      0x164 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
+                0x08003844                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x0800397c      0x254 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
-                0x0800397c                HAL_RCC_ClockConfig
+                0x080039a8      0x254 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c.obj
+                0x080039a8                HAL_RCC_ClockConfig
  .text.RCCEx_PLL2_Config.part.0
-                0x08003bd0       0xe0 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
+                0x08003bfc       0xe0 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
  .text.RCCEx_PLL3_Config.part.0
-                0x08003cb0       0xe0 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
+                0x08003cdc       0xe0 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x08003d90      0xf00 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
-                0x08003d90                HAL_RCCEx_PeriphCLKConfig
+                0x08003dbc      0xf00 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c.obj
+                0x08003dbc                HAL_RCCEx_PeriphCLKConfig
  .text.HAL_SDRAM_Init
-                0x08004c90       0x54 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sdram.c.obj
-                0x08004c90                HAL_SDRAM_Init
+                0x08004cbc       0x54 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sdram.c.obj
+                0x08004cbc                HAL_SDRAM_Init
  .text.FMC_SDRAM_Init
-                0x08004ce4       0x6c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_fmc.c.obj
-                0x08004ce4                FMC_SDRAM_Init
+                0x08004d10       0x6c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_fmc.c.obj
+                0x08004d10                FMC_SDRAM_Init
  .text.FMC_SDRAM_Timing_Init
-                0x08004d50       0x7c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_fmc.c.obj
-                0x08004d50                FMC_SDRAM_Timing_Init
+                0x08004d7c       0x7c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_fmc.c.obj
+                0x08004d7c                FMC_SDRAM_Timing_Init
  .text.LL_GPIO_Init
-                0x08004dcc       0xf4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c.obj
-                0x08004dcc                LL_GPIO_Init
+                0x08004df8       0xf4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c.obj
+                0x08004df8                LL_GPIO_Init
  .text.LL_TIM_Init
-                0x08004ec0       0xd4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_tim.c.obj
-                0x08004ec0                LL_TIM_Init
- .text.atexit   0x08004f94        0xc /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-atexit.o)
-                0x08004f94                atexit
- .text.memset   0x08004fa0       0x9c /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-memset.o)
-                0x08004fa0                memset
+                0x08004eec       0xd4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_tim.c.obj
+                0x08004eec                LL_TIM_Init
+ .text.atexit   0x08004fc0        0xc /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-atexit.o)
+                0x08004fc0                atexit
+ .text.memset   0x08004fcc       0x9c /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-memset.o)
+                0x08004fcc                memset
  .text.__libc_init_array
-                0x0800503c       0x50 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-init.o)
-                0x0800503c                __libc_init_array
+                0x08005068       0x50 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-init.o)
+                0x08005068                __libc_init_array
  .text.__libc_fini_array
-                0x0800508c       0x28 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-fini.o)
-                0x0800508c                __libc_fini_array
+                0x080050b8       0x28 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-fini.o)
+                0x080050b8                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x080050b4        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-lock.o)
-                0x080050b4                __retarget_lock_acquire_recursive
+                0x080050e0        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-lock.o)
+                0x080050e0                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x080050b8        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-lock.o)
-                0x080050b8                __retarget_lock_release_recursive
+                0x080050e4        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-lock.o)
+                0x080050e4                __retarget_lock_release_recursive
  .text.__register_exitproc
-                0x080050bc       0x80 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__atexit.o)
-                0x080050bc                __register_exitproc
+                0x080050e8       0x80 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__atexit.o)
+                0x080050e8                __register_exitproc
  .text.startup.register_fini
-                0x0800513c       0x14 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
+                0x08005168       0x14 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
  *(.glue_7)
- .glue_7        0x08005150        0x0 linker stubs
+ .glue_7        0x0800517c        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08005150        0x0 linker stubs
+ .glue_7t       0x0800517c        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08005150        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
+ .eh_frame      0x0800517c        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
  *(.init)
- .init          0x08005150        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crti.o
-                0x08005150                _init
- .init          0x08005154        0x8 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
+ .init          0x0800517c        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crti.o
+                0x0800517c                _init
+ .init          0x08005180        0x8 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
  *(.fini)
- .fini          0x0800515c        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crti.o
-                0x0800515c                _fini
- .fini          0x08005160        0x8 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
-                0x08005168                        . = ALIGN (0x4)
-                0x08005168                        _etext = .
+ .fini          0x08005188        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crti.o
+                0x08005188                _fini
+ .fini          0x0800518c        0x8 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
+                0x08005194                        . = ALIGN (0x4)
+                0x08005194                        _etext = .
 
-.vfp11_veneer   0x08005168        0x0
- .vfp11_veneer  0x08005168        0x0 linker stubs
+.vfp11_veneer   0x08005194        0x0
+ .vfp11_veneer  0x08005194        0x0 linker stubs
 
-.v4_bx          0x08005168        0x0
- .v4_bx         0x08005168        0x0 linker stubs
+.v4_bx          0x08005194        0x0
+ .v4_bx         0x08005194        0x0 linker stubs
 
-.iplt           0x08005168        0x0
- .iplt          0x08005168        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
+.iplt           0x08005194        0x0
+ .iplt          0x08005194        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
 
-.rodata         0x08005168      0x3e0
-                0x08005168                        . = ALIGN (0x4)
+.rodata         0x08005194      0x3e0
+                0x08005194                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x08005168        0x8 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
- .rodata        0x08005170       0x4c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+ .rodata        0x08005194        0x8 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+ .rodata        0x0800519c       0x4c CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
  *(.rodata*)
  .rodata.odblokuj.str1.4
-                0x080051bc        0x9 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
- *fill*         0x080051c5        0x3 
- .rodata.ik.0   0x080051c8       0x40 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
- .rodata.s.1    0x08005208      0x100 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
- .rodata.g.2    0x08005308      0x100 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
- .rodata.K.3    0x08005408      0x100 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+                0x080051e8        0x9 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+ *fill*         0x080051f1        0x3 
+ .rodata.ik.1   0x080051f4       0x40 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+ .rodata.s.2    0x08005234      0x100 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+ .rodata.g.3    0x08005334      0x100 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+ .rodata.K.4    0x08005434      0x100 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
  .rodata.D1CorePrescTable
-                0x08005508       0x10 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
-                0x08005508                D1CorePrescTable
+                0x08005534       0x10 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
+                0x08005534                D1CorePrescTable
  .rodata.DLCtoBytes
-                0x08005518       0x10 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
+                0x08005544       0x10 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c.obj
  .rodata.CSWTCH.3
-                0x08005528       0x20 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
-                0x08005548                        . = ALIGN (0x4)
+                0x08005554       0x20 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c.obj
+                0x08005574                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08005548        0x8
-                0x08005548                        __exidx_start = .
+.ARM            0x08005574        0x8
+                0x08005574                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08005548        0x8 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-memcpy.o)
-                0x08005550                        __exidx_end = .
+ .ARM.exidx     0x08005574        0x8 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-memcpy.o)
+                0x0800557c                        __exidx_end = .
 
-.rel.dyn        0x08005550        0x0
- .rel.iplt      0x08005550        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
+.rel.dyn        0x0800557c        0x0
+ .rel.iplt      0x0800557c        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
 
-.preinit_array  0x08005550        0x0
-                0x08005550                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800557c        0x0
+                0x0800557c                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08005550                        PROVIDE (__preinit_array_end = .)
+                0x0800557c                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08005550        0x8
-                0x08005550                        PROVIDE (__init_array_start = .)
+.init_array     0x0800557c        0x8
+                0x0800557c                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x08005550        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
+                0x0800557c        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x08005554        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
-                0x08005558                        PROVIDE (__init_array_end = .)
+ .init_array    0x08005580        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
+                0x08005584                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x08005558        0x4
-                0x08005558                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08005584        0x4
+                0x08005584                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08005558        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
-                0x0800555c                        PROVIDE (__fini_array_end = .)
-                0x0800555c                        _sidata = LOADADDR (.data)
+ .fini_array    0x08005584        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
+                0x08005588                        PROVIDE (__fini_array_end = .)
+                0x08005588                        _sidata = LOADADDR (.data)
 
-.data           0x24000000       0x1c load address 0x0800555c
+.data           0x24000000       0x20 load address 0x08005588
                 0x24000000                        . = ALIGN (0x4)
                 0x24000000                        _sdata = .
  *(.data)
  *(.data*)
- .data.flag     0x24000000        0x1 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
-                0x24000000                flag
- *fill*         0x24000001        0x3 
- .data.fb       0x24000004        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
-                0x24000004                fb
+ .data.szrajben
+                0x24000000        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+                0x24000000                szrajben
+ .data.flag     0x24000004        0x1 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+                0x24000004                flag
+ *fill*         0x24000005        0x3 
+ .data.fb       0x24000008        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
+                0x24000008                fb
  .data.SystemD2Clock
-                0x24000008        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
-                0x24000008                SystemD2Clock
- .data.SystemCoreClock
                 0x2400000c        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
-                0x2400000c                SystemCoreClock
+                0x2400000c                SystemD2Clock
+ .data.SystemCoreClock
+                0x24000010        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/system_stm32h7xx.c.obj
+                0x24000010                SystemCoreClock
  .data.uwTickFreq
-                0x24000010        0x1 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x24000010                uwTickFreq
- *fill*         0x24000011        0x3 
+                0x24000014        0x1 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x24000014                uwTickFreq
+ *fill*         0x24000015        0x3 
  .data.uwTickPrio
-                0x24000014        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x24000014                uwTickPrio
+                0x24000018        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x24000018                uwTickPrio
  .data.__atexit_recursive_mutex
-                0x24000018        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
-                0x24000018                __atexit_recursive_mutex
+                0x2400001c        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
+                0x2400001c                __atexit_recursive_mutex
  *(.RamFunc)
  *(.RamFunc*)
-                0x2400001c                        . = ALIGN (0x4)
-                0x2400001c                        _edata = .
+                0x24000020                        . = ALIGN (0x4)
+                0x24000020                        _edata = .
 
-.igot.plt       0x2400001c        0x0 load address 0x08005578
- .igot.plt      0x2400001c        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
-                0x2400001c                        . = ALIGN (0x4)
+.igot.plt       0x24000020        0x0 load address 0x080055a8
+ .igot.plt      0x24000020        0x0 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
+                0x24000020                        . = ALIGN (0x4)
 
-.bss            0x24000020    0x51828 load address 0x08005578
+.bss            0x24000020    0x5182c load address 0x080055a8
                 0x24000020                        _sbss = .
                 0x24000020                        __bss_start__ = _sbss
  *(.bss)
@@ -2663,7 +2668,8 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
                 0x24000020        0x1 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
  *fill*         0x24000021        0x3 
  .bss.object.0  0x24000024       0x18 /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtbegin.o
- *fill*         0x2400003c        0x4 
+ .bss.next_line.0
+                0x2400003c        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
  .bss.X         0x24000040       0x80 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
  .bss.RxHeader  0x240000c0       0x28 CMakeFiles/YTAR.elf.dir/Core/Src/main.c.obj
                 0x240000c0                RxHeader
@@ -2683,34 +2689,38 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.1.0/thumb/v7e-m/nofp/crtn.o
                 0x24051604                hfdcan1
  .bss.FMC_Initialized
                 0x240516a4        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_hal_msp.c.obj
- .bss.line_cnt  0x240516a8        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
-                0x240516a8                line_cnt
- .bss.uwTick    0x240516ac        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
-                0x240516ac                uwTick
+ .bss.line_cnt_ready
+                0x240516a8        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x240516a8                line_cnt_ready
+ .bss.line_cnt  0x240516ac        0x4 CMakeFiles/YTAR.elf.dir/Core/Src/stm32h7xx_it.c.obj
+                0x240516ac                line_cnt
+ .bss.uwTick    0x240516b0        0x4 CMakeFiles/YTAR.elf.dir/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c.obj
+                0x240516b0                uwTick
  .bss.__lock___atexit_recursive_mutex
-                0x240516b0        0x1 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-lock.o)
-                0x240516b0                __lock___atexit_recursive_mutex
- *fill*         0x240516b1        0x3 
+                0x240516b4        0x1 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-lock.o)
+                0x240516b4                __lock___atexit_recursive_mutex
+ *fill*         0x240516b5        0x3 
  .bss.__atexit0
-                0x240516b4      0x190 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__atexit.o)
-                0x240516b4                __atexit0
- .bss.__atexit  0x24051844        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
-                0x24051844                __atexit
+                0x240516b8      0x190 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__atexit.o)
+                0x240516b8                __atexit0
+ .bss.__atexit  0x24051848        0x4 /usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(libc_a-__call_atexit.o)
+                0x24051848                __atexit
  *(COMMON)
-                0x24051848                        . = ALIGN (0x4)
-                0x24051848                        _ebss = .
-                0x24051848                        __bss_end__ = _ebss
+                0x2405184c                        . = ALIGN (0x4)
+                0x2405184c                        _ebss = .
+                0x2405184c                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x24051848      0x600 load address 0x08005578
-                0x24051848                        . = ALIGN (0x8)
+                0x2405184c      0x604 load address 0x080055a8
+                0x24051850                        . = ALIGN (0x8)
+ *fill*         0x2405184c        0x4 
                 [!provide]                        PROVIDE (end = .)
-                0x24051848                        PROVIDE (_end = .)
-                0x24051a48                        . = (. + _Min_Heap_Size)
- *fill*         0x24051848      0x200 
-                0x24051e48                        . = (. + _Min_Stack_Size)
- *fill*         0x24051a48      0x400 
-                0x24051e48                        . = ALIGN (0x8)
+                0x24051850                        PROVIDE (_end = .)
+                0x24051a50                        . = (. + _Min_Heap_Size)
+ *fill*         0x24051850      0x200 
+                0x24051e50                        . = (. + _Min_Stack_Size)
+ *fill*         0x24051a50      0x400 
+                0x24051e50                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)

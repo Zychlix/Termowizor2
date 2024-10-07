@@ -40,6 +40,7 @@ uint32_t * volatile write = (void*)(0x30000000+350*4);
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 volatile uint32_t line_cnt;
+volatile uint32_t line_cnt_ready;
 extern volatile uint32_t cam_buffer[325*256];
 /* USER CODE END PD */
 
@@ -216,6 +217,8 @@ void DMA1_Stream0_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream0_IRQn 0 */
  LL_DMA_ClearFlag_TC0(DMA1);
  LL_DMA_ClearFlag_TE0(DMA1);
+ line_cnt_ready = line_cnt;
+ GPIOI->BSRR |= (1 << 22);
 //    szrajben=0;
 //  volatile uint32_t* ptr = read;
 //  for(int i = 0; i < 320; i++)
@@ -252,9 +255,9 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
   uint32_t port = GPIOC->IDR;
 //    for (volatile int i = 0; i < 5000; ++i) {}
-LL_DMA_ClearFlag_TC0(DMA1);
- LL_DMA_ClearFlag_FE0(DMA1);
- LL_DMA_ClearFlag_TE0(DMA1);
+//LL_DMA_ClearFlag_TC0(DMA1);
+// LL_DMA_ClearFlag_FE0(DMA1);
+// LL_DMA_ClearFlag_TE0(DMA1);
 
 //    if (!szrajben) return;
 
@@ -262,7 +265,6 @@ LL_DMA_ClearFlag_TC0(DMA1);
     {
         if(line_cnt>200)
             line_cnt=0;
-
 
 }
 else if(!(port & GPIO_PIN_9))   //Ramka dobra
@@ -290,23 +292,22 @@ else if(!(port & GPIO_PIN_9))   //Ramka dobra
         szrajben=1;
     LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, ((uint32_t)cam_buffer + 325*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
  //   LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
-    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 325);
+    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 300);
   //  LL_TIM_EnableDMAReq_UPDATE(TIM2);
     LL_TIM_EnableDMAReq_CC1(TIM2);
     //LL_TIM_EnableIT_UPDATE(TIM2);
-
+    GPIOI->BSRR |= (1 << 6);
   //  LL_TIM_EnableCounter(TIM2);
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
-        LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
-        LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
-        line_cnt++;
+    LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
+    LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
+    line_cnt++;
 
 }
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
-
   /* USER CODE END EXTI15_10_IRQn 1 */
 }
 
