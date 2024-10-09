@@ -65,6 +65,8 @@ volatile uint32_t cam_buffer [325*256];
 volatile uint16_t pix_index = 0;
 
 volatile uint16_t * buffer;
+
+volatile uint32_t jedziesz = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -433,10 +435,17 @@ int main(void)
     HAL_Delay(100);
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
     HAL_Delay(100);
-    MX_LTDC_Init();
+
     HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
     LL_DMA_EnableIT_TC(DMA1,LL_DMA_STREAM_0);
+
+//    HAL_NVIC_SetPriority(LTDC_IRQn,0,0);
+//    HAL_NVIC_EnableIRQ(LTDC_IRQn);
+
+    hltdc.Instance->LIPCR =500;
+
+
     MX_LTDC_Init();
     while (1)
   {
@@ -481,24 +490,33 @@ int main(void)
 //        *(int32_t *)(0xD0000000+i*4) = loop_cnt;
 //    }
 //      *(uint32_t*)0x500010ac = 0xD0400000;//    LTDC_Layer
-    loop_cnt++;
+        loop_cnt++;
 //        memcpy((void *)0xD0000000, (void*)cam_buffer, sizeof (cam_buffer));
 
 
-uint32_t dest=0xD0000000;
+        uint32_t dest=0xD0000000;
+        hltdc.Instance->IER = 0xFF;
+
+//while(!jedziesz);
 if(loop_cnt%2)
 {
-    dest = 0xD00A0000;
+    //dest = 0xD00A0000;
 }
+        hltdc.Instance->IER = LTDC_IER_LIE;
+
         for(int lines=0; lines <= 256; lines++)
         {
             for(int pixel=0; pixel < 325; pixel++)
             {
-                *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
+
+                    *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) =                            ((cam_buffer[pixel + 325 * lines]) << 8) | 0xFF;
             }
 
         }
-HAL_Delay(70);
+        jedziesz = 0;
+
+        HAL_Delay(33);
+
 //        wlacznik = 0;
 
 //      HAL_Delay(10);
@@ -580,12 +598,12 @@ void PeriphCommonClock_Config(void)
   /** Initializes the peripherals clock
   */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC|RCC_PERIPHCLK_FDCAN;
-  PeriphClkInitStruct.PLL2.PLL2M = 2;
-  PeriphClkInitStruct.PLL2.PLL2N = 60;
+  PeriphClkInitStruct.PLL2.PLL2M = 5;
+  PeriphClkInitStruct.PLL2.PLL2N = 48;
   PeriphClkInitStruct.PLL2.PLL2P = 2;
   PeriphClkInitStruct.PLL2.PLL2Q = 10;
-  PeriphClkInitStruct.PLL2.PLL2R = 3;
-  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
+  PeriphClkInitStruct.PLL2.PLL2R = 1;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_2;
   PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
   PeriphClkInitStruct.FmcClockSelection = RCC_FMCCLKSOURCE_PLL2;
@@ -671,18 +689,21 @@ static void MX_LTDC_Init(void)
   hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
   hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
-  hltdc.Init.HorizontalSync = 31;
+  hltdc.Init.HorizontalSync = 15;
   hltdc.Init.VerticalSync = 9;
-  hltdc.Init.AccumulatedHBP = 51;
-  hltdc.Init.AccumulatedVBP = 24;
-  hltdc.Init.AccumulatedActiveW = 531;
-  hltdc.Init.AccumulatedActiveH = 664;
-  hltdc.Init.TotalWidth = 557;
+  hltdc.Init.AccumulatedHBP = 35;
+  hltdc.Init.AccumulatedVBP = 34;
+  hltdc.Init.AccumulatedActiveW = 515;
+  hltdc.Init.AccumulatedActiveH = 674;
+  hltdc.Init.TotalWidth = 541;
   hltdc.Init.TotalHeigh = 689;
   hltdc.Init.Backcolor.Blue = 50;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
-  if (HAL_LTDC_Init(&hltdc) != HAL_OK)
+
+    hltdc.Instance->IER = LTDC_IER_RRIE | LTDC_ISR_LIF;
+
+    if (HAL_LTDC_Init(&hltdc) != HAL_OK)
   {
     Error_Handler();
   }
@@ -697,7 +718,7 @@ static void MX_LTDC_Init(void)
   pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
   pLayerCfg.FBStartAdress = 0xD0000000;
   pLayerCfg.ImageWidth = 480;
-  pLayerCfg.ImageHeight = 640;
+  pLayerCfg.ImageHeight = 256;
   pLayerCfg.Backcolor.Blue = 100;
   pLayerCfg.Backcolor.Green = 0;
   pLayerCfg.Backcolor.Red = 0;

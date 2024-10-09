@@ -29,7 +29,7 @@
 /* USER CODE BEGIN TD */
 extern volatile uint32_t  pix_index;
 extern volatile uint32_t wlacznik;
-
+extern volatile uint32_t jedziesz;
 //static uint32_t buffer[350*2];
 
 uint32_t * volatile read = (void*)(0x30000000);
@@ -314,11 +314,22 @@ else if(!(port & GPIO_PIN_9))   //Ramka dobra
 void LTDC_IRQHandler(void)
 {
   /* USER CODE BEGIN LTDC_IRQn 0 */
+  jedziesz = 1;
 
-  /* USER CODE END LTDC_IRQn 0 */
+  hltdc.Instance->IER = 0;
+  hltdc.Instance->ICR = 1<<0;
+  hltdc.Instance->ICR = 1<<1;
+  hltdc.Instance->ICR = 1<<2;
+  hltdc.Instance->ICR = 0xFF;
+
+//    __HAL_LTDC_CLEAR_FLAG(&hltdc, LTDC_FLAG_LI);
+
+    return;
+
+    /* USER CODE END LTDC_IRQn 0 */
   HAL_LTDC_IRQHandler(&hltdc);
   /* USER CODE BEGIN LTDC_IRQn 1 */
-
+hltdc.Instance->IER=LTDC_IER_LIE;
   /* USER CODE END LTDC_IRQn 1 */
 }
 
