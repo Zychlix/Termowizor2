@@ -440,13 +440,13 @@ int main(void)
 
     LL_DMA_EnableIT_TC(DMA1,LL_DMA_STREAM_0);
 
-//    HAL_NVIC_SetPriority(LTDC_IRQn,0,0);
-//    HAL_NVIC_EnableIRQ(LTDC_IRQn);
+    HAL_NVIC_SetPriority(LTDC_IRQn,5,5);
+    HAL_NVIC_EnableIRQ(LTDC_IRQn);
 
-    hltdc.Instance->LIPCR =500;
+//    hltdc.Instance->LIPCR =500;
 
+    hltdc.Instance->IER = LTDC_IER_LIE;
 
-    MX_LTDC_Init();
     while (1)
   {
     /* USER CODE END WHILE */
@@ -495,27 +495,35 @@ int main(void)
 
 
         uint32_t dest=0xD0000000;
-        hltdc.Instance->IER = 0xFF;
 
 //while(!jedziesz);
 if(loop_cnt%2)
 {
     //dest = 0xD00A0000;
 }
-        hltdc.Instance->IER = LTDC_IER_LIE;
 
         for(int lines=0; lines <= 256; lines++)
         {
             for(int pixel=0; pixel < 325; pixel++)
             {
 
-                    *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) =                            ((cam_buffer[pixel + 325 * lines]) << 8) | 0xFF;
+                uint32_t value = ((cam_buffer[pixel + 325 * lines])) ;
+
+//                value = (value&0xFF)<<8 | (value>>8);
+
+                uint32_t R = (value)<<16;
+//                value = ((cam_buffer[pixel + 325 * lines])>>4);
+
+                uint32_t G = (value)<<8;
+                uint32_t B = (value);
+//                    *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) = R | G | B;
+                    *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) = value<<2 | ((value)<<8)&0xFF00;
             }
 
         }
         jedziesz = 0;
 
-        HAL_Delay(33);
+        HAL_Delay(36);
 
 //        wlacznik = 0;
 
@@ -701,7 +709,7 @@ static void MX_LTDC_Init(void)
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
 
-    hltdc.Instance->IER = LTDC_IER_RRIE | LTDC_ISR_LIF;
+    hltdc.Instance->IER = LTDC_IER_LIE;
 
     if (HAL_LTDC_Init(&hltdc) != HAL_OK)
   {

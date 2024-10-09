@@ -316,11 +316,16 @@ void LTDC_IRQHandler(void)
   /* USER CODE BEGIN LTDC_IRQn 0 */
   jedziesz = 1;
 
+//  hltdc.Instance->IER = 0;
+    hltdc.Instance->ICR = 0xFF;
+    hltdc.Instance->ICR = 0;
+    hltdc.Instance->ICR = 1<<0;
+    hltdc.Instance->ICR = 1<<1;
+    hltdc.Instance->ICR = 1<<2;
+    hltdc.Instance->ICR = LTDC_ICR_CLIF;
   hltdc.Instance->IER = 0;
-  hltdc.Instance->ICR = 1<<0;
-  hltdc.Instance->ICR = 1<<1;
-  hltdc.Instance->ICR = 1<<2;
-  hltdc.Instance->ICR = 0xFF;
+
+
 
 //    __HAL_LTDC_CLEAR_FLAG(&hltdc, LTDC_FLAG_LI);
 
