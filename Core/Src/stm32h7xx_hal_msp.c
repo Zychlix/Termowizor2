@@ -474,7 +474,7 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef* htim_ic)
     hdma_tim5_ch4.Init.Request = DMA_REQUEST_TIM5_CH4;
     hdma_tim5_ch4.Init.Direction = DMA_PERIPH_TO_MEMORY;
     hdma_tim5_ch4.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_tim5_ch4.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_tim5_ch4.Init.MemInc = DMA_MINC_DISABLE;
     hdma_tim5_ch4.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
     hdma_tim5_ch4.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
     hdma_tim5_ch4.Init.Mode = DMA_NORMAL;

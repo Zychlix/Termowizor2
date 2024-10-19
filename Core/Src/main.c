@@ -468,6 +468,11 @@ int main(void)
     HAL_NVIC_SetPriority(LTDC_IRQn, 5, 5);
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
 
+    // Cyccount
+    CoreDebug->DEMCR |= 0x01000000;
+    DWT->CYCCNT = 0; // reset the counter
+    DWT->CTRL = 1;
+
 //    hltdc.Instance->LIPCR =500;
 
     hltdc.Instance->IER = LTDC_IER_LIE;
@@ -538,8 +543,6 @@ int main(void)
 
         }
         jedziesz = 0;
-
-//        while(1);
         HAL_Delay(33);
 
 //        wlacznik = 0;

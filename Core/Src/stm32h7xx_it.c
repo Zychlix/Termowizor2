@@ -36,6 +36,8 @@ uint32_t *volatile read = (void *) (0x30000000);
 uint32_t *volatile write = (void *) (0x30000000 + 350 * 4);
 volatile uint32_t portc_when_hsync = 0;
 
+uint32_t interrupt_times[1024];
+
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -314,6 +316,13 @@ void EXTI15_10_IRQHandler(void)
 void DMA2_Stream0_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
+    static uint32_t idx = 0;
+//    interrupt_times[idx++] = DWT->CYCCNT;
+
+//    if (idx >= 1024) {
+//        idx = 0;
+//    }
+
     LL_DMA_ClearFlag_TE0(DMA2);
 
     if (LL_DMA_IsActiveFlag_TC0(DMA2)) {
@@ -321,7 +330,7 @@ void DMA2_Stream0_IRQHandler(void)
 
   /* USER CODE END DMA2_Stream0_IRQn 0 */
   /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
-        if (!(portc_when_hsync & GPIO_PIN_9)) {
+        if ((portc_when_hsync & GPIO_PIN_9)) {
             LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t) &GPIOC->IDR,
                                    ((uint32_t) cam_buffer + 325 * 4 * line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
             LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 325);
