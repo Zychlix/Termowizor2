@@ -36,14 +36,13 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-typedef  __attribute((aligned())) struct pix
-        {
-        uint8_t B;
-        uint8_t G;
-        uint8_t R;
-        uint8_t A;
+typedef __attribute((aligned())) struct pix {
+    uint8_t B;
+    uint8_t G;
+    uint8_t R;
+    uint8_t A;
 //        uint8_t A;
-        }pix_t;
+} pix_t;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -57,14 +56,14 @@ SD_HandleTypeDef hsd2;
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
-volatile pix_t *fb= (pix_t*)0xD0000000;
+volatile pix_t *fb = (pix_t *) 0xD0000000;
 
-volatile uint32_t cam_buffer [325*256];
+volatile uint32_t cam_buffer[325 * 256];
 //volatile uint32_t cam_buffer_2 [325*256];
 
 volatile uint16_t pix_index = 0;
 
-volatile uint16_t * buffer;
+volatile uint16_t *buffer;
 
 volatile uint32_t jedziesz = 0;
 /* USER CODE END PV */
@@ -86,64 +85,59 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 volatile uint8_t odebrane[60];
-volatile uint8_t indeks=0;
-volatile uint8_t flag=1;
+volatile uint8_t indeks = 0;
+volatile uint8_t flag = 1;
 volatile FDCAN_RxHeaderTypeDef RxHeader;
 
 volatile uint32_t wlacznik = 1;
 
-void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
-{
-    if(flag>0)
-    {
-        uint8_t liczba=0;
+void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs) {
+    if (flag > 0) {
+        uint8_t liczba = 0;
 
-        liczba = HAL_FDCAN_GetRxFifoFillLevel(hfdcan,FDCAN_RX_FIFO0);
-        for ( uint8_t x=0; x<liczba; x++)
-        {
-            HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader, odebrane+8*indeks);
-            indeks+=1;
+        liczba = HAL_FDCAN_GetRxFifoFillLevel(hfdcan, FDCAN_RX_FIFO0);
+        for (uint8_t x = 0; x < liczba; x++) {
+            HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &RxHeader, odebrane + 8 * indeks);
+            indeks += 1;
         }
     }
 }
 
-void nadaj(uint32_t adres,uint8_t *wiadomosc)
-{
+void nadaj(uint32_t adres, uint8_t *wiadomosc) {
     FDCAN_TxHeaderTypeDef Txheader;
 
 
-    uint32_t Txmailbox=0;
+    uint32_t Txmailbox = 0;
 
-    Txheader.DataLength=FDCAN_DLC_BYTES_8;
+    Txheader.DataLength = FDCAN_DLC_BYTES_8;
     Txheader.Identifier = adres;
     Txheader.FDFormat = FDCAN_CLASSIC_CAN;
-    Txheader.IdType =  FDCAN_STANDARD_ID;
+    Txheader.IdType = FDCAN_STANDARD_ID;
     Txheader.TxFrameType = FDCAN_DATA_FRAME;
     Txheader.TxEventFifoControl = FDCAN_NO_TX_EVENTS;
 //    HAL_CAN_AddTxMessage(&hcan1, &Txheader, wiadomosc, &Txmailbox);
-    HAL_FDCAN_AddMessageToTxBuffer(&hfdcan1,&Txheader,wiadomosc,FDCAN_TX_BUFFER0);
-    HAL_FDCAN_EnableTxBufferRequest(&hfdcan1,FDCAN_TX_BUFFER0);
+    HAL_FDCAN_AddMessageToTxBuffer(&hfdcan1, &Txheader, wiadomosc, FDCAN_TX_BUFFER0);
+    HAL_FDCAN_EnableTxBufferRequest(&hfdcan1, FDCAN_TX_BUFFER0);
 
-    while(HAL_FDCAN_IsTxBufferMessagePending(&hfdcan1, Txmailbox));
+    while (HAL_FDCAN_IsTxBufferMessagePending(&hfdcan1, Txmailbox));
 
 
 }
 
 
-void md5(uint32_t *M, unsigned const N, uint32_t *h)
-{
+void md5(uint32_t *M, unsigned const N, uint32_t *h) {
     static uint_fast8_t const g[64] = {
-            0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
-            1,  6, 11,  0,  5, 10, 15,  4,  9, 14,  3,  8, 13,  2,  7, 12,
-            5,  8, 11, 14,  1,  4,  7, 10, 13,  0,  3,  6,  9, 12, 15,  2,
-            0,  7, 14,  5, 12,  3, 10,  1,  8, 15,  6, 13,  4, 11,  2,  9
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+            1, 6, 11, 0, 5, 10, 15, 4, 9, 14, 3, 8, 13, 2, 7, 12,
+            5, 8, 11, 14, 1, 4, 7, 10, 13, 0, 3, 6, 9, 12, 15, 2,
+            0, 7, 14, 5, 12, 3, 10, 1, 8, 15, 6, 13, 4, 11, 2, 9
     };
 
     static uint_fast8_t const s[64] = {
-            7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,
-            5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,  5,  9, 14, 20,
-            4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,  4, 11, 16, 23,
-            6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21,  6, 10, 15, 21
+            7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
+            5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
+            4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
+            6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21
     };
 
     static uint32_t const K[64] = {
@@ -157,23 +151,32 @@ void md5(uint32_t *M, unsigned const N, uint32_t *h)
             0x6FA87E4F, 0xFE2CE6E0, 0xA3014314, 0x4E0811A1, 0xF7537E82, 0xBD3AF235, 0x2AD7D2BB, 0xEB86D391
     };
 
-    uint32_t H[4] = { 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476 };
+    uint32_t H[4] = {0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476};
 
     uint32_t *m = M + N;
     *m++ = 0x00000080;
     unsigned n = N;
     while ((n & 15) != 13) *m++ = 0, ++n;
-    *m++ = N << 5; *m++ = 0;
+    *m++ = N << 5;
+    *m++ = 0;
 
     for (; M < m; M += 16) {
         uint32_t A = H[0], B = H[1], C = H[2], D = H[3];
         for (n = 0; n < 64; ++n) {
             uint32_t E = A + K[n] + M[g[n]];
             switch (n >> 4) {
-                case 0: E += (B & C) | (~B & D); break;
-                case 1: E += (B & D) | (C & ~D); break;
-                case 2: E += B ^ C ^ D;         break;
-                case 3: E += (B | ~D) ^ C;       break;
+                case 0:
+                    E += (B & C) | (~B & D);
+                    break;
+                case 1:
+                    E += (B & D) | (C & ~D);
+                    break;
+                case 2:
+                    E += B ^ C ^ D;
+                    break;
+                case 3:
+                    E += (B | ~D) ^ C;
+                    break;
             }
             A = D, D = C, C = B, B += (E << s[n]) | (E >> (32 - s[n]));
         }
@@ -185,83 +188,95 @@ void md5(uint32_t *M, unsigned const N, uint32_t *h)
 
 static uint32_t X[32];
 
-void autoliv_sk(uint8_t* sk)
-{
+void autoliv_sk(uint8_t *sk) {
     static uint32_t const ik[16] = {
             0x575E597C, 0x10167A58, 0x58537A16, 0x77535F58, 0x36363636, 0x36363636, 0x36363636, 0x36363636,
             0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636, 0x36363636
     };
 
-    uint8_t* k = sk;
+    uint8_t *k = sk;
     unsigned n;
-    uint32_t* x = X; for (n = 0; n < 16; ++n) *x++ = ik[n];
+    uint32_t *x = X;
+    for (n = 0; n < 16; ++n) *x++ = ik[n];
     for (n = 0; n < 4; ++n, sk += 4) *x++ = sk[0] | (sk[1] << 8) | (sk[2] << 16) | (sk[3] << 24);
     md5(X, 20, X + 16);
-    x = X; for (n = 0; n < 16; ++n) *x++ ^= 0x6A6A6A6A;
+    x = X;
+    for (n = 0; n < 16; ++n) *x++ ^= 0x6A6A6A6A;
     md5(X, 20, X);
-    x = X; for (n = 0; n < 4; ++n, ++x, k += 4) k[0] = *x, k[1] = *x >> 8, k[2] = *x >> 16, k[3] = *x >> 24;
+    x = X;
+    for (n = 0; n < 4; ++n, ++x, k += 4) k[0] = *x, k[1] = *x >> 8, k[2] = *x >> 16, k[3] = *x >> 24;
 }
 
-void odblokuj(void)
-{
+void odblokuj(void) {
 
 
-    uint8_t wiadomosc[8]={0x8B,0x02,0x27,0x01,0x55,0x55,0x55,0x55};
+    uint8_t wiadomosc[8] = {0x8B, 0x02, 0x27, 0x01, 0x55, 0x55, 0x55, 0x55};
 
-    nadaj(0x657,wiadomosc);
+    nadaj(0x657, wiadomosc);
     HAL_Delay(100);
-    if(odebrane[25]!=0)
-    {
-        flag=0;
+    if (odebrane[25] != 0) {
+        flag = 0;
         uint8_t s[16];
-        s[0] = odebrane[5]; s[1] = odebrane[6]; s[2] = odebrane[7];
-        s[3] = odebrane[10]; s[4] = odebrane[11]; s[5] = odebrane[12]; s[6] = odebrane[13]; s[7] = odebrane[14]; s[8] = odebrane[15];
-        s[9] = odebrane[18]; s[10] = odebrane[19]; s[11] = odebrane[20]; s[12] = odebrane[21]; s[13] = odebrane[22]; s[14] = odebrane[23];
+        s[0] = odebrane[5];
+        s[1] = odebrane[6];
+        s[2] = odebrane[7];
+        s[3] = odebrane[10];
+        s[4] = odebrane[11];
+        s[5] = odebrane[12];
+        s[6] = odebrane[13];
+        s[7] = odebrane[14];
+        s[8] = odebrane[15];
+        s[9] = odebrane[18];
+        s[10] = odebrane[19];
+        s[11] = odebrane[20];
+        s[12] = odebrane[21];
+        s[13] = odebrane[22];
+        s[14] = odebrane[23];
         s[15] = odebrane[26];
         autoliv_sk(s);
-        wiadomosc[0]=0x8B;
-        wiadomosc[1]=0x10;
-        wiadomosc[2]=0x12;
-        wiadomosc[3]=0x27;
-        wiadomosc[4]=0x02;
-        wiadomosc[5]=s[0];
-        wiadomosc[6]=s[1];
-        wiadomosc[7]=s[2];
-        nadaj(0x657,wiadomosc);
+        wiadomosc[0] = 0x8B;
+        wiadomosc[1] = 0x10;
+        wiadomosc[2] = 0x12;
+        wiadomosc[3] = 0x27;
+        wiadomosc[4] = 0x02;
+        wiadomosc[5] = s[0];
+        wiadomosc[6] = s[1];
+        wiadomosc[7] = s[2];
+        nadaj(0x657, wiadomosc);
 
         HAL_Delay(10);
-        wiadomosc[0]=0x8B;
-        wiadomosc[1]=0x21;
-        wiadomosc[2]=s[3];
-        wiadomosc[3]=s[4];
-        wiadomosc[4]=s[5];
-        wiadomosc[5]=s[6];
-        wiadomosc[6]=s[7];
-        wiadomosc[7]=s[8];
-        nadaj(0x657,wiadomosc);
+        wiadomosc[0] = 0x8B;
+        wiadomosc[1] = 0x21;
+        wiadomosc[2] = s[3];
+        wiadomosc[3] = s[4];
+        wiadomosc[4] = s[5];
+        wiadomosc[5] = s[6];
+        wiadomosc[6] = s[7];
+        wiadomosc[7] = s[8];
+        nadaj(0x657, wiadomosc);
 
         HAL_Delay(10);
-        wiadomosc[0]=0x8B;
-        wiadomosc[1]=0x22;
-        wiadomosc[2]=s[9];
-        wiadomosc[3]=s[10];
-        wiadomosc[4]=s[11];
-        wiadomosc[5]=s[12];
-        wiadomosc[6]=s[13];
-        wiadomosc[7]=s[14];
-        nadaj(0x657,wiadomosc);
+        wiadomosc[0] = 0x8B;
+        wiadomosc[1] = 0x22;
+        wiadomosc[2] = s[9];
+        wiadomosc[3] = s[10];
+        wiadomosc[4] = s[11];
+        wiadomosc[5] = s[12];
+        wiadomosc[6] = s[13];
+        wiadomosc[7] = s[14];
+        nadaj(0x657, wiadomosc);
 
 
         HAL_Delay(10);
-        wiadomosc[0]=0x8B;
-        wiadomosc[1]=0x23;
-        wiadomosc[2]=s[15];
-        wiadomosc[3]=s[10];
-        wiadomosc[4]=s[11];
-        wiadomosc[5]=s[12];
-        wiadomosc[6]=s[13];
-        wiadomosc[7]=s[14];
-        nadaj(0x657,wiadomosc);
+        wiadomosc[0] = 0x8B;
+        wiadomosc[1] = 0x23;
+        wiadomosc[2] = s[15];
+        wiadomosc[3] = s[10];
+        wiadomosc[4] = s[11];
+        wiadomosc[5] = s[12];
+        wiadomosc[6] = s[13];
+        wiadomosc[7] = s[14];
+        nadaj(0x657, wiadomosc);
 
         HAL_Delay(10);
         HAL_FDCAN_Stop(&hfdcan1);
@@ -270,11 +285,10 @@ void odblokuj(void)
 }
 
 
-void przeslona (void)
-{
+void przeslona(void) {
 
 
-    uint8_t wiadomosc[8]={0xC8, 0x64, 0x00, 0x00, 0x02 ,0x00, 0x00, 0x00};
+    uint8_t wiadomosc[8] = {0xC8, 0x64, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00};
 
     HAL_FDCAN_Start(&hfdcan1);
 
@@ -283,17 +297,16 @@ void przeslona (void)
 
     HAL_Delay(100);
 
-    wiadomosc[4]= 0x04;
+    wiadomosc[4] = 0x04;
     nadaj(0x401, wiadomosc);
-    wiadomosc[4]= 0x00;
+    wiadomosc[4] = 0x00;
     nadaj(0x401, wiadomosc);
     HAL_Delay(50);
 
     HAL_FDCAN_Stop(&hfdcan1);
 }
 
-void dma_config()
-{
+void dma_config() {
     __HAL_RCC_DMA1_CLK_ENABLE();
 
 }
@@ -345,13 +358,13 @@ int main(void)
   MX_LTDC_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  HAL_SDRAM_MspInit(&hsdram1);
-  hsdram1.Instance = FMC_SDRAM_DEVICE;
-  hsdram1.Instance->SDCR[0] = 0b0100100111010100;
-  hsdram1.Instance->SDCR[1] = 0b0100110111010100;
-  hsdram1.Instance->SDTR[0] = 0xFFFFFFF;
-  hsdram1.Instance->SDTR[1] = 0xFFFFFFF;
-  hsdram1.Instance->SDCMR = 0b00000000110000000001001;
+    HAL_SDRAM_MspInit(&hsdram1);
+    hsdram1.Instance = FMC_SDRAM_DEVICE;
+    hsdram1.Instance->SDCR[0] = 0b0100100111010100;
+    hsdram1.Instance->SDCR[1] = 0b0100110111010100;
+    hsdram1.Instance->SDTR[0] = 0xFFFFFFF;
+    hsdram1.Instance->SDTR[1] = 0xFFFFFFF;
+    hsdram1.Instance->SDCMR = 0b00000000110000000001001;
     HAL_Delay(10);
     hsdram1.Instance->SDCMR = 0b01010; //CTB and precharge
     hsdram1.Instance->SDCMR = 0b111101011; // 6
@@ -359,41 +372,35 @@ int main(void)
     hsdram1.Instance->SDRTR = 500;
 
 
-
-    for(int i = 0; i< 640; i++)
-    {
-        for(int j =0; j<480; j++)
-        {
-            pix_t temp={0};
+    for (int i = 0; i < 640; i++) {
+        for (int j = 0; j < 480; j++) {
+            pix_t temp = {0};
             temp.A = 0;
             temp.R = 0;
             temp.G = 0;
             temp.B = 0;
-            if(j<300)
-            {
-                if(j>100)
-                {
-                    temp.R = (i/3%255);
-                } else
-                {
-                    temp.G = (i/3%255);
+            if (j < 300) {
+                if (j > 100) {
+                    temp.R = (i / 3 % 255);
+                } else {
+                    temp.G = (i / 3 % 255);
                 }
-            } else{
-                temp.B = (i/3%255);
+            } else {
+                temp.B = (i / 3 % 255);
             }
-            uint32_t aux = temp.A<<24 |temp.B<<16 |temp.G<<8 | temp.R;
-            *((uint32_t*)&fb[i*480+j]) = aux;
+            uint32_t aux = temp.A << 24 | temp.B << 16 | temp.G << 8 | temp.R;
+            *((uint32_t *) &fb[i * 480 + j]) = aux;
 
         }
 
     }
 
     for (int i = 0; i < 350 * 2; ++i) {
-        *(uint32_t*)(0x30000000 + i * 4) = i < 350 ? 0xFFFF0000 : 0xFF00FF00;
+        *(uint32_t *) (0x30000000 + i * 4) = i < 350 ? 0xFFFF0000 : 0xFF00FF00;
     }
 
-    HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn,0,0);
-    HAL_NVIC_SetPriority(FDCAN1_IT1_IRQn,0,0);
+    HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(FDCAN1_IT1_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(FDCAN1_IT0_IRQn);
     HAL_NVIC_EnableIRQ(FDCAN1_IT1_IRQn);
 
@@ -416,7 +423,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-    HAL_GPIO_WritePin(LCD_PWM_GPIO_Port,LCD_PWM_Pin,GPIO_PIN_SET);
+    HAL_GPIO_WritePin(LCD_PWM_GPIO_Port, LCD_PWM_Pin, GPIO_PIN_SET);
 
 //    for(int  i = 0; i< 480*640; i++)
 //    {
@@ -424,7 +431,7 @@ int main(void)
 //    }
     int loop_cnt;
 
-    LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
+    LL_TIM_CC_EnableChannel(TIM2, LL_TIM_CHANNEL_CH1);
     LL_TIM_EnableCounter(TIM2);
     //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, 0xD0000000, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
     //LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 320);
@@ -438,17 +445,16 @@ int main(void)
 
     HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
-    LL_DMA_EnableIT_TC(DMA1,LL_DMA_STREAM_0);
+    LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
 
-    HAL_NVIC_SetPriority(LTDC_IRQn,5,5);
+    HAL_NVIC_SetPriority(LTDC_IRQn, 5, 5);
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
 
 //    hltdc.Instance->LIPCR =500;
 
     hltdc.Instance->IER = LTDC_IER_LIE;
 
-    while (1)
-  {
+    while (1) {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -494,41 +500,34 @@ int main(void)
 //        memcpy((void *)0xD0000000, (void*)cam_buffer, sizeof (cam_buffer));
 
 
-        uint32_t dest=0xD0000000;
+        uint32_t dest = 0xD0000000;
 
 //while(!jedziesz);
-if(loop_cnt%2)
-{
-    //dest = 0xD00A0000;
-}
+        if (loop_cnt % 2) {
+            //dest = 0xD00A0000;
+        }
 
-        for(int lines=0; lines <= 256; lines++)
-        {
-            for(int pixel=0; pixel < 325; pixel++)
-            {
+        for (int lines = 0; lines <= 256; lines++) {
+            for (int pixel = 0; pixel < 325; pixel++) {
 
-                uint32_t value = ((cam_buffer[pixel + 325 * lines])) ;
-
-//                value = (value&0xFF)<<8 | (value>>8);
-
-                uint32_t R = (value)<<16;
-//                value = ((cam_buffer[pixel + 325 * lines])>>4);
-
-                uint32_t G = (value)<<8;
+                uint32_t value = ((cam_buffer[pixel + 325 * lines]));
+                uint32_t R = (value) << 16;
+                uint32_t G = (value) << 8;
                 uint32_t B = (value);
-//                    *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) = R | G | B;
-                    *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) = value<<2 | ((value)<<8)&0xFF00;
+                *(uint32_t *) (dest + 4 * pixel + 480 * lines * 4) = value << 2 | ((value) << 8) & 0xFF00;
+
             }
 
         }
         jedziesz = 0;
 
-        HAL_Delay(36);
+//        while(1);
+        HAL_Delay(33);
 
 //        wlacznik = 0;
 
 //      HAL_Delay(10);
-  }
+    }
   /* USER CODE END 3 */
 }
 
@@ -698,13 +697,13 @@ static void MX_LTDC_Init(void)
   hltdc.Init.DEPolarity = LTDC_DEPOLARITY_AL;
   hltdc.Init.PCPolarity = LTDC_PCPOLARITY_IPC;
   hltdc.Init.HorizontalSync = 15;
-  hltdc.Init.VerticalSync = 9;
-  hltdc.Init.AccumulatedHBP = 35;
-  hltdc.Init.AccumulatedVBP = 34;
-  hltdc.Init.AccumulatedActiveW = 515;
-  hltdc.Init.AccumulatedActiveH = 674;
-  hltdc.Init.TotalWidth = 541;
-  hltdc.Init.TotalHeigh = 689;
+  hltdc.Init.VerticalSync = 7;
+  hltdc.Init.AccumulatedHBP = 30;
+  hltdc.Init.AccumulatedVBP = 32;
+  hltdc.Init.AccumulatedActiveW = 510;
+  hltdc.Init.AccumulatedActiveH = 672;
+  hltdc.Init.TotalWidth = 525;
+  hltdc.Init.TotalHeigh = 687;
   hltdc.Init.Backcolor.Blue = 50;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
@@ -1054,11 +1053,11 @@ static void MX_GPIO_Init(void)
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
-  /*  GPIO_InitStruct.Pin = GPIO_PIN_8;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);*/
+    /*  GPIO_InitStruct.Pin = GPIO_PIN_8;
+      GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+      GPIO_InitStruct.Pull = GPIO_NOPULL;
+      GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+      HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);*/
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
@@ -1073,11 +1072,10 @@ static void MX_GPIO_Init(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+    /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    while (1) {
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 
