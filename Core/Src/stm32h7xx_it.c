@@ -34,6 +34,7 @@ extern volatile uint32_t jedziesz;
 
 uint32_t *volatile read = (void *) (0x30000000);
 uint32_t *volatile write = (void *) (0x30000000 + 350 * 4);
+volatile uint32_t portc_when_hsync = 0;
 
 /* USER CODE END TD */
 
@@ -66,6 +67,7 @@ extern volatile uint32_t cam_buffer[325 * 256];
 /* External variables --------------------------------------------------------*/
 extern FDCAN_HandleTypeDef hfdcan1;
 extern LTDC_HandleTypeDef hltdc;
+extern DMA_HandleTypeDef hdma_tim5_ch4;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -262,9 +264,8 @@ void EXTI15_10_IRQHandler(void)
             line_cnt = 0;
 
 
-    } else if (!(port & GPIO_PIN_9))   //Ramka dobra
+    } /*else if (!(port & GPIO_PIN_9))   //Ramka dobra
     {
-        /*
 
 
 
@@ -273,7 +274,7 @@ void EXTI15_10_IRQHandler(void)
           line_cnt++;
           if(line_cnt>= 640)  line_cnt =0;
           LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
-      */
+
 
         //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0000000 + 480*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
         //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0200000), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
@@ -298,13 +299,43 @@ void EXTI15_10_IRQHandler(void)
         LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
         line_cnt++;
 
-    }
+    }*/
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
   /* USER CODE END EXTI15_10_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA2 stream0 global interrupt.
+  */
+void DMA2_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
+    LL_DMA_ClearFlag_TE0(DMA2);
+
+    if (LL_DMA_IsActiveFlag_TC0(DMA2)) {
+        LL_DMA_ClearFlag_TC0(DMA2);
+
+  /* USER CODE END DMA2_Stream0_IRQn 0 */
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
+        if (!(portc_when_hsync & GPIO_PIN_9)) {
+            LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t) &GPIOC->IDR,
+                                   ((uint32_t) cam_buffer + 325 * 4 * line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+            LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 325);
+            LL_TIM_EnableDMAReq_CC1(TIM2);
+
+            LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
+            LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
+            LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
+
+            line_cnt++;
+        }
+    }
+    LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_0);
+  /* USER CODE END DMA2_Stream0_IRQn 1 */
 }
 
 /**

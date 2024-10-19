@@ -53,6 +53,9 @@ LTDC_HandleTypeDef hltdc;
 
 SD_HandleTypeDef hsd2;
 
+TIM_HandleTypeDef htim5;
+DMA_HandleTypeDef hdma_tim5_ch4;
+
 SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
@@ -66,6 +69,7 @@ volatile uint16_t pix_index = 0;
 volatile uint16_t *buffer;
 
 volatile uint32_t jedziesz = 0;
+extern volatile uint32_t portc_when_hsync;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,6 +82,7 @@ static void MX_SDMMC2_SD_Init(void);
 static void MX_FMC_Init(void);
 static void MX_LTDC_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM5_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -357,6 +362,7 @@ int main(void)
   MX_FMC_Init();
   MX_LTDC_Init();
   MX_TIM2_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
     HAL_SDRAM_MspInit(&hsdram1);
     hsdram1.Instance = FMC_SDRAM_DEVICE;
@@ -439,6 +445,16 @@ int main(void)
     //LL_TIM_EnableDMAReq_CC1(TIM2);
     //LL_TIM_EnableIT_UPDATE(TIM2);
     //LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
+    LL_TIM_CC_EnableChannel(TIM5, LL_TIM_CHANNEL_CH4);
+    LL_TIM_EnableCounter(TIM5);
+
+    LL_DMA_ConfigAddresses(DMA2, LL_DMA_STREAM_0,
+                           (uint32_t)&GPIOC->IDR, (uint32_t)&portc_when_hsync, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    LL_DMA_SetDataLength(DMA2, LL_DMA_STREAM_0, 1);
+    LL_TIM_EnableDMAReq_UPDATE(TIM5);
+    LL_TIM_EnableDMAReq_CC4(TIM5);
+    LL_DMA_EnableStream(DMA2, LL_DMA_STREAM_0);
+
     HAL_Delay(100);
     HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
     HAL_Delay(100);
@@ -446,6 +462,8 @@ int main(void)
     HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
     LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
+    LL_DMA_EnableIT_TC(DMA2, LL_DMA_STREAM_0);
+
 
     HAL_NVIC_SetPriority(LTDC_IRQn, 5, 5);
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
@@ -606,10 +624,10 @@ void PeriphCommonClock_Config(void)
   */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC|RCC_PERIPHCLK_FDCAN;
   PeriphClkInitStruct.PLL2.PLL2M = 5;
-  PeriphClkInitStruct.PLL2.PLL2N = 48;
+  PeriphClkInitStruct.PLL2.PLL2N = 96;
   PeriphClkInitStruct.PLL2.PLL2P = 2;
-  PeriphClkInitStruct.PLL2.PLL2Q = 10;
-  PeriphClkInitStruct.PLL2.PLL2R = 1;
+  PeriphClkInitStruct.PLL2.PLL2Q = 6;
+  PeriphClkInitStruct.PLL2.PLL2R = 2;
   PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_2;
   PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
@@ -642,7 +660,7 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 13;
+  hfdcan1.Init.NominalPrescaler = 44;
   hfdcan1.Init.NominalSyncJumpWidth = 1;
   hfdcan1.Init.NominalTimeSeg1 = 15;
   hfdcan1.Init.NominalTimeSeg2 = 2;
@@ -848,6 +866,54 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM5_Init(void)
+{
+
+  /* USER CODE BEGIN TIM5_Init 0 */
+
+  /* USER CODE END TIM5_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+  TIM_IC_InitTypeDef sConfigIC = {0};
+
+  /* USER CODE BEGIN TIM5_Init 1 */
+
+  /* USER CODE END TIM5_Init 1 */
+  htim5.Instance = TIM5;
+  htim5.Init.Prescaler = 0;
+  htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim5.Init.Period = 4294967295;
+  htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_IC_Init(&htim5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
+  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+  sConfigIC.ICFilter = 0;
+  if (HAL_TIM_IC_ConfigChannel(&htim5, &sConfigIC, TIM_CHANNEL_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM5_Init 2 */
+
+  /* USER CODE END TIM5_Init 2 */
+
+}
+
+/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -856,11 +922,15 @@ static void MX_DMA_Init(void)
   /* Init with LL driver */
   /* DMA controller clock enable */
   LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
+  LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA2);
 
   /* DMA interrupt init */
   /* DMA1_Stream0_IRQn interrupt configuration */
   NVIC_SetPriority(DMA1_Stream0_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),15, 0));
   NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
 
 }
 
@@ -999,8 +1069,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG1_FS;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DES_LOCK_Pin IO_AUX_Pin PA3 */
-  GPIO_InitStruct.Pin = DES_LOCK_Pin|IO_AUX_Pin|GPIO_PIN_3;
+  /*Configure GPIO pins : DES_LOCK_Pin IO_AUX_Pin */
+  GPIO_InitStruct.Pin = DES_LOCK_Pin|IO_AUX_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -1034,14 +1104,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C4;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PH8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_8;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF2_TIM5;
-  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SW_MODE_Pin SW_PICTURE_Pin */
   GPIO_InitStruct.Pin = SW_MODE_Pin|SW_PICTURE_Pin;
