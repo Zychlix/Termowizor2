@@ -643,7 +643,7 @@ static void MX_FDCAN1_Init(void)
   hfdcan1.Init.AutoRetransmission = ENABLE;
   hfdcan1.Init.TransmitPause = DISABLE;
   hfdcan1.Init.ProtocolException = DISABLE;
-  hfdcan1.Init.NominalPrescaler = 41;
+  hfdcan1.Init.NominalPrescaler = 13;
   hfdcan1.Init.NominalSyncJumpWidth = 1;
   hfdcan1.Init.NominalTimeSeg1 = 15;
   hfdcan1.Init.NominalTimeSeg2 = 2;
@@ -708,10 +708,7 @@ static void MX_LTDC_Init(void)
   hltdc.Init.Backcolor.Blue = 50;
   hltdc.Init.Backcolor.Green = 0;
   hltdc.Init.Backcolor.Red = 0;
-
-    hltdc.Instance->IER = LTDC_IER_LIE;
-
-    if (HAL_LTDC_Init(&hltdc) != HAL_OK)
+  if (HAL_LTDC_Init(&hltdc) != HAL_OK)
   {
     Error_Handler();
   }
