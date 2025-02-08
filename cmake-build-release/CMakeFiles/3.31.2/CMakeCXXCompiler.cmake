@@ -1,7 +1,7 @@
 set(CMAKE_CXX_COMPILER "/usr/bin/arm-none-eabi-g++")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
-set(CMAKE_CXX_COMPILER_VERSION "14.1.0")
+set(CMAKE_CXX_COMPILER_VERSION "14.2.0")
 set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_CXX_COMPILER_WRAPPER "")
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "17")
@@ -58,7 +58,7 @@ endforeach()
 
 set(CMAKE_CXX_LINKER_PREFERENCE 30)
 set(CMAKE_CXX_LINKER_PREFERENCE_PROPAGATES 1)
-set(CMAKE_CXX_LINKER_DEPFILE_SUPPORTED FALSE)
+set(CMAKE_CXX_LINKER_DEPFILE_SUPPORTED )
 
 # Save compiler ABI information.
 set(CMAKE_CXX_SIZEOF_DATA_PTR "4")
@@ -87,7 +87,7 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/arm-none-eabi/include/c++/14.1.0;/usr/arm-none-eabi/include/c++/14.1.0/arm-none-eabi;/usr/arm-none-eabi/include/c++/14.1.0/backward;/usr/lib/gcc/arm-none-eabi/14.1.0/include;/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed;/usr/arm-none-eabi/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/usr/arm-none-eabi/include/c++/14.2.0;/usr/arm-none-eabi/include/c++/14.2.0/arm-none-eabi;/usr/arm-none-eabi/include/c++/14.2.0/backward;/usr/lib/gcc/arm-none-eabi/14.2.0/include;/usr/lib/gcc/arm-none-eabi/14.2.0/include-fixed;/usr/arm-none-eabi/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

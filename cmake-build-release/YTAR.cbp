@@ -33,12 +33,12 @@
 					<Add directory="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
 					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
 					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Include"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/arm-none-eabi"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/backward"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/c++/14.2.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/c++/14.2.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/c++/14.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-release/Makefile&quot;  VERBOSE=1 YTAR.elf"/>
@@ -63,12 +63,12 @@
 					<Add directory="/home/zychlix/Termowizor2/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy"/>
 					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Device/ST/STM32H7xx/Include"/>
 					<Add directory="/home/zychlix/Termowizor2/Drivers/CMSIS/Include"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/arm-none-eabi"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include/c++/14.1.0/backward"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/include-fixed"/>
-					<Add directory="/usr/lib/gcc/arm-none-eabi/14.1.0/../../../../arm-none-eabi/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/c++/14.2.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/c++/14.2.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include/c++/14.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/14.2.0/../../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/home/zychlix/Termowizor2/cmake-build-release/Makefile&quot;  VERBOSE=1 YTAR.elf/fast"/>
