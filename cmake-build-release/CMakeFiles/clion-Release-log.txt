@@ -8,8 +8,8 @@ CMake Deprecation Warning:
   use the cmake-file-api(7) to view CMake-generated project build trees.
 
 
--- The C compiler identification is GNU 14.1.0
--- The CXX compiler identification is GNU 14.1.0
+-- The C compiler identification is GNU 14.2.0
+-- The CXX compiler identification is GNU 14.2.0
 -- The ASM compiler identification is GNU
 -- Found assembler: /usr/bin/arm-none-eabi-gcc
 -- Detecting C compiler ABI info
@@ -23,6 +23,6 @@ CMake Deprecation Warning:
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Maximum optimization for speed
--- Configuring done (0.6s)
+-- Configuring done (0.5s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/zychlix/Termowizor2/cmake-build-release

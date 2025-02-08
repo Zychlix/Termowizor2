@@ -54,6 +54,7 @@ MEMORY
 /* Define output sections */
 SECTIONS
 {
+
   /* The startup code goes first into FLASH */
   .isr_vector :
   {
@@ -161,6 +162,13 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM_D1
+
+  .ram1block (NOLOAD) :
+  {
+      . = ALIGN(32);
+      KEEP(*(.ram1section))
+      . = ALIGN(32);
+  } > RAM_D2 AT> RAM_D2
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

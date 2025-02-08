@@ -60,9 +60,14 @@ SDRAM_HandleTypeDef hsdram1;
 volatile pix_t *fb= (pix_t*)0xD0000000;
 
 volatile uint32_t cam_buffer [325*256];
-//volatile uint32_t cam_buffer_2 [325*256];
 
-volatile uint16_t pix_index = 0;
+__attribute__((section(".ram1section"))) uint32_t cam_buffer_2 [325*200];
+
+
+volatile uint8_t buffer_index = 0;
+
+
+//volatile uint8_t buffer_index = 0;
 
 volatile uint16_t * buffer;
 /* USER CODE END PV */
@@ -387,7 +392,7 @@ int main(void)
     }
 
     for (int i = 0; i < 350 * 2; ++i) {
-        *(uint32_t*)(0x30000000 + i * 4) = i < 350 ? 0xFFFF0000 : 0xFF00FF00;
+        *(uint32_t*)(0xD0000000 + i * 4) = i < 350 ? 0xFFFF0000 : 0xFF00FF00;
     }
 
     HAL_NVIC_SetPriority(FDCAN1_IT0_IRQn,0,0);
@@ -494,11 +499,12 @@ if(loop_cnt%2)
         {
             for(int pixel=0; pixel < 325; pixel++)
             {
+                while (buffer_index==0);
                 *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
             }
 
         }
-HAL_Delay(70);
+//HAL_Delay(33);
 //        wlacznik = 0;
 
 //      HAL_Delay(10);
@@ -687,9 +693,9 @@ static void MX_LTDC_Init(void)
     Error_Handler();
   }
   pLayerCfg.WindowX0 = 0;
-  pLayerCfg.WindowX1 = 480;
+  pLayerCfg.WindowX1 = 266;
   pLayerCfg.WindowY0 = 0;
-  pLayerCfg.WindowY1 = 640;
+  pLayerCfg.WindowY1 = 325;
   pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
   pLayerCfg.Alpha = 255;
   pLayerCfg.Alpha0 = 255;

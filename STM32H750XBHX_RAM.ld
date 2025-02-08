@@ -53,6 +53,10 @@ MEMORY
 /* Define output sections */
 SECTIONS
 {
+
+
+
+
   /* The startup code goes first into RAM_EXEC */
   .isr_vector :
   {
@@ -161,6 +165,8 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
 
+
+
   /* Remove information from the standard libraries */
   /DISCARD/ :
   {
@@ -169,5 +175,8 @@ SECTIONS
     libgcc.a ( * )
   }
 
+
+
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
+

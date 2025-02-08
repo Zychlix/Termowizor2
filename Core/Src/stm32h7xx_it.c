@@ -32,8 +32,8 @@ extern volatile uint32_t wlacznik;
 
 //static uint32_t buffer[350*2];
 
-uint32_t * volatile read = (void*)(0x30000000);
-uint32_t * volatile write = (void*)(0x30000000+350*4);
+//uint32_t * volatile read = (void*)(0x30000000);
+//uint32_t * volatile write = (void*)(0x30000000+350*4);
 
 /* USER CODE END TD */
 
@@ -41,6 +41,12 @@ uint32_t * volatile write = (void*)(0x30000000+350*4);
 /* USER CODE BEGIN PD */
 volatile uint32_t line_cnt;
 extern volatile uint32_t cam_buffer[325*256];
+
+extern volatile uint32_t cam_buffer_2[325*256];
+
+//extern volatile uint8_t buffer_index = 0;
+extern volatile uint8_t buffer_index;
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -261,42 +267,33 @@ void EXTI15_10_IRQHandler(void)
     if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U) //Na VSYNC
     {
         if(line_cnt>200)
+        {
             line_cnt=0;
+            buffer_index = (buffer_index+1)%2;
+        }
 
 }
 {
-  /*
 
+    uint32_t dma_write_buffer;
 
+    if(buffer_index == 0)
+    {
+        dma_write_buffer = ((uint32_t)cam_buffer + 325*4* line_cnt);
+    } else
+    {
+        dma_write_buffer = ((uint32_t)cam_buffer_2 + 325*4* line_cnt);
+    }
 
-    LL_DMA_SetMemoryAddress(DMA1,LL_DMA_STREAM_0,(0xD0000000 + 480*4* line_cnt));
-    LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 320);
-    line_cnt++;
-    if(line_cnt>= 640)  line_cnt =0;
-    LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
-*/
-
-    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0000000 + 480*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-    //LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, (0xD0200000), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
-
-    //__disable_irq();
- //   uint32_t* tmp = read;
-  //  read = write;
-//write = tmp;
-    //__enable_irq();
-
-    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, ((uint32_t)cam_buffer + 325*4* line_cnt), LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
- //   LL_TIM_CC_EnableChannel(TIM2,LL_TIM_CHANNEL_CH1);
+    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, dma_write_buffer, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
     LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 325);
-  //  LL_TIM_EnableDMAReq_UPDATE(TIM2);
     LL_TIM_EnableDMAReq_CC1(TIM2);
-    //LL_TIM_EnableIT_UPDATE(TIM2);
 
-  //  LL_TIM_EnableCounter(TIM2);
     LL_DMA_EnableStream(DMA1, LL_DMA_STREAM_0);
-        LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
-        LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
-        line_cnt++;
+    LL_DMA_EnableIT_TE(DMA1, LL_DMA_STREAM_0);
+    LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
+
+    line_cnt++;
 
 }
   /* USER CODE END EXTI15_10_IRQn 0 */
