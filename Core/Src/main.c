@@ -110,11 +110,11 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy)
     volatile uint32_t *wekran=(uint32_t*)0xD0000000;
 
     uint8_t luthist[16384]={0};
-    uint32_t histogram[1<<15] = {0};
+    uint32_t histogram[0xffff] = {0};
     //		uint32_t histogramz[16384] = {0};
 
     uint32_t chwilowa=0;
-    uint32_t srednia=0;
+  volatile  uint32_t srednia=0;
 
     uint32_t niezerowa=0;
     uint32_t ostatnia=0;
@@ -137,8 +137,8 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy)
         flaga=0;
         for(uint32_t i=0; i<80000; i++)
         {
-            histogram[(*(surowy+i))>>16]+=1;
-            srednia+=*(surowy+i);
+            histogram[(*(surowy+i))&0xffff]+=1;
+            srednia+=((*(surowy+i))&0xffff);
             if((*(surowy+i))<min)
                 min=*(surowy+i);
 
@@ -220,25 +220,25 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy)
                 //*(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer_2[pixel + 325*lines])<<8)|0xFF;
                 {
                     case 0:
-                        *(uint32_t*)(wekran + 4 * x + 480 * i*4)= paleta[luthist[(surowy[x+325*i])]]|0xFF000000;//((R<<16)+(G<<8)+B)|0xFF000000;
+                        *(uint32_t*)(wekran + x + 480 * i)= paleta[luthist[(surowy[x+325*i])&0xffff]];//((R<<16)+(G<<8)+B)|0xFF000000;
                         break;
                     case 1:
-                        kolor=250*((surowy[x+325*i])-niezeradr)/(ostatniaadr-niezeradr);
+                        kolor=250*(((surowy[x+325*i])&0xffff)-niezeradr)/(ostatniaadr-niezeradr);
                         if (kolor<1) kolor=0;
                         if(kolor>254) kolor=255;
 //                        *(uint32_t*)(wekran + 4 * x + 480 * i*4)= paleta[kolor]|0xFF000000;
 
-                        if(buffer_index != 0)
+                        //if(buffer_index != 0)
                         {
 //                            *(uint32_t*)(wekran + x + 480 * i)= (surowy[x+325*i]<<8);
-                            *(uint32_t*)(wekran + x + 480 * i)= paleta[surowy[x+325*i]%255];
+                            *(uint32_t*)(wekran )= paleta[kolor];
                         }
                         break;
                 }
 
-//                wekran+=1;
+            wekran+=1;
             }
-//            wekran+=155;
+         wekran+=155;
         }
 
 //        for(uint16_t x=0; x<5; x++)
