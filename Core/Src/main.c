@@ -70,6 +70,200 @@ volatile uint8_t buffer_index = 0;
 //volatile uint8_t buffer_index = 0;
 
 volatile uint16_t * buffer;
+
+
+
+//kolory
+
+const uint32_t paleta1 [256] = { 0x7f0000, 0x840000, 0x880000, 0x8d0000, 0x910000, 0x960000, 0x9a0000, 0x9f0000, 0xa30000, 0xa80000,
+                                 0xac0000, 0xb10000, 0xb60000, 0xba0000, 0xbf0000, 0xc30000, 0xc80000, 0xcc0000, 0xd10000, 0xd50000,
+                                 0xda0000, 0xde0000, 0xe30000, 0xe80000, 0xec0000, 0xf10000, 0xf50000, 0xfa0000, 0xfe0000, 0xff0000,
+                                 0xff0000, 0xff0000, 0xff0000, 0xff0400, 0xff0800, 0xff0c00, 0xff1000, 0xff1400, 0xff1800, 0xff1c00,
+                                 0xff2000, 0xff2400, 0xff2800, 0xff2c00, 0xff3000, 0xff3400, 0xff3800, 0xff3c00, 0xff4000, 0xff4400,
+                                 0xff4800, 0xff4c00, 0xff5000, 0xff5400, 0xff5800, 0xff5c00, 0xff6000, 0xff6400, 0xff6800, 0xff6c00,
+                                 0xff7000, 0xff7400, 0xff7800, 0xff7c00, 0xff8000, 0xff8400, 0xff8800, 0xff8c00, 0xff9000, 0xff9400,
+                                 0xff9800, 0xff9c00, 0xffa000, 0xffa400, 0xffa800, 0xffac00, 0xffb000, 0xffb400, 0xffb800, 0xffbc00,
+                                 0xffc000, 0xffc400, 0xffc800, 0xffcc00, 0xffd000, 0xffd400, 0xffd800, 0xfedc00, 0xfae000, 0xf7e400,
+                                 0xf4e802, 0xf1ec05, 0xedf008, 0xeaf40c, 0xe7f80f, 0xe4fc12, 0xe1ff15, 0xddff18, 0xdaff1c, 0xd7ff1f,
+                                 0xd4ff22, 0xd0ff25, 0xcdff29, 0xcaff2c, 0xc7ff2f, 0xc3ff32, 0xc0ff36, 0xbdff39, 0xbaff3c, 0xb7ff3f,
+                                 0xb3ff42, 0xb0ff46, 0xadff49, 0xaaff4c, 0xa6ff4f, 0xa3ff53, 0xa0ff56, 0x9dff59, 0x9aff5c, 0x96ff5f,
+                                 0x93ff63, 0x90ff66, 0x8dff69, 0x89ff6c, 0x86ff70, 0x83ff73, 0x80ff76, 0x7dff79, 0x79ff7c, 0x76ff80,
+                                 0x73ff83, 0x70ff86, 0x6cff89, 0x69ff8d, 0x66ff90, 0x63ff93, 0x5fff96, 0x5cff9a, 0x59ff9d, 0x56ffa0,
+                                 0x53ffa3, 0x4fffa6, 0x4cffaa, 0x49ffad, 0x46ffb0, 0x42ffb3, 0x3fffb7, 0x3cffba, 0x39ffbd, 0x36ffc0,
+                                 0x32ffc3, 0x2fffc7, 0x2cffca, 0x29ffcd, 0x25ffd0, 0x22ffd4, 0x1fffd7, 0x1cffda, 0x18ffdd, 0x15ffe0,
+                                 0x12ffe4, 0x0fffe7, 0x0cffea, 0x08ffed, 0x05fcf1, 0x02f8f4, 0x00f4f7, 0x00f0fa, 0x00edfe, 0x00e9ff,
+                                 0x00e5ff, 0x00e2ff, 0x00deff, 0x00daff, 0x00d7ff, 0x00d3ff, 0x00cfff, 0x00cbff, 0x00c8ff, 0x00c4ff,
+                                 0x00c0ff, 0x00bdff, 0x00b9ff, 0x00b5ff, 0x00b1ff, 0x00aeff, 0x00aaff, 0x00a6ff, 0x00a3ff, 0x009fff,
+                                 0x009bff, 0x0098ff, 0x0094ff, 0x0090ff, 0x008cff, 0x0089ff, 0x0085ff, 0x0081ff, 0x007eff, 0x007aff,
+                                 0x0076ff, 0x0073ff, 0x006fff, 0x006bff, 0x0067ff, 0x0064ff, 0x0060ff, 0x005cff, 0x0059ff, 0x0055ff,
+                                 0x0051ff, 0x004dff, 0x004aff, 0x0046ff, 0x0042ff, 0x003fff, 0x003bff, 0x0037ff, 0x0034ff, 0x0030ff,
+                                 0x002cff, 0x0028ff, 0x0025ff, 0x0021ff, 0x001dff, 0x001aff, 0x0016ff, 0x0012fe, 0x000ffa, 0x000bf5,
+                                 0x0007f1, 0x0003ec, 0x0000e8, 0x0000e3, 0x0000de, 0x0000da, 0x0000d5, 0x0000d1, 0x0000cc, 0x0000c8,
+                                 0x0000c3, 0x0000bf, 0x0000ba, 0x0000b6, 0x0000b1, 0x0000ac, 0x0000a8, 0x0000a3, 0x00009f, 0x00009a,
+                                 0x000096, 0x000091, 0x00008d, 0x000088, 0x000084, 0x00007f};
+
+const uint32_t zajepaleta [256] = {3150395,3282243,3348554,3414865,3481176,3547487,3613798,3680109,3746419,3812729,3878784,3945094,4011403,4077713,4144023,4144796,4210850,4277159,4277932,4344241,4344757,4411066,4477375,4478147,4478663,4544971,4545743,4546259,4612566,4613338,4613853,4614624,4615139,4681446,4682217,4682731,4683502,4684016,4684786,4619764,4620534,4621048,4621818,4622331,4557564,4558077,4493310,4428286,4363519,4298495,4233727,4103166,4038398,3907837,3843068,3712507,3647738,3517432,3386871,3256309,3126004,3060978,2930672,2800110,2669803,2604777,2474215,2343908,2278882,2148319,2083293,2018266,1887704,1822933,1757906,1758416,1693133,1628106,1628616,1629125,1629634,1629888,1630397,1696443,1696697,1762486,1894068,1959858,2091439,2157228,2288554,2485415,2616996,2813857,2945182,3142043,3338904,3535764,3732625,3995022,4191882,4454279,4651140,4913280,5175677,5438074,5634678,5897075,6159471,6421612,6684009,6946150,7208546,7470687,7732828,7994969,8257366,8453971,8716113,8978254,9174859,9437001,9633607,9895492,10092098,10288704,10485055,10616125,10812476,11009082,11139897,11336504,11532855,11663670,11860022,12056373,12187189,12383540,12514356,12710708,12841268,13037620,13168436,13364532,13495348,13691444,13822261,13952821,14148917,14279734,14410294,14540855,14671671,14802231,14932792,15063352,15193913,15324473,15455033,15520058,15650618,15715642,15846202,15911226,16041786,16106810,16171834,16236858,16301625,16366649,16431673,16496696,16496183,16560950,16560438,16625205,16624692,16689459,16688946,16688177,16687408,16686639,16685869,16685356,16684587,16683818,16683049,16616743,16615974,16549669,16548899,16482594,16481825,16415519,16349214,16348445,16282140,16215834,16149529,16083224,16016919,15950613,15884308,15818003,15751954,15685649,15553808,15487759,15421454,15355405,15223564,15157516,15025931,14959882,14828298,14762249,14630664,14499080,14433031,14301447,14169862,14038278,13906693,13775109,13643525,13511940,13380356,13249028,13117443,12920323,12788995,12657410,12460290,12328962,12131842,12000514,11803393,11672065,11474945,11278081,11081217,10949633,10752769,10555905,10358785,10161921,9965057,9768193,9571073,9308673,9111810,8914946,8718082,8455682,8258818,7996419};
+
+
+void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy)
+{
+    volatile uint32_t *wekran=(uint32_t*)0xD0000000;
+
+    uint8_t luthist[16384]={0};
+    uint32_t histogram[1<<15] = {0};
+    //		uint32_t histogramz[16384] = {0};
+
+    uint32_t chwilowa=0;
+    uint32_t srednia=0;
+
+    uint32_t niezerowa=0;
+    uint32_t ostatnia=0;
+    uint32_t niezeradr=0;
+    uint32_t ostatniaadr=0;
+
+    uint32_t gorka=0;
+    uint32_t min=16384;
+    uint32_t max=0;
+    uint8_t f2=0;
+
+    uint8_t flaga = 1;
+
+
+
+
+
+    if(flaga==1)
+    {
+        flaga=0;
+        for(uint32_t i=0; i<80000; i++)
+        {
+            histogram[(*(surowy+i))>>16]+=1;
+            srednia+=*(surowy+i);
+            if((*(surowy+i))<min)
+                min=*(surowy+i);
+
+        }
+
+        srednia=srednia/80000;
+        srednia+=1;
+
+        for(uint32_t i=1; i<16384; i++)
+        {
+            if(histogram[i]>300)
+            {
+                gorka+=histogram[i]-300;
+                histogram[i]=300;
+            }
+            if((histogram[i]<8)&&(f2==0))
+            {
+                niezerowa=histogram[i];
+                niezeradr=i;
+            }
+            else
+                f2=1;
+            if(histogram[i]>10)
+            {
+                ostatnia=histogram[i];
+                ostatniaadr=i;
+            }
+
+        }
+
+        switch (sposob)
+        {
+            case 0:
+                if((ostatniaadr-niezeradr)<500)
+                    ostatniaadr=niezeradr+500;
+                break;
+            case 1:
+                if((ostatniaadr-niezeradr)<256)
+                    ostatniaadr=niezeradr+256;
+                break;
+        }
+        for(uint32_t h=niezeradr; h<ostatniaadr; h++)
+        {
+            histogram[h]+=(gorka/(ostatniaadr-niezeradr));
+        }
+
+
+
+        for(uint32_t i=0; i<16384; i++)
+        {
+
+            chwilowa+=histogram[i];
+            histogram[i]=chwilowa;
+        }
+
+
+        for(uint32_t i=0; i<16384; i++)
+        {
+            //	 	 	 if(histogramz[i]<(histogramz[16383]/90))
+            // 	 		 min=i;
+
+            luthist[i]=255*(histogram[i])/(histogram[16383]);
+            //luthist[i]=255*(histogramz[i]-niezerowa)/(ostatnia-niezerowa);
+
+            //	lutpal[i]=zajepaleta[100];//[255*histogramz[i]/histogramz[16383]];
+            // 	luthist[i]=255*(histogramz[i])/(histogramz[16383]);
+        }
+
+        //max+=100;
+
+        int16_t kolor=0;
+        for(uint16_t i=0; i<250; i++)
+        {
+            for(uint16_t x=0; x<325; x++)
+            {
+
+                switch (sposob)
+
+                //*(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer_2[pixel + 325*lines])<<8)|0xFF;
+                {
+                    case 0:
+                        *(uint32_t*)(wekran + 4 * x + 480 * i*4)= paleta[luthist[(surowy[x+325*i])]]|0xFF000000;//((R<<16)+(G<<8)+B)|0xFF000000;
+                        break;
+                    case 1:
+                        kolor=250*((surowy[x+325*i])-niezeradr)/(ostatniaadr-niezeradr);
+                        if (kolor<1) kolor=0;
+                        if(kolor>254) kolor=255;
+//                        *(uint32_t*)(wekran + 4 * x + 480 * i*4)= paleta[kolor]|0xFF000000;
+
+                        if(buffer_index != 0)
+                        {
+//                            *(uint32_t*)(wekran + x + 480 * i)= (surowy[x+325*i]<<8);
+                            *(uint32_t*)(wekran + x + 480 * i)= paleta[surowy[x+325*i]%255];
+                        }
+                        break;
+                }
+
+//                wekran+=1;
+            }
+//            wekran+=155;
+        }
+
+//        for(uint16_t x=0; x<5; x++)
+//        {
+//
+//            *(wekran+(480*x)+1926+(16383/35))=LCD_COLOR_GREEN;
+//            *(wekran+(480*x)+1920+(srednia/35))=LCD_COLOR_RED;
+//        }
+        wekran+=480*5;
+//        for(uint16_t x=0; x<5; x++)
+//        {
+//
+//            //										    *(wekran+(480*x)+1926+(16383/35))=LCD_COLOR_GREEN;
+//            //									*(wekran+(480*x)+1920+(srednia/35))=LCD_COLOR_RED;
+//            //	*(wekran+(480*x)+1921+(srednia/35))=LCD_COLOR_RED;
+//            //	*(wekran+(480*x)+1920+(niezeradr/35))=LCD_COLOR_GREEN;
+//            *(wekran+(480*x)+1921+(niezeradr/35))=LCD_COLOR_GREEN;
+//            //	*(wekran+(480*x)+1920+(ostatniaadr/35))=LCD_COLOR_CYAN;
+//            *(wekran+(480*x)+1921+(ostatniaadr/35))=LCD_COLOR_CYAN;
+//        }
+
+
+    }
+}
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -495,15 +689,25 @@ if(loop_cnt%2)
 {
     dest = 0xD00A0000;
 }
-        for(int lines=0; lines <= 256; lines++)
-        {
-            for(int pixel=0; pixel < 325; pixel++)
-            {
-                while (buffer_index==0);
-                *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
-            }
-
-        }
+//        for(int lines=0; lines <= 256; lines++)
+//        {
+//            for(int pixel=0; pixel < 325; pixel++)
+//            {
+////                while (buffer_index==0);
+////                *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
+//
+//            if(buffer_index == 0)
+//            {
+////                *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer_2[pixel + 325*lines])<<8)|0xFF;
+//            } else
+//            {
+//                *(uint32_t*)(dest + 4 * pixel + 480 * lines*4)=((cam_buffer[pixel + 325*lines])<<8)|0xFF;
+//            }
+//            }
+//
+//
+//        }
+        wyswietl(paleta1,1,cam_buffer);
 //HAL_Delay(33);
 //        wlacznik = 0;
 
