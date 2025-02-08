@@ -249,22 +249,21 @@ void FDCAN1_IT0_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+  //Przerwanie pojawia się na H_SYNCU
   uint32_t port = GPIOC->IDR;
-//    for (volatile int i = 0; i < 5000; ++i) {}
-LL_DMA_ClearFlag_TC0(DMA1);
- LL_DMA_ClearFlag_FE0(DMA1);
- LL_DMA_ClearFlag_TE0(DMA1);
 
-    if (!wlacznik) return;
+  LL_DMA_ClearFlag_TC0(DMA1);
+  LL_DMA_ClearFlag_FE0(DMA1);
+  LL_DMA_ClearFlag_TE0(DMA1);
+
+
 
     if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_15) != 0x00U) //Na VSYNC
     {
         if(line_cnt>200)
             line_cnt=0;
 
-
 }
-else if(!(port & GPIO_PIN_9))   //Ramka dobra
 {
   /*
 
