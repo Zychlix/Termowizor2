@@ -40,9 +40,9 @@ extern volatile uint32_t wlacznik;
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 volatile uint32_t line_cnt;
-extern volatile uint32_t cam_buffer[];
+extern volatile uint16_t cam_buffer[];
 
-extern volatile uint32_t cam_buffer_2[];
+extern volatile uint16_t cam_buffer_2[];
 
 //extern volatile uint8_t buffer_index = 0;
 extern volatile uint8_t buffer_index;
@@ -285,7 +285,11 @@ void EXTI15_10_IRQHandler(void)
         dma_write_buffer = ((uint32_t)cam_buffer_2 + 325*4* line_cnt);
     }
 
-    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, (uint32_t)&GPIOC->IDR, dma_write_buffer, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
+    //LL_DMA_SetFIFOThreshold(DMA1, LL_DMA_STREAM_0,LL_DMA_FIFOTHRESHOLD_FULL);
+    //LL_DMA_EnableFifoMode(DMA1,LL_DMA_STREAM_0);
+    LL_DMA_SetPeriphSize(DMA1, LL_DMA_STREAM_0, LL_DMA_PDATAALIGN_HALFWORD);
+    LL_DMA_SetMemorySize(DMA1, LL_DMA_STREAM_0, LL_DMA_MDATAALIGN_HALFWORD);
+    LL_DMA_ConfigAddresses(DMA1, LL_DMA_STREAM_0, ((uint32_t)&(GPIOC->IDR)), dma_write_buffer, LL_DMA_DIRECTION_PERIPH_TO_MEMORY);
     LL_DMA_SetDataLength(DMA1, LL_DMA_STREAM_0, 325);
     LL_TIM_EnableDMAReq_CC1(TIM2);
 

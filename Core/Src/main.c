@@ -59,9 +59,10 @@ SDRAM_HandleTypeDef hsdram1;
 /* USER CODE BEGIN PV */
 volatile pix_t *fb= (pix_t*)0xD0000000;
 
-volatile uint32_t cam_buffer[325*276];
+volatile uint16_t cam_buffer[325*276];
 
-volatile uint32_t * const cam_buffer_2  =( uint32_t *)(0xD0000000+(325*276*4));
+//volatile uint16_t * const cam_buffer_2  =( uint16_t *)(0xD0000000+(640*480*4));
+volatile uint16_t cam_buffer_2[325*276];
 
 
 volatile uint8_t buffer_index = 0;
@@ -105,7 +106,7 @@ const uint32_t paleta1 [256] = { 0x7f0000, 0x840000, 0x880000, 0x8d0000, 0x91000
 const uint32_t zajepaleta [256] = {3150395,3282243,3348554,3414865,3481176,3547487,3613798,3680109,3746419,3812729,3878784,3945094,4011403,4077713,4144023,4144796,4210850,4277159,4277932,4344241,4344757,4411066,4477375,4478147,4478663,4544971,4545743,4546259,4612566,4613338,4613853,4614624,4615139,4681446,4682217,4682731,4683502,4684016,4684786,4619764,4620534,4621048,4621818,4622331,4557564,4558077,4493310,4428286,4363519,4298495,4233727,4103166,4038398,3907837,3843068,3712507,3647738,3517432,3386871,3256309,3126004,3060978,2930672,2800110,2669803,2604777,2474215,2343908,2278882,2148319,2083293,2018266,1887704,1822933,1757906,1758416,1693133,1628106,1628616,1629125,1629634,1629888,1630397,1696443,1696697,1762486,1894068,1959858,2091439,2157228,2288554,2485415,2616996,2813857,2945182,3142043,3338904,3535764,3732625,3995022,4191882,4454279,4651140,4913280,5175677,5438074,5634678,5897075,6159471,6421612,6684009,6946150,7208546,7470687,7732828,7994969,8257366,8453971,8716113,8978254,9174859,9437001,9633607,9895492,10092098,10288704,10485055,10616125,10812476,11009082,11139897,11336504,11532855,11663670,11860022,12056373,12187189,12383540,12514356,12710708,12841268,13037620,13168436,13364532,13495348,13691444,13822261,13952821,14148917,14279734,14410294,14540855,14671671,14802231,14932792,15063352,15193913,15324473,15455033,15520058,15650618,15715642,15846202,15911226,16041786,16106810,16171834,16236858,16301625,16366649,16431673,16496696,16496183,16560950,16560438,16625205,16624692,16689459,16688946,16688177,16687408,16686639,16685869,16685356,16684587,16683818,16683049,16616743,16615974,16549669,16548899,16482594,16481825,16415519,16349214,16348445,16282140,16215834,16149529,16083224,16016919,15950613,15884308,15818003,15751954,15685649,15553808,15487759,15421454,15355405,15223564,15157516,15025931,14959882,14828298,14762249,14630664,14499080,14433031,14301447,14169862,14038278,13906693,13775109,13643525,13511940,13380356,13249028,13117443,12920323,12788995,12657410,12460290,12328962,12131842,12000514,11803393,11672065,11474945,11278081,11081217,10949633,10752769,10555905,10358785,10161921,9965057,9768193,9571073,9308673,9111810,8914946,8718082,8455682,8258818,7996419};
 
 
-void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy, uint32_t * surowy2)
+void wyswietl(uint32_t *paleta,uint8_t sposob, uint16_t * surowy, uint16_t * surowy2)
 {
     volatile uint32_t *wekran=(uint32_t*)0xD0000000;
    uint8_t luthist[16384]={0};
@@ -140,6 +141,9 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy, uint32_t * sur
             if(((*(surowy+i))&0x3fff)>max)
                 max=(*(surowy+i)&0x3fff);
         }
+
+//        min = 4000;
+//        max = 8000;
 
        // srednia=srednia/80000;
       //  srednia+=1;
@@ -235,7 +239,7 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy, uint32_t * sur
 
                             } else
                             {
-                                *(uint32_t*)(wekran )= paleta[(255*((*(surowy2+x+325*i))-min)/(1+max-min))%255];
+                                //*(uint32_t*)(wekran )= paleta[(255*((*(surowy2+x+325*i))-min)/(1+max-min))%255];
 
                             }
                         }
@@ -275,6 +279,8 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint32_t * surowy, uint32_t * sur
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
+static void MPU_Initialize(void);
+static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_FDCAN1_Init(void);
@@ -524,6 +530,9 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* MPU Configuration--------------------------------------------------------*/
+  MPU_Config();
 
   /* USER CODE BEGIN Init */
 
@@ -1255,6 +1264,80 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
+
+/* MPU Configuration */
+
+void MPU_Config(void)
+{
+  MPU_Region_InitTypeDef MPU_InitStruct = {0};
+
+  /* Disables the MPU */
+  HAL_MPU_Disable();
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+  MPU_InitStruct.BaseAddress = 0x08000000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_512KB;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.BaseAddress = 0x20000000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_128KB;
+  MPU_InitStruct.SubRegionDisable = 0x0;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_DISABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER2;
+  MPU_InitStruct.BaseAddress = 0x24000000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_512KB;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER3;
+  MPU_InitStruct.BaseAddress = 0x30000000;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER4;
+  MPU_InitStruct.BaseAddress = 0x40000000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_256MB;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Number = MPU_REGION_NUMBER5;
+  MPU_InitStruct.BaseAddress = 0xD0000000;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+  /* Enables the MPU */
+  HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.
