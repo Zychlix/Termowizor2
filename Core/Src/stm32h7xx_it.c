@@ -40,9 +40,9 @@ extern volatile uint32_t wlacznik;
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 volatile uint32_t line_cnt;
-extern volatile uint32_t cam_buffer[325*256];
+extern volatile uint32_t cam_buffer[];
 
-extern volatile uint32_t cam_buffer_2[325*256];
+extern volatile uint32_t cam_buffer_2[];
 
 //extern volatile uint8_t buffer_index = 0;
 extern volatile uint8_t buffer_index;
@@ -294,7 +294,9 @@ void EXTI15_10_IRQHandler(void)
     LL_DMA_EnableIT_TC(DMA1, LL_DMA_STREAM_0);
 
     line_cnt++;
-
+    if (line_cnt > 255) {
+        line_cnt = 255;
+    }
 }
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);

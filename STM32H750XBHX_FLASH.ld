@@ -170,6 +170,14 @@ SECTIONS
       . = ALIGN(32);
   } > RAM_D2 AT> RAM_D2
 
+
+  .ram2block (NOLOAD) :
+  {
+      . = ALIGN(32);
+      KEEP(*(.ram1section))
+      . = ALIGN(32);
+  } > RAM_D3 AT> RAM_D3
+
   /* Remove information from the standard libraries */
   /DISCARD/ :
   {
