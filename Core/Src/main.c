@@ -142,8 +142,8 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint16_t * surowy, uint16_t * sur
                 max=(*(surowy+i)&0x3fff);
         }
 
-//        min = 4000;
-//        max = 8000;
+        min = 4000;
+        max = 8000;
 
        // srednia=srednia/80000;
       //  srednia+=1;
@@ -239,7 +239,7 @@ void wyswietl(uint32_t *paleta,uint8_t sposob, uint16_t * surowy, uint16_t * sur
 
                             } else
                             {
-                                //*(uint32_t*)(wekran )= paleta[(255*((*(surowy2+x+325*i))-min)/(1+max-min))%255];
+                                *(uint32_t*)(wekran )= paleta[(255*((*(surowy2+x+325*i))-min)/(1+max-min))%255];
 
                             }
                         }
