@@ -5014,6 +5014,7 @@
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
 			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ds90c241.pdf"
@@ -5025,15 +5026,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Serializers & Deserializers - Serdes 5-35MHz 24B FPD Link II Deserializer"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MPN" "DS90C124IVS/NOPB"
+			(property "Description" "DC-Balanced 24-Bit FPD-Link II Deserializer, TQFP-48"
 				(at 0 0 0)
 				(effects
 					(font
@@ -5042,13 +5035,12 @@
 					(hide yes)
 				)
 			)
-			(property "Mouser" "926-DS90C124IVS/NOPB"
+			(property "MPN" " DS90C124IVS/NOPB"
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1 1)
+						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "ki_keywords" "DC-Balanced 24-Bit FPD-Link II Deserializer"
@@ -5894,7 +5886,7 @@
 					)
 				)
 				(pin power_in line
-					(at 0 -38.1 90)
+					(at 2.54 35.56 270)
 					(length 2.54)
 					(name "VDDOR3"
 						(effects
@@ -5912,7 +5904,7 @@
 					)
 				)
 				(pin power_in line
-					(at 2.54 35.56 270)
+					(at 0 -38.1 90)
 					(length 2.54)
 					(name "VSSOR3"
 						(effects
@@ -41311,7 +41303,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Serializers & Deserializers - Serdes 5-35MHz 24B FPD Link II Deserializer"
+		(property "Description" "DC-Balanced 24-Bit FPD-Link II Deserializer, TQFP-48"
 			(at 414.02 345.44 0)
 			(effects
 				(font
@@ -41320,7 +41312,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "DS90C124IVS/NOPB"
+		(property "MPN" " DS90C124IVS/NOPB"
 			(at 387.35 323.8814 0)
 			(effects
 				(font
